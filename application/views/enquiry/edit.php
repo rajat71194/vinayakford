@@ -22,6 +22,7 @@
   <!-- form validation -->
   <script src="<?php echo base_url();?>assets/js/validator/validator.js"></script>
   <script src="<?php echo base_url();?>assets/js/select/select2.full.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function() {
       $(":input").inputmask();
@@ -85,7 +86,7 @@
             <div class="x_content">
                 
         
-               <form class="form-horizontal form-label-left" action="<?php echo base_url();?>index.php/enquiry/saveEnquiry" method="post" novalidate>
+                <form class="form-horizontal form-label-left" id="enquiry_form" action="<?php echo base_url();?>index.php/enquiry/saveEnquiry" method="post" novalidate>
      
                    <input class="form-control has-feedback-right" id="enquiry_email" name="enquiry_id" placeholder="Id" type="hidden" value="<?php if(!empty($this->data['enquiry']->id)){echo $this->data['enquiry']->id; } ?>">
 
@@ -207,7 +208,30 @@
        </div>                   
                        
                        
-                        
+     <script type="text/javascript">
+  $(document).ready(function(){
+      
+      $("#enquiry_form").validate({
+			rules: {
+				enquiry_name: "required",
+				enquiry_email: "required",
+				enquiry_phone: "required",
+				enquiry_address: "required",
+				enquiry_reason: "required",
+				enquiry_date: "required"
+				
+                            },messages: {
+				enquiry_name: "Enquiry name is required",
+				enquiry_email: "Enquiry email is required",
+				enquiry_phone: "Enquiry phone is  required",
+				enquiry_address: "Enquiry address is required",
+				enquiry_reason: "Enquiry reason is required",
+				enquiry_date: "Enquiry date is required"
+				
+                            }
+                        });
+  })
+  </script>                         
                       
                        
                          

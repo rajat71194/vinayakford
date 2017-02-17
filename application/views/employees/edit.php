@@ -20,8 +20,8 @@
   <!-- pace -->
   <script src="<?php echo base_url();?>assets/js/pace/pace.min.js"></script>
   <!-- form validation -->
-  <script src="<?php echo base_url();?>assets/js/validator/validator.js"></script>
-
+  <!--<script src="<?php echo base_url();?>assets/js/validator/validator.js"></script>-->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
   <script>
     // initialize the validator function
     validator.message['date'] = 'not a real date';
@@ -76,7 +76,7 @@
             <div class="x_content">
                 
         
-               <form class="form-horizontal form-label-left" action="<?php echo base_url();?>index.php/employees/saveEmployee" method="post" novalidate>
+                <form class="form-horizontal form-label-left" id="employee_form" action="<?php echo base_url();?>employees/saveEmployee" method="post" novalidate>
      
                    <input class="form-control has-feedback-right" id="employee_email" name="employee_id" placeholder="Id" type="hidden" value="<?php if(!empty($this->employees->id)){echo $this->employees->id; } ?>">
 
@@ -123,7 +123,24 @@
 
        </div>                   
                        
-                       
+  <script type="text/javascript">
+  $(document).ready(function(){
+      
+      $("#employee_form").validate({
+			rules: {
+				employee_name: "required",
+				employee_designation: "required",
+				employee_email: "required",
+				employee_phone: "required"
+                            },messages: {
+				employee_name: "Employee name is required",
+				employee_designation: "Employee Designation is required",
+				employee_email: "Employee email is required",
+				employee_phone: "Employee Phone is required"
+                            }
+                        });
+  })
+  </script>         
                         
                       
                        

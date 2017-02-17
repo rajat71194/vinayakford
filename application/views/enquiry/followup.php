@@ -98,7 +98,7 @@
                                   } ?></td>
                               <td><?php echo $followupsvalue->employee_name; ?></td>
                   
-                               <td class=" last"><a href="./edit/<?php echo $followupsvalue->id; ?>" class="btn btn-success btn-xs">View</a> <a href="./delete/<?php echo $followupsvalue->id; ?>" class="btn btn-danger btn-xs">delete</a></td>
+                               <td class=" last"><a href="./edit/<?php echo $followupsvalue->id; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./delete/<?php echo $followupsvalue->id; ?>" class="btn btn-danger btn-xs">delete</a></td>
                             </tr>
                               <?php } ?>
                            

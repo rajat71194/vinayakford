@@ -6,7 +6,7 @@
   <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/animate/animate.min.css" rel="stylesheet">
 
-   Custom styling plus plugins 
+  
   <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/iCheck/flat/green.css" rel="stylesheet">
 
@@ -41,9 +41,7 @@
                         <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
-                        <p class="text-muted font-13 m-b-30">
-                          Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
-                        </p>
+                        
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap datatable-buttons responsive-utilities jambo_table bulk_action" cellspacing="0" width="100%">
                           <thead>
                             <tr class="headings">
@@ -71,7 +69,7 @@
                               <td><?php echo $employeesvalue->email; ?></td>
                               <td><?php echo $employeesvalue->phone; ?></td>
                   
-                               <td class=" last"><a href="./edit/<?php echo $employeesvalue->id; ?>" class="btn btn-success btn-xs">View</a> <a href="./delete/<?php echo $employeesvalue->id; ?>" class="btn btn-danger btn-xs">delete</a></td>
+                               <td class=" last"><a href="./edit/<?php echo $employeesvalue->id; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./delete/<?php echo $employeesvalue->id; ?>" class="btn btn-danger btn-xs">delete</a></td>
                             </tr>
                               <?php } ?>
                            
