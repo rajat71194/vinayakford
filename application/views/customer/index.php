@@ -1,460 +1,210 @@
-<div class="right_col" role="main" style="min-height: 1099px;">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Customer Process</h3>
-              </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input class="form-control" placeholder="Search for..." type="text">
-                    <span class="input-group-btn">
-                              <button class="btn btn-default" type="button">Go!</button>
-                          </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
+  <!-- Bootstrap core CSS -->
 
-            <div class="row">
+  <link href="<?php echo base_url();?>assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Registrations <small></small></h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
+  <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>assets/css/animate/animate.min.css" rel="stylesheet">
 
+  
+  <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>assets/css/iCheck/flat/green.css" rel="stylesheet">
 
-                    <!-- Smart Wizard -->
-                    <p>This is a basic form Process Example for Customer Feedback and Registrations</p>
-                    <div id="wizard" class="form_wizard wizard_horizontal">
-                      <ul class="wizard_steps">
-                        <li>
-                          <a href="#step-1">
-                            <span class="step_no">1</span>
-                            <span class="step_descr">
-                                              Step 1<br />
-                                              <small>Customer Registration</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-2">
-                            <span class="step_no">2</span>
-                            <span class="step_descr">
-                                              Step 2<br />
-                                              <small>Step 2 description</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-3">
-                            <span class="step_no">3</span>
-                            <span class="step_descr">
-                                              Step 3<br />
-                                              <small>Step 3 description</small>
-                                          </span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#step-4">
-                            <span class="step_no">4</span>
-                            <span class="step_descr">
-                                              Step 4<br />
-                                              <small>Step 4 description</small>
-                                          </span>
-                          </a>
-                        </li>
-                             <li>
-                          <a href="#step-5">
-                            <span class="step_no">5</span>
-                            <span class="step_descr">
-                                              Step 5<br />
-                                              <small>Step 5 description</small>
-                                          </span>
-                          </a>
-                        </li>
-                      </ul>
-                      <div id="step-1">
-                        <form class="form-horizontal form-label-left">
+  <link href="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-                          <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Customer Full Name <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input class="form-control" id="inputSuccess3" placeholder="Full Name" type="text">
-                              <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span></div>
-                          </div>
-
-                          <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input class="form-control has-feedback-right" id="inputSuccess4" placeholder="Email" type="text">
-                             <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Mobile Number</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input class="form-control" id="inputSuccess5" placeholder="Mobile" type="text">
-                              <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input class="form-control" id="inputSuccess5" placeholder="Phone" type="text">
-                           <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>  </div>
-                          </div>
-                          <div class="form-group">
-                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <textarea class="form-control" rows="3" placeholder="Address"></textarea>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Chassis Number</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input class="form-control" id="inputSuccess5" placeholder="Chassis Number" type="text">
-                         <span class="fa fa-automobile form-control-feedback right" aria-hidden="true"></span>  </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="payment_status" name="payment_status"  type="checkbox" class="js-switch" unchecked />
-                         </div>
-                        </div>
-                        <div class="form-group payment_reason">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea class="form-control" rows="2" placeholder="Reason For Payment Not Received"></textarea>
-                          </div>
-                       </div>
-                      <div class="form-group payment_type">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">Payment Type</small>
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                          <div class="radio">
-                            <label>
-                              <input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Via Cash
-                            </label>
-                          </div>
-                          <div class="radio">
-                            <label>
-                              <input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Via Cheque
-                            </label>
-                          </div>
-                        </div>
-                       </div>
-                        <div class="form-group">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ?</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked />
-                         </div>
-                        </div>
-                         <div class="form-group document_type">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ?</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                              <label class="checkbox-inline">
-                                    <input type="checkbox" value="" name="document[]">Pan Card
-                                  </label>
-                                  <label class="checkbox-inline">
-                                    <input type="checkbox" value="" name="document[]">Driving License
-                                  </label>
-                                  <label class="checkbox-inline">
-                                    <input type="checkbox" value="" name="document[]">Voter Id
-                             </label>
-                         </div>
-                        </div>
-
-
-                        </form>
-
-                      </div>
-                      <div id="step-2">
-                            <form class="form-horizontal form-label-left">
-                       <div class="form-group">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked />
-                         </div>
-                        </div>
-                        <div class="form-group tax_payment_reason">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea class="form-control" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
-                          </div>
-                       </div>
-<!--                       <div class="form-group selection_of_registration_no">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">Selection of Registration No. ? </small>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="selection_of_registration_no" id="selection_of_registration_no" type="checkbox" class="js-switch" unchecked />
-                       </div>
-                       </div>-->
-                                
+      <!-- page content -->
+      <div class="right_col" role="main">
+        <div class="">
+          <div class="page-title">
+            <div class="title_left">
+              <h3>
+                    Employees List
                     
-                               
-                       </form>
+                </h3>
+            </div>
+
+           
+          </div>
+          <div class="clearfix"></div>
+
+          <div class="row">
+
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Responsive example <small>Users</small></h2>
+                        
+                        <div class="clearfix"></div>
                       </div>
-                      <div id="step-3">
-                              <form class="form-horizontal form-label-left">
-                            <div class="form-group registration_no_type">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">Registration No. Type</small>
-                        </label>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                         <select class="form-control" id="registration_no_type" name="registration_no_type">
-                                    <option value="regular_no">Regular No</option>
-                                    <option value="choice_no">Choice No</option>
-                                    <option value="vip_no">VIP NO</option>
-                                    
-                        </select>
-                        </div>
-                       </div> 
-                        <div class="form-group document_given_to_agent_for_regular_no">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">document Given to Customer ? </small>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" class="js-switch" unchecked />
-                       </div>
-                       </div>
-                         <div class="form-group select_no_for_choice">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">Select No. ? </small>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="select_no_for_choice" id="select_no_for_choice" type="checkbox" class="js-switch" unchecked />
-                       </div>
-                       </div>
-                                  <div class="form-group document_given_to_agent_for_choice_no">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">document Given to Customer ? </small>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" class="js-switch" unchecked />
-                       </div>
-                       </div>
-                                 
-                                  
-                              </form>
-                      </div>
-                      <div id="step-4">
-                           <form class="form-horizontal form-label-left">
-                        <div class="form-group no_given_to_customor">
-                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                          <small class="text-navy">No. Given to Customer ? </small>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" unchecked />
-                       </div>
-                       </div>
-                               <div class="show_information_notification">
-                              <div class="alert alert-info alert-dismissable">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                 Take Follow-up by SC for confirmation of Registration No.
-                              </div>
-                               <div class="alert alert-info alert-dismissable">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                               Told Customer RC Card reached at your address within 15 days.
-                              </div>
-                               </div>
-                           </form>
-                      </div>
-                        <div id="step-5">
-                             <form class="form-horizontal form-label-left">
-                                <div class="form-group call_agent">
-                                <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                  <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                      <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked />
-                               </div>
-                               </div>
-                                 
-                       <div class="form-group call_agent_reason">
-                          <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <textarea class="form-control" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
-                          </div>
-                       </div>
+                      <div class="x_content">
+                        
+                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap datatable-buttons responsive-utilities jambo_table bulk_action" cellspacing="0" width="100%">
+                          <thead>
+                            <tr class="headings">
+<!--                                <th>
+                          <input type="checkbox" id="checkedAll" class="flat">
+                        </th>-->
+                              <th>Customer Name</th>
+                              <th>Email</th>
+                              <th>Mobile No</th>
+                              <th>Chesis No</th>
+                              <th>Payment Status</th>
+                              <th>Customer State</th>
+                              <th class="column-title no-link last"><span class="nobr">Action</span></th>
+                               <th class="bulk-actions" colspan="6">
+                          <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                        </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              
+                              <?php
+                              if(!empty($customers)){
+                              foreach ($customers as $key => $value) { ?>
+                                  <tr>
+<!--                                 <td class="a-center">
+                          <input type="checkbox" class="checkSingle flat" name="table_records">
+                        </td>-->
+                              <td><?php echo $value['customer_name']; ?></td>
+                              <td><?php echo $value['email']; ?></td>
+                              <td><?php echo $value['mobile_no']; ?></td>
+                              <td><?php echo $value['engine_chesis_no']; ?></td>
+                              <td><?php echo $value['payment_complete']; ?></td>
+                              <td><?php echo $value['customer_state']; ?></td>
+                  
+                               <td class=" last"><a href="./edit/<?php echo $value['id']; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./delete/<?php echo $value['id']; ?>" class="btn btn-danger btn-xs">delete</a></td>
+                            </tr>
+                              <?php } }?>
                            
-                           </form>
-                        </div>
+               
+                          </tbody>
+                        </table>
 
+                      </div>
                     </div>
-                    <!-- End SmartWizard Content -->
-
-
-
-
-
-
-                    <!-- Tabs -->
-
-                    <!-- End SmartWizard Content -->
                   </div>
                 </div>
               </div>
+              <!-- footer content -->
+              
+              <!-- /footer content -->
+
             </div>
-          </div>
-        </div>
-<script type="text/javascript">
-      $(document).ready(function() {
+            <!-- /page content -->
+         
+
+        
+
        
-        $('#wizard').smartWizard();
 
-        $('#wizard_verticle').smartWizard({
-          transitionEffect: 'slide'
-        });
+        
+      <script src="<?php echo base_url();?>assets/js/bootstrap/js/bootstrap.min.js"></script>
 
-        $('.buttonNext').addClass('btn btn-success');
-        $('.buttonPrevious').addClass('btn btn-primary');
-        $('.buttonFinish').addClass('btn btn-default');
-  if($("#payment_status").is(":checked")){
-    $(".payment_reason").hide();
-  }else{
-    $(".payment_type").hide();
+        <!-- bootstrap progress js -->
+        <script src="<?php echo base_url();?>assets/js/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/nicescroll/jquery.nicescroll.min.js"></script>
+        <!-- icheck -->
+        <script src="<?php echo base_url();?>assets/js/iCheck/icheck.min.js"></script>
 
-  }
-              if($("#documents_status").is(":checked")){
-              $(".document_type").show();
-              }else {
-                 $(".document_type").hide(); 
-              }
-              if($("#tax_payment_status").is(":checked")){
-              $(".tax_payment_reason").hide();
-              }else {
-                 $(".tax_payment_reason").show(); 
-              }
-       if($("#registration_no_type").val()=='regular_no'){ 
-               $(".document_given_to_agent_for_regular_no").show();
-               $(".select_no_for_choice").hide();
-               $(".document_given_to_agent_for_choice_no").hide();
-           }else if($("#registration_no_type").val()=='choice_no'){ 
-                   $(".document_given_to_agent_for_regular_no").hide();
-               $(".select_no_for_choice").show();
-                if($("#select_no_for_choice").is(":checked")){
-               $(".document_given_to_agent_for_choice_no").show();
-           }else {
-                $(".document_given_to_agent_for_choice_no").hide(); 
-           }
-           }
-           if($("#no_given_to_customor").is(":checked")){
-              $(".show_information_notification").hide();
-              }else {
-                 $(".show_information_notification").show(); 
-              }
-              
-            if($("#call_agent").is(":checked")){
-              $(".call_agent_reason").hide();
-              }else {
-                 $(".call_agent_reason").show(); 
-              }
+        
 
-        $("#payment_status").change(function(){
-              if($(this).is(":checked")){
-              
-              $(".payment_reason").hide();
-              $(".payment_type").show();
-              }else{
-                $(".payment_reason").show();
-                $(".payment_type").hide();
+
+        <!-- Datatables -->
+        <!-- <script src="js/datatables/js/jquery.dataTables.js"></script>
+  <script src="js/datatables/tools/js/dataTables.tableTools.js"></script> -->
+
+        <!-- Datatables-->
+        <script src="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.bootstrap.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.buttons.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/buttons.bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/jszip.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/pdfmake.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/vfs_fonts.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/buttons.html5.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/buttons.print.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.fixedHeader.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.keyTable.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.responsive.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.scroller.min.js"></script>
+
+
+        <!-- pace -->
+        <script src="<?php echo base_url();?>assets/js/pace/pace.min.js"></script>
+        <script>
+          var handleDataTableButtons = function() {
+              "use strict";
+              0 !== $(".datatable-buttons").length && $(".datatable-buttons").DataTable({
+                dom: "Bfrtip",
+                buttons: [{
+                  extend: "copy",
+                  className: "btn-sm"
+                }, {
+                  extend: "csv",
+                  className: "btn-sm"
+                }, {
+                  extend: "excel",
+                  className: "btn-sm"
+                }, {
+                  extend: "pdf",
+                  className: "btn-sm"
+                }, {
+                  extend: "print",
+                  className: "btn-sm"
+                }],
+                responsive: !0
+              })
+            },
+            TableManageButtons = function() {
+              "use strict";
+              return {
+                init: function() {
+                  handleDataTableButtons()
+                }
               }
-        });
-            $("#documents_status").change(function(){
-              if($(this).is(":checked")){
-              
-              
-              $(".document_type").show();
-              }else{
-               
-                $(".document_type").hide();
-              }
-        });
-        $("#tax_payment_status").change(function(){
-              if($(this).is(":checked")){
-              
-              $(".tax_payment_reason").hide();
-              //$(".selection_of_registration_no").show();
-              }else{
-                $(".tax_payment_reason").show();
-              //  $(".selection_of_registration_no").hide();
-              }
-        });
-        $("#selection_of_registration_no").change(function(){
-              if($(this).is(":checked")){
-              
-              $(".registration_no_type").hide();
-              $(".no_given_to_customor").show();
-              }else{
-                $(".registration_no_type").show();
-                $(".no_given_to_customor").hide();
-              }
-        });
-        $("#registration_no_type").change(function(){
-           // alert($(this).val());
-           if($(this).val()=='regular_no'){
-               $(".document_given_to_agent_for_regular_no").show();
-           }
-           if($(this).val()=='choice_no'){
-               $(".select_no_for_choice").show();
-           }
-           
-              if($(this).val()=='regular_no'){ 
-               $(".document_given_to_agent_for_regular_no").show();
-               $(".select_no_for_choice").hide();
-               $(".document_given_to_agent_for_choice_no").hide();
-           }else if($(this).val()=='choice_no'){ 
-                   $(".document_given_to_agent_for_regular_no").hide();
-               $(".select_no_for_choice").show();
-                if($("#select_no_for_choice").is(":checked")){
-               $(".document_given_to_agent_for_choice_no").show();
-           }else {
-                $(".document_given_to_agent_for_choice_no").hide(); 
-           }
-           }
-             
-        });
-         $("#select_no_for_choice").change(function(){
-           // alert($(this).val());
-              if($(this).is(":checked")){
-               $(".document_given_to_agent_for_choice_no").show();
-           }else {
-                $(".document_given_to_agent_for_choice_no").hide(); 
-           }
-           
-             
-        });
-         $("#no_given_to_customor").change(function(){
-           // alert($(this).val());
-              if($(this).is(":checked")){
-               $(".show_information_notification").hide();
-           }else {
-                $(".show_information_notification").show(); 
-           }
-           
-             
-        });
-      $("#call_agent").change(function(){
+            }();
+        </script>
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $('#datatable').dataTable();
+            
+            $('#datatable-responsive').DataTable();
+            
           
-              if($(this).is(":checked")){
-               $(".call_agent_reason").hide();
-           }else {
-                $(".call_agent_reason").show(); 
-           }
-           
-             
-        });
-      
-      });
-      
-    
-      
-    </script>
+          });
+          TableManageButtons.init();
+        </script>
+<!--        <script>
+            $(document).ready(function() {
+                $("#checkedAll").change(function(){
+                  if(this.checked){
+                    $(".checkSingle").each(function(){
+                      this.checked=true;
+                    })              
+                  }else{
+                    $(".checkSingle").each(function(){
+                      this.checked=false;
+                    })              
+                  }
+                });
+
+                $(".checkSingle").click(function () {
+                  if ($(this).is(":checked")){
+                    var isAllChecked = 0;
+                    $(".checkSingle").each(function(){
+                      if(!this.checked)
+                         isAllChecked = 1;
+                    })              
+                    if(isAllChecked == 0){ $("#checkedAll").prop("checked", true); }     
+                  }
+                  else {
+                    $("#checkedAll").prop("checked", false);
+                  }
+                });
+              });
+            </script>-->
