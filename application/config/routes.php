@@ -55,4 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 /*******************Customer Route***************************/
 $route['customer/create'] = 'customerController/create';
 $route['customer/list'] = 'customerController/index';
+$route['customer/edit/(:num)'] = 'customerController/edit/$1';
 /*******************Customer Route***************************/

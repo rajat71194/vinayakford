@@ -74,6 +74,14 @@
                                     </a>
                                 </li>
                             </ul>
+                            <?php
+                            if(!empty($customerdata)){
+                                
+                            $customerdata =     $customerdata[0];
+                                
+                            }
+                            ?>
+                            <input type="hidden" name="state" id="state" value="<?php echo $customerdata['customer_state'];?>"/>
                             <div id="step-1">
                                 <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_registration">
                                     <input type="hidden" name="state" id="state" value="1"/>
@@ -322,13 +330,14 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-
+        var state = $('body').find('#state').val();
         $('#wizard').smartWizard({
             onLeaveStep: leaveAStepCallback,
             onFinish: onFinishCallback,
              transitionEffect: 'fade',
-             labelNext:'Save & Continue',
-             includeFinishButton : false,
+              selected: state,
+               labelNext:'Save & Continue',
+               includeFinishButton : false,
         });
         function leaveAStepCallback(obj, context) {
 //            alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
