@@ -11,6 +11,9 @@ class CustomerController extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('ford_model', 'ford');
+	if (!$this->session->userdata('admin_id')) {
+            redirect('welcome/login', 'refresh');
+        }
     }
 
     function index() {

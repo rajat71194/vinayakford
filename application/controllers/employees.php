@@ -23,7 +23,9 @@ class Employees extends CI_Controller {
            $db = $this->load->database();
              $this->load->model('EmployeeDetail'); // load model
           }
-
+	  function  index(){
+	       $this->employeeList();
+	  }
         public function employeeList()
 	{     $this->employeeslist = $this->EmployeeDetail->getEmployees();
                 $this->load->template('/employees/list', $this->employeeslist);

@@ -258,5 +258,16 @@ class Ford_model extends CI_Model {
             return array();
         }
     }
+public function admin_data() {
+        $this->load->helper('url');
+        $uname = $this->input->post('email');
+        $password = md5($this->input->post('password'));
+        $array = array('username' => $uname, 'password' => $password);
+        $this->db->where($array);
+        $this->db->select('*');
+        $query = $this->db->get('user');
 
+        $row = $query->result();
+        return $row;
+    }
 }
