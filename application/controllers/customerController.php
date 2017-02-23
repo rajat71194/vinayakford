@@ -44,8 +44,8 @@ class CustomerController extends CI_Controller {
                     'address' => $data['customer_address'],
                     'engine_chesis_no' => $data['customer_chesisno'],
                     'payment_complete' => $data['payment_status'],
-                    'payment_type' => $data['payment_status'],
-//                   'cheque_no'=>$data['cheque_no'],
+                    'payment_type' => $data['customer_payment'],
+                   'cheque_no'=>$data['cheque_no'],
                     'document_complete' => $data['documents_status'],
 //                   'document_ids'=>  implode(',', $data['document']),
                     'customer_state' => $data['state'],
@@ -73,7 +73,7 @@ class CustomerController extends CI_Controller {
                     'tax_complete' => $data['tax_payment_status'],
                     'customer_state' => $data['state']
                 );
-                if ($data['tax_payment_status'] == 0) {
+                if ($data['tax_payment_status'] == '0') {
                     $insertArr['tax_fail_reason'] = $data['tax_payment_reason'];
                 }
                 if ($data['customer_id'] == "") {
@@ -95,6 +95,8 @@ class CustomerController extends CI_Controller {
                  $insertArr = array(
                     'registration_no_type' => $data['registration_no_type'],
                     'document_given_customer' => $data['document_given_to_agent_for_regular_no'],
+                    'no_for_choice' => $data['select_no_for_choice'],
+                    'document_for_no_choice' => $data['document_given_to_agent_for_choice_no'],
                      'customer_state' => $data['state']
                 );
                 

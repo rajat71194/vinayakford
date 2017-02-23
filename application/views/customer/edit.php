@@ -75,67 +75,68 @@
                                 </li>
                             </ul>
                             <?php
-                            if(!empty($customerdata)){
+			    $custdata = array();
+                            if(isset($customerdata) && !empty($customerdata)){
                                 
-                            $customerdata =     $customerdata[0];
+                            $custdata =     $customerdata[0];
                                 
                             }
                             ?>
-                            <input type="hidden" name="state" id="state" value="<?php echo $customerdata['customer_state'];?>"/>
+                            <input type="hidden" name="state" id="state" value="<?php echo $custdata['customer_state'];?>"/>
                             <div id="step-1">
                                 <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_registration">
                                     <input type="hidden" name="state" id="state" value="1"/>
-                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value="<?php echo $custdata['id'];?>"/>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Customer Full Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess3" name="customer_name" placeholder="Full Name" type="text">
+					     <input class="form-control" id="inputSuccess3" name="customer_name" value="<?php echo $custdata['customer_name']?>" placeholder="Full Name" type="text">
                                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span></div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text">
+					     <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text" value="<?php echo $custdata['email']?>">
                                             <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Mobile Number</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess5" name="customer_mobno" placeholder="Mobile" type="text">
+                                            <input class="form-control" id="inputSuccess5" name="customer_mobno" placeholder="Mobile" type="text" value="<?php echo $custdata['mobile_no']?>">
                                             <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess6" name="customer_phone" placeholder="Phone" type="text">
+                                            <input class="form-control" id="inputSuccess6" name="customer_phone" placeholder="Phone" type="text" value="<?php echo $custdata['phone_no']?>">
                                             <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"></textarea>
+                                            <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"><?php echo $custdata['address']?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Chassis Number</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chassis Number" type="text">
+                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chassis Number" type="text" value="<?php echo $custdata['engine_chesis_no']?>">
                                             <span class="fa fa-automobile form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input  name="payment_status"  type="hidden" value="0" />
-                                            <input id="payment_status" name="payment_status"  type="checkbox" class="js-switch" value="1"/>
+                                            <input id="payment_status" name="payment_status" <?= ( $custdata['payment_complete'] == "1") ? '   checked ' : ''; ?> type="checkbox" class="js-switch" value="1"/>
                                         </div>
                                     </div>
                                     <div class="form-group payment_reason">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="2" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
+                                            <textarea class="form-control" rows="2" name="customer_payment_reason" placeholder="Reason For Payment Not Received"><?php echo $custdata['payment_fail_reason']?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group payment_type">
@@ -145,15 +146,16 @@
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" checked="" value="cash" value="cash" name="customer_payment" id="optionsRadios1" > Via Cash
+                                                    <input type="radio" <?= ( $custdata['payment_type'] == "cash") ? '   checked ' : ''; ?> value="cash" value="cash" name="customer_payment" id="optionsRadios1" > Via Cash
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" value="cheque" id="optionsRadios2" name="customer_payment"> Via Cheque
+                                                    <input type="radio" value="cheque" <?= ( $custdata['payment_type'] == "cheque") ? '   checked ' : ''; ?> id="optionsRadios2" name="customer_payment"> Via Cheque
                                                 </label>
                                                 <label>
-                                                    <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no"> 
+						     <input type="hidden" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no" value="0"> 
+						     <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no" value="<?php echo $custdata['cheque_no']?>"> 
                                                 </label>
                                             </div>
                                         </div>
@@ -162,7 +164,7 @@
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ?</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="documents_status"  type="hidden" class="js-switch" value="0" />
-                                            <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1" />
+                                            <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1"  <?= ( $custdata['document_complete'] == "1") ? '   checked ' : ''; ?> />
                                         </div>
                                     </div>
                                     <div class="form-group document_type">
@@ -187,19 +189,19 @@
                             <div id="step-2">
                                 <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_tax">
                                     <input type="hidden" name="state" id="state" value="2"/>
-                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value="<?php echo $custdata['id'];?>"/>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="hidden" name="payment_status" value="0"/>
+                                            
                                             <input name="tax_payment_status" type="hidden"   value="0" />
-                                            <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
+                                            <input id="tax_payment_status" name="tax_payment_status"  <?= ( $custdata['tax_complete'] == "1") ? '   checked ' : ''; ?>  type="checkbox" class="js-switch" unchecked value="1" />
                                         </div>
                                     </div>
                                     <div class="form-group tax_payment_reason">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" name="tax_payment_reason" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
+                                            <textarea class="form-control" name="tax_payment_reason" rows="2" placeholder="Reason For Tax Payment Not Received"><?php echo $custdata['tax_fail_reason']?></textarea>
                                         </div>
                                     </div>
                                     <!--                       <div class="form-group selection_of_registration_no">
@@ -218,16 +220,16 @@
                             <div id="step-3">
                                 <form class="form-horizontal form-label-left" method="post" enctype="x/data" id="customer_registrationdetail">
                                     <input type="hidden" name="state" id="state" value="3"/>
-                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value="<?php echo $custdata['id'];?>"/>
                                     <div class="form-group registration_no_type">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Registration No. Type</small>
                                         </label>
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <select class="form-control" id="registration_no_type" name="registration_no_type">
-                                                <option value="regular_no">Regular No</option>
-                                                <option value="choice_no">Choice No</option>
-                                                <option value="vip_no">VIP NO</option>
+                                                <option  <?= ( $custdata['registration_no_type'] == "regular_no") ? '   selected ' : ''; ?>  value="regular_no">Regular No</option>
+                                                <option <?= ( $custdata['registration_no_type'] == "choice_no") ? '   selected ' : ''; ?> value="choice_no">Choice No</option>
+                                                <option <?= ( $custdata['registration_no_type'] == "vip_no") ? '   selected ' : ''; ?> value="vip_no">VIP NO</option>
 
                                             </select>
                                         </div>
@@ -238,7 +240,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
-                                            <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" class="js-switch" unchecked  value="1"/>
+                                            <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" <?= ( $custdata['document_given_customer'] == "1") ? '   checked ' : ''; ?>   class="js-switch"   value="1"/>
                                         </div>
                                     </div>
                                     <div class="form-group select_no_for_choice">
@@ -246,7 +248,8 @@
                                             <small class="text-navy">Select No. ? </small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input name="select_no_for_choice" id="select_no_for_choice" type="checkbox" class="js-switch" unchecked />
+					     <input name="select_no_for_choice"  type="hidden"   value="0" />
+					     <input name="select_no_for_choice"  <?= ( $custdata['no_for_choice'] == "1") ? '   checked ' : ''; ?>  id="select_no_for_choice" type="checkbox" class="js-switch" value="1"  />
                                         </div>
                                     </div>
                                     <div class="form-group document_given_to_agent_for_choice_no">
@@ -254,7 +257,8 @@
                                             <small class="text-navy">document Given to Customer ? </small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" class="js-switch" unchecked />
+					     <input name="document_given_to_agent_for_choice_no"  type="hidden"   value="0" />
+					     <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" <?= ( $custdata['document_for_no_choice'] == "1") ? '   checked ' : ''; ?>  value="1" class="js-switch"  />
                                         </div>
                                     </div>
 
@@ -264,14 +268,14 @@
                             <div id="step-4">
                                 <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_number">
                                     <input type="hidden" name="state" id="state" value="4"/>
-                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value="<?php echo $custdata['id'];?>"/>
                                     <div class="form-group no_given_to_cus">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">No. Given to Customer ? </small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="no_given_to_customor"  type="hidden" class="js-switch" value="0"  />
-                                            <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" value="1" unchecked />
+                                            <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" value="1" <?= ( $custdata['no_given_customer'] == "1") ? '   checked ' : ''; ?>  />
                                         </div>
                                     </div>
                                     <div class="show_information_notification">
@@ -290,20 +294,20 @@
                                 <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_rc">
                                     
                                     <input type="hidden" name="state" id="state" value="5"/>
-                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value="<?php echo $custdata['id'];?>"/>
                                     <div class="form-group call_agent">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked />
+                                            <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" <?= ( $custdata['call_agent_rc'] == "1") ? '   checked ' : ''; ?> />
                                         </div>
                                     </div>
 
                                     <div class="form-group call_agent_reason">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"></textarea>
+                                            <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"><?php echo $custdata['rc_dispached_not_reason']?></textarea>
                                         </div>
                                     </div>
 
@@ -337,7 +341,7 @@
              transitionEffect: 'fade',
               selected: state,
                labelNext:'Save & Continue',
-               includeFinishButton : false,
+               
         });
         function leaveAStepCallback(obj, context) {
 //            alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
@@ -350,6 +354,8 @@
             if (validateAllSteps()) {
 
             }
+	      var state = validateSteps(context.fromStep);
+	      console.log(state);
         }
         // Your Step validation logic
         function validateSteps(stepnumber) {

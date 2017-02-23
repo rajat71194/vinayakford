@@ -29,6 +29,7 @@
 
 	  <!-- Custom Theme Style -->
 	  <link href="<?php echo base_url();?>assets/css/custom.min.css" rel="stylesheet">
+	  <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 	  <!--Add CSS From Controller-->  
 	  <?php
 	  if (isset($style_to_load)) :

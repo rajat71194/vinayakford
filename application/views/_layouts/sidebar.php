@@ -13,7 +13,7 @@
                   </li>-->
                   <li><a><i class="fa fa-users"></i>Employees <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url();?>employees/">Employees List</a></li>
+                      <li><a href="<?php echo base_url();?>employees">Employees List</a></li>
                       <li><a href="<?php echo base_url();?>employees/edit">Create Employee</a></li>
                       
                     </ul>

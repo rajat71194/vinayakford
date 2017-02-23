@@ -56,7 +56,7 @@ class Welcome extends CI_Controller {
                 $this->session->set_userdata($newdata);
                 
                  
-                redirect('employee');
+                redirect('employees');
                  
 //                $this->load->view('common/header');
 //                $this->load->view('admin/restaurant');
