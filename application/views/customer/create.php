@@ -161,13 +161,13 @@
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ?</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="" name="document[]">Pan Card
+                                                <input type="checkbox" value="1" name="document[]">Pan Card
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="" name="document[]">Driving License
+                                                <input type="checkbox" value="2" name="document[]">Driving License
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="" name="document[]">Voter Id
+                                                <input type="checkbox" value="3" name="document[]">Voter Id
                                             </label>
                                         </div>
                                     </div>
@@ -328,7 +328,8 @@
             onFinish: onFinishCallback,
              transitionEffect: 'fade',
              labelNext:'Save & Continue',
-             includeFinishButton : false,
+             
+             validationEnabled: true,
         });
         function leaveAStepCallback(obj, context) {
 //            alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
@@ -421,13 +422,13 @@
         $("#customer_registration").validate({
             rules: {
                 customer_name: "required",
-//                customer_email: "required",
-//                customer_mobno: "required",
-//                customer_phone: "required",
-//                customer_address: "required",
-//                customer_chesisno: "required",
-//                payment_status: "required",
-//                documents_status: "required"
+                customer_email: "required",
+                customer_mobno: "required",
+                customer_phone: "required",
+                customer_address: "required",
+                customer_chesisno: "required",
+                payment_status: "required",
+                documents_status: "required"
             }, messages: {
                 customer_name: "Customer Name is Required",
                 customer_email: "Customer Email is required",

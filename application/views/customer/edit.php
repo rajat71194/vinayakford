@@ -171,13 +171,13 @@
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ?</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="" name="document[]">Pan Card
+                                                <input type="checkbox" value="1" name="document[]">Pan Card
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="" name="document[]">Driving License
+                                                <input type="checkbox" value="2" name="document[]">Driving License
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="" name="document[]">Voter Id
+                                                <input type="checkbox" value="3" name="document[]">Voter Id
                                             </label>
                                         </div>
                                     </div>
@@ -337,12 +337,20 @@
         var state = $('body').find('#state').val();
         $('#wizard').smartWizard({
             onLeaveStep: leaveAStepCallback,
+            onShowStep: StepCallback,
             onFinish: onFinishCallback,
              transitionEffect: 'fade',
-              selected: state,
                labelNext:'Save & Continue',
-               
+              selected: state,
+              enableAllSteps: false
+             
         });
+        var $actionBar = $('.actionBar');
+        $('.buttonNext', $actionBar).removeClass('buttonDisabled').on("click"); 
+        
+        function StepCallback(obj, context){
+//            alert('dsdsd');
+        }
         function leaveAStepCallback(obj, context) {
 //            alert("Leaving step " + context.fromStep + " to go to step " + context.toStep);
             var state = validateSteps(context.fromStep);
@@ -431,7 +439,14 @@
 //        });
         /****************************************************************************************/
         // form submit for customer registration
-
+        $('body').on('click','.buttonPrevious',function(){
+           console.log('tessfdfdfd'); 
+           alert('testtttt');
+        });
+        $('body').on('click','.buttonNext',function(){
+           console.log('tessfdfdfd'); 
+           alert('testtttt');
+        });
 
         $("#customer_registration").validate({
             rules: {

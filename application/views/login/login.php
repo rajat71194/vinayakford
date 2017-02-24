@@ -7,7 +7,7 @@
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	  <title>Gentellela Alela! | </title>
+	  <title>Ford | Vinayk Ford</title>
 
 	  <!-- Bootstrap -->
 	  <link href="<?php echo base_url(); ?>assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,9 +32,11 @@
 				   <h1>Login Form</h1>
 				   <div>
 					<input type="text" name="email" class="form-control" placeholder="Username"  />
+                                        <?php echo form_error('email')?>
 				   </div>
 				   <div>
 					<input type="password" name="password" class="form-control" placeholder="Password"  />
+                                        <?php echo form_error('password')?>
 				   </div>
 				   <div>
 					<button class="btn btn-default submit" >Log in</button>

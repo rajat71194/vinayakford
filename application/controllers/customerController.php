@@ -36,6 +36,7 @@ class CustomerController extends CI_Controller {
        
         switch ($state) {
             case 1:
+              
                 $insertArr = array(
                     'customer_name' => $data['customer_name'],
                     'email' => $data['customer_email'],
@@ -47,7 +48,7 @@ class CustomerController extends CI_Controller {
                     'payment_type' => $data['customer_payment'],
                    'cheque_no'=>$data['cheque_no'],
                     'document_complete' => $data['documents_status'],
-//                   'document_ids'=>  implode(',', $data['document']),
+                   'document_ids'=> implode(',',$data['document']),
                     'customer_state' => $data['state'],
                     'active'=>1
                 );
@@ -166,7 +167,13 @@ class CustomerController extends CI_Controller {
     function edit($id=0){
         
        $arrData['customerdata'] =  $this->ford->getData('customers','*',array('id'=>$id));
+       
+        if(!empty($arrData['customerdata'])){
         $this->load->template('/customer/edit',$arrData);
+            
+        }else{
+            redirect('customer/create');
+        }
     }
     
     function delete($id=0){
