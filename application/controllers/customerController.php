@@ -181,4 +181,8 @@ class CustomerController extends CI_Controller {
         $this->ford->rowUpdate('customers',array('active'=>0),array('id'=>$id));
         redirect('customer');
     }
+    
+    function test(){
+	 $this->load->template('/customer/demo');
+    }
 }
