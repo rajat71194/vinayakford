@@ -144,8 +144,8 @@
                                                     <input type="radio" value="cheque" <?= ( $custdata['payment_type'] == "cheque") ? '   checked ' : ''; ?> id="optionsRadios2" name="customer_payment"> Via Cheque
                                                 </label>
                                                 <label>
-                                                    <input type="hidden" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no" value="0"> 
-                                                    <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no" value="<?php echo $custdata['cheque_no'] ?>"> 
+                                                    <input type="hidden" placeholder="Cheque no"  id="cheque_no" name="cheque_no" value="0"> 
+                                                    <input type="text" placeholder="Cheque no"  id="cheque_no" name="cheque_no" value="<?php echo $custdata['cheque_no']; ?>"> 
                                                 </label>
                                             </div>
                                         </div>
