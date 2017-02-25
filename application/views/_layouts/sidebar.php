@@ -27,7 +27,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Customer <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="<?php echo base_url();?>customer/list">Customer List</a></li>
+                        <li><a href="<?php echo base_url();?>customer">Customer List</a></li>
                         <li><a href="<?php echo base_url('customer/create');?>">Create Customer</a></li>
 
                     </ul>

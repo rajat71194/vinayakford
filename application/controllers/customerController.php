@@ -185,4 +185,15 @@ class CustomerController extends CI_Controller {
     function test(){
 	 $this->load->template('/customer/demo');
     }
+    function testedit($id=1){
+        
+	$arrData['customerdata'] =  $this->ford->getData('customers','*',array('id'=>$id));
+       
+        if(!empty($arrData['customerdata'])){
+        $this->load->template('/customer/demo_edit',$arrData);
+            
+        }else{
+            redirect('customer/demo');
+        }
+    }
 }

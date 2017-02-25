@@ -53,8 +53,10 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 /*******************Customer Route***************************/
-$route['customer/create'] = 'customerController/create';
-$route['customer/test'] = 'customerController/test';
-$route['customer/list'] = 'customerController/index';
+//$route['customer/create'] = 'customerController/create';
+$route['customer/create'] = 'customerController/test';
+$route['customer'] = 'customerController/index';
+$route['customer/testedit/(:num)'] = 'customerController/testedit/$1';
 $route['customer/edit/(:num)'] = 'customerController/edit/$1';
+$route['customer/delete/(:num)'] = 'customerController/delete/$1';
 /*******************Customer Route***************************/

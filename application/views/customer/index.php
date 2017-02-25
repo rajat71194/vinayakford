@@ -22,11 +22,11 @@
           <div class="page-title">
             <div class="title_left">
               <h3>
-                    Employees List
+                    Customer List
                     
                 </h3>
             </div>
-
+              
            
           </div>
           <div class="clearfix"></div>
@@ -36,7 +36,7 @@
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                       <div class="x_title">
-                        <h2>Responsive example <small>Users</small></h2>
+                        <h2>Users</h2>
                         
                         <div class="clearfix"></div>
                       </div>
@@ -52,8 +52,8 @@
                               <th>Email</th>
                               <th>Mobile No</th>
                               <th>Chesis No</th>
-                              <th>Payment Status</th>
-                              <th>Customer State</th>
+                              <th>Payment Type</th>
+                              <th>Stage Completed</th>
                               <th class="column-title no-link last"><span class="nobr">Action</span></th>
                                <th class="bulk-actions" colspan="6">
                           <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -73,10 +73,10 @@
                               <td><?php echo $value['email']; ?></td>
                               <td><?php echo $value['mobile_no']; ?></td>
                               <td><?php echo $value['engine_chesis_no']; ?></td>
-                              <td><?php echo $value['payment_complete']; ?></td>
-                              <td><?php echo $value['customer_state']; ?></td>
+                              <td><?php echo ($value['payment_type']=="cash")?'Cash':'Cheque'; ?></td>
+                              <td><?php echo "Step-".$value['customer_state']; ?></td>
                   
-                               <td class=" last"><a href="./edit/<?php echo $value['id']; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./delete/<?php echo $value['id']; ?>" class="btn btn-danger btn-xs">delete</a></td>
+                               <td class=" last"><a href="./customer/testedit/<?php echo $value['id']; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./customer/delete/<?php echo $value['id']; ?>" class="btn btn-danger btn-xs">delete</a></td>
                             </tr>
                               <?php } }?>
                            
