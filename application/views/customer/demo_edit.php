@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-        
+
         <?php
         $custdata = array();
         $customer_state = 1;
@@ -19,7 +19,6 @@
 
             $custdata = $customerdata[0];
             $customer_state = $custdata['customer_state'];
-           
         }
         ?>
         <div class="row">
@@ -29,7 +28,8 @@
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs" role="tablist">
 
-                            <li role="presentation" class="<?php echo ($customer_state==1)?' active ':' ';  echo ($customer_state>=1)?' ':' disabled ';?>">
+                            <li role="presentation" class="<?php echo ($customer_state == 1) ? ' active ' : ' ';
+        echo ($customer_state >= 1) ? ' ' : ' disabled '; ?>">
                                 <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
                                     <span class="round-tab">
                                         <i class="glyphicon glyphicon-user"></i>
@@ -37,21 +37,24 @@
                                 </a>
                             </li>
 
-                            <li role="presentation" class="<?php echo ($customer_state==2)?' active ':' ';  echo ($customer_state>=2)?' ':' disabled ';?>">
+                            <li role="presentation" class="<?php echo ($customer_state == 2) ? ' active ' : ' ';
+        echo ($customer_state >= 2) ? ' ' : ' disabled '; ?>">
                                 <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                     <span class="round-tab">
-                                         <i class="glyphicon glyphicon-lock"></i>
+                                        <i class="glyphicon glyphicon-lock"></i>
                                     </span>
                                 </a>
                             </li>
-                            <li role="presentation" class="<?php echo ($customer_state==3)?' active ':' ';  echo ($customer_state>=3)?' ':' disabled ';?>">
+                            <li role="presentation" class="<?php echo ($customer_state == 3) ? ' active ' : ' ';
+        echo ($customer_state >= 3) ? ' ' : ' disabled '; ?>">
                                 <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                                     <span class="round-tab">
-                                         <i class="glyphicon glyphicon-paperclip"></i>
+                                        <i class="glyphicon glyphicon-paperclip"></i>
                                     </span>
                                 </a>
                             </li>
-                            <li role="presentation" class="<?php echo ($customer_state==4)?' active ':' ';  echo ($customer_state>=4)?' ':' disabled ';?>">
+                            <li role="presentation" class="<?php echo ($customer_state == 4) ? ' active ' : ' ';
+        echo ($customer_state >= 4) ? ' ' : ' disabled '; ?>">
                                 <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
                                     <span class="round-tab">
                                         <i class="glyphicon glyphicon-time"></i>
@@ -59,7 +62,8 @@
                                 </a>
                             </li>
 
-                            <li role="presentation" class="<?php echo ($customer_state==5)?' active ':' ';  echo ($customer_state>=5)?' ':' disabled ';?>">
+                            <li role="presentation" class="<?php echo ($customer_state == 5) ? ' active ' : ' ';
+        echo ($customer_state >= 5) ? ' ' : ' disabled '; ?>">
                                 <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
                                     <span class="round-tab">
                                         <i class="glyphicon glyphicon-ok"></i>
@@ -71,12 +75,30 @@
 
 
                     <div class="tab-content">
-                        <div class="tab-pane <?php echo ($customer_state==1)?' active ':' '; ?>" role="tabpanel" id="step1" >
+                        <div class="tab-pane <?php echo ($customer_state == 1) ? ' active ' : ' '; ?>" role="tabpanel" id="step1" >
                             <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_registration">
                                 <div class="step1">
 
                                     <input type="hidden" name="state" id="state" value="1"/>
                                     <input type="hidden" name="customer_id" class="customer_id" value="<?php echo $custdata['id']; ?>"/>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input class="form-control" id="inputSuccess3" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i A',strtotime($custdata['delivery_date'])); ?>" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Branch <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" name="branch" id="branch">
+                                                <option <?php echo ($custdata['branch'] == "indore") ? " selected " : " " ?> value="indore">Ford Indore</option>
+                                                <option <?php echo ($custdata['branch'] == "sagar") ? " selected " : " " ?> value="sagar">Ford Sagar</option>
+                                                <option <?php echo ($custdata['branch'] == "khargone") ? " selected " : " " ?> value="khargone">Ford Khargone</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Customer Full Name <span class="required">*</span>
                                         </label>
@@ -84,12 +106,23 @@
                                             <input class="form-control" id="inputSuccess3" name="customer_name" value="<?php echo $custdata['customer_name'] ?>" placeholder="Full Name" type="text">
                                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span></div>
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Vehicle Name <span class="required">*</span>
+                                        </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text" value="<?php echo $custdata['email'] ?>">
-                                            <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
+                                            <select class="form-control" name="branch" id="branch">
+                                                <option <?php echo ($custdata['branch'] == "fordfiesta") ? " selected " : " " ?> value="fordfiesta">Ford Fiesta</option>
+                                                <option <?php echo ($custdata['branch'] == "fordfigo") ? " selected " : " " ?> value="fordfigo">Ford Figo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Vin Number <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chasis Number" value="<?php echo $custdata['engine_chesis_no']; ?>" type="text">
+                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">    
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Mobile Number</label>
@@ -105,16 +138,84 @@
                                             <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Follow Up</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea name="followup" class="form-control" placeholder="Comment Here"><?php echo $custdata['followup']; ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sales Consultant</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" value="<?php echo $custdata['consultant_name'];?>" type="text">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true">
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text" value="<?php echo $custdata['email'] ?>">
+                                            <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Balance Amount</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control" name="remaining_amt" id="remaining_amt">
+                                                <option <?php echo ($custdata['remaining_amt'] == "0") ? " selected " : " " ?> value="0">No</option>
+                                                <option <?php echo ($custdata['remaining_amt'] == "1") ? " selected " : " " ?> value="1">Yes</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                            <input placeholder="Amount" type="text" class="form-control" name='amount' id="amount" value="<?php echo $custdata['amount'];?>"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Finance</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control" name="finance" id="finance">
+                                                <option <?php echo ($custdata['finance'] == "0") ? " selected " : " " ?> value="0">No</option>
+                                                <option <?php echo ($custdata['finance'] == "1") ? " selected " : " " ?> value="1">Yes</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                            <input placeholder="Bank Name" type="text" class="form-control" name='bank_name' id="bank_name" value="<?php echo $custdata['bank_name']?>"/>
+                                        </div>
+                                    </div>   
+
+
+
+
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Insurance</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <select class="form-control" name="insurance" id="insurance">
+                                                <option <?php echo ($custdata['insurance'] == "vapl") ? " selected " : " " ?> value="vapl">VAPL</option>
+                                                <option <?php echo ($custdata['insurance'] == "self") ? " selected " : " " ?> value="self">Self</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Vehicle Registration</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <select class="form-control" name="vehicle_reg" id="vehicle_reg">
+                                                <option <?php echo ($custdata['vehicle_reg'] == "normal") ? " selected " : " " ?> value="normal">Normal</option>
+                                                <option <?php echo ($custdata['vehicle_reg'] == "c/o") ? " selected " : " " ?> value="c/o">C/O</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"><?php echo $custdata['address'] ?></textarea>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Chassis Number</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chassis Number" type="text" value="<?php echo $custdata['engine_chesis_no'] ?>">
-                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
@@ -163,16 +264,17 @@
                                             <label class="checkbox-inline">
                                                 <?php
                                                 $ids = array();
-                                                if($custdata['document_ids']!=""){
-                                                $ids = explode(',', $custdata['document_ids']);
-                                                }?>
-                                                <input type="checkbox" value="1" <?php echo  (in_array(1, $ids))? " checked ": " " ; ?> name="document[]">Pan Card
+                                                if ($custdata['document_ids'] != "") {
+                                                    $ids = explode(',', $custdata['document_ids']);
+                                                }
+                                                ?>
+                                                <input type="checkbox" value="1" <?php echo (in_array(1, $ids)) ? " checked " : " "; ?> name="document[]">Pan Card
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="2" <?php echo  (in_array(2, $ids))? " checked ": " " ; ?> name="document[]">Driving License
+                                                <input type="checkbox" value="2" <?php echo (in_array(2, $ids)) ? " checked " : " "; ?> name="document[]">Driving License
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" value="3" <?php echo  (in_array(3, $ids))? " checked ": " " ; ?> name="document[]">Voter Id
+                                                <input type="checkbox" value="3" <?php echo (in_array(3, $ids)) ? " checked " : " "; ?> name="document[]">Voter Id
                                             </label>
                                         </div>
                                     </div>
@@ -185,7 +287,7 @@
                                 </ul>
                             </form>
                         </div>
-                        <div class="tab-pane <?php echo ($customer_state==2)?' active ':' '; ?>" role="tabpanel" id="step2">
+                        <div class="tab-pane <?php echo ($customer_state == 2) ? ' active ' : ' '; ?>" role="tabpanel" id="step2">
                             <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_tax">
                                 <div class="step2">
 
@@ -224,7 +326,7 @@
                                 </ul>
                             </form>
                         </div>
-                        <div class="tab-pane <?php echo ($customer_state==3)?' active ':' '; ?>" role="tabpanel" id="step3">
+                        <div class="tab-pane <?php echo ($customer_state == 3) ? ' active ' : ' '; ?>" role="tabpanel" id="step3">
                             <form class="form-horizontal form-label-left" method="post" enctype="x/data" id="customer_registrationdetail">
                                 <div class="step33">
 
@@ -281,7 +383,7 @@
                                 </ul>
                             </form>
                         </div>
-                        <div class="tab-pane <?php echo ($customer_state==4)?' active ':' '; ?>" role="tabpanel" id="step4">
+                        <div class="tab-pane <?php echo ($customer_state == 4) ? ' active ' : ' '; ?>" role="tabpanel" id="step4">
                             <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_number">
                                 <div class="step44">
 
@@ -314,7 +416,7 @@
                                 </ul>
                             </form>
                         </div>
-                        <div class="tab-pane <?php echo ($customer_state==5)?' active ':' '; ?>" role="tabpanel" id="complete">
+                        <div class="tab-pane <?php echo ($customer_state == 5) ? ' active ' : ' '; ?>" role="tabpanel" id="complete">
 
                             <div class="step55">
                                 <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_rc">
@@ -402,7 +504,55 @@
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
+          var finance = $('#finance').val();
+        if (finance == 0) {
+            $("#bank_name").hide();
+            $("#bank_name").val('');
+        } else {
+            $("#bank_name").show();
 
+        }
+        var amount = $('#remaining_amt').val();
+        if (amount == 0) {
+            $("#amount").hide();
+            $("#amount").val('');
+        } else {
+            $("#amount").show();
+
+        }
+        $('body').on('change', '#remaining_amt', function () {
+            var amount = $(this).val();
+            if (amount == 0) {
+                $("#amount").hide();
+                $("#amount").val('');
+            } else {
+                $("#amount").show();
+
+            }
+        });
+        //cheque no 
+        $("#cheque_no").hide();
+        $("body").on('click', '#optionsRadios1', function () {
+
+            $("#cheque_no").hide();
+            $("#cheque_no").val("");
+        });
+        $("body").on('click', '#optionsRadios2', function () {
+
+            $("#cheque_no").show();
+
+        });
+
+        $('body').on('change', '#finance', function () {
+            var finance = $(this).val();
+            if (finance == 0) {
+                $("#bank_name").hide();
+                $("#bank_name").val('');
+            } else {
+                $("#bank_name").show();
+
+            }
+        });
         //Initialize tooltips
         $('.nav-tabs > li a[title]').tooltip();
 
@@ -524,7 +674,7 @@
 
 
 
-           $("#customer_registration").validate({
+        $("#customer_registration").validate({
             rules: {
                 customer_name: {
                     required: true,

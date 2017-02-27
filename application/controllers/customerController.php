@@ -38,7 +38,18 @@ class CustomerController extends CI_Controller {
             case 1:
               
                 $insertArr = array(
+                    'delivery_date' =>date('Y-m-d H:i:s',strtotime($data['delivery_date'])),
+                    'consultant_name' =>$data['consultant_name'],
                     'customer_name' => $data['customer_name'],
+                    'followup' => $data['followup'],
+                    'finance' => $data['finance'],
+                    'bank_name' => $data['bank_name'],
+                    'insurance' => $data['insurance'],
+                    'remaining_amt' => $data['remaining_amt'],
+                    'amount' => $data['amount'],
+                    'vehicle_reg' => $data['vehicle_reg'],
+                    'branch' => $data['branch'],
+                    'insurance' => $data['insurance'],
                     'email' => $data['customer_email'],
                     'mobile_no' => $data['customer_mobno'],
                     'phone_no' => $data['customer_phone'],
@@ -65,6 +76,7 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $result['custíd'] = $id;
+                $result['redirect'] = TRUE;
                 $result['flag'] = TRUE;
 
                 echo json_encode($result);
@@ -89,7 +101,7 @@ class CustomerController extends CI_Controller {
                 }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
-
+                $result['redirect'] = FALSE;
                 echo json_encode($result);
                 break;
             case 3:
@@ -113,7 +125,7 @@ class CustomerController extends CI_Controller {
                 }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
-
+                $result['redirect'] = FALSE;
                 echo json_encode($result);
                 break;
             case 4:
@@ -134,7 +146,7 @@ class CustomerController extends CI_Controller {
                 }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
-
+                $result['redirect'] = FALSE;
                 echo json_encode($result);
                 break;
             case 5:
@@ -157,7 +169,7 @@ class CustomerController extends CI_Controller {
                 }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
-
+                $result['redirect'] = FALSE;
                 echo json_encode($result);
                 break;
             default:

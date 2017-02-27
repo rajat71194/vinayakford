@@ -67,7 +67,7 @@
                                 <div class="step1">
                                     <input type="hidden" name="state" id="state" value="1"/>
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                 <div class="form-group">
+                                    <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -105,7 +105,7 @@
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Vin Number <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chassis Number" type="text">
+                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chasis Number" type="text">
                                             <span class="fa fa-automobile form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
@@ -131,13 +131,27 @@
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sales Consultant</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" type="text">
-                                            <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text">
                                             <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Balance Amount</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control" name="remaining_amt" id="remaining_amt">
+                                                <option value="0">No</option>
+                                                <option value="1">Yes</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                            <input placeholder="Amount" type="text" class="form-control" name='amount' id="amount"/>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Finance</label>
@@ -155,259 +169,264 @@
                                     </div>   
 
 
-                                
 
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Insurance</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                        <select class="form-control" name="insurance" id="insurance">
-                                            <option value="vapl">VAPL</option>
-                                            <option value="self">Self</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Vehicle Registration</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Insurance</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                        <select class="form-control" name="insurance" id="insurance">
-                                            <option value="normal">Normal</option>
-                                            <option value="c/o">Self</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input  name="payment_status"  type="hidden" value="0" />
-                                        <input id="payment_status" name="payment_status"  type="checkbox" class="js-switch" value="1"/>
-                                    </div>
-                                </div>
-                                <div class="form-group payment_reason">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea class="form-control" rows="2" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group payment_type">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">Payment Type</small>
-                                    </label>
-                                    <div class="col-md-9 col-sm-9 col-xs-12">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" checked="" value="cash" value="cash" name="customer_payment" id="optionsRadios1" > Via Cash
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" value="cheque" id="optionsRadios2" name="customer_payment"> Via Cheque
-                                            </label>
-                                            <label>
-                                                <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no"> 
-                                            </label>
+                                            <select class="form-control" name="insurance" id="insurance">
+                                                <option value="vapl">VAPL</option>
+                                                <option value="self">Self</option>
+                                            </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ?</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="documents_status"  type="hidden" class="js-switch" value="0" />
-                                        <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1" />
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Vehicle Registration</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <select class="form-control" name="vehicle_reg" id="vehicle_reg">
+                                                <option value="normal">Normal</option>
+                                                <option value="c/o">C/O</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="form-group document_type">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ?</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="1" name="document[]">Pan Card
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="2" name="document[]">Driving License
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="3" name="document[]">Voter Id
-                                        </label>
+
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"></textarea>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input  name="payment_status"  type="hidden" value="0" />
+                                            <input id="payment_status" name="payment_status"  type="checkbox" class="js-switch" value="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group payment_reason">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea class="form-control" rows="2" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group payment_type">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">Payment Type</small>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" checked="" value="cash" value="cash" name="customer_payment" id="optionsRadios1" > Via Cash
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" value="cheque" id="optionsRadios2" name="customer_payment"> Via Cheque
+                                                </label>
+                                                <label>
+                                                    <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no"> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ?</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="documents_status"  type="hidden" class="js-switch" value="0" />
+                                            <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group document_type">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ?</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="1" name="document[]">Pan Card
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="2" name="document[]">Aadhar Card
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="3" name="document[]">Bank Do
+                                            </label>
+
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="4" name="document[]">Voter Id
+                                            </label>
+                                        </div>
+                                    </div>
 
 
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
+                                </ul>
+                            </form>
                         </div>
-                        <ul class="list-inline pull-right">
-                            <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
-                        </ul>
-                        </form>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_tax">
+                                <div class="step2">
+                                    <input type="hidden" name="state" id="state" value="2"/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="hidden" name="payment_status" value="0"/>
+                                            <input name="tax_payment_status" type="hidden"   value="0" />
+                                            <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group tax_payment_reason">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea class="form-control" name="tax_payment_reason" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
+                                        </div>
+                                    </div>
+                                    <!--                       <div class="form-group selection_of_registration_no">
+                                                            <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                                              <small class="text-navy">Selection of Registration No. ? </small>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                  <input name="selection_of_registration_no" id="selection_of_registration_no" type="checkbox" class="js-switch" unchecked />
+                                                           </div>
+                                                           </div>-->
+
+
+
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step" data-state="2">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary next-step" data-state="2">Save and continue</button></li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <form class="form-horizontal form-label-left" method="post" enctype="x/data" id="customer_registrationdetail">
+                                <div class="step33">
+                                    <input type="hidden" name="state" id="state" value="3"/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <div class="form-group registration_no_type">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">Registration No. Type</small>
+                                        </label>
+                                        <div class="col-md-9 col-sm-9 col-xs-12">
+                                            <select class="form-control" id="registration_no_type" name="registration_no_type">
+                                                <option value="regular_no">Regular No</option>
+                                                <option value="choice_no">Choice No</option>
+                                                <option value="vip_no">VIP NO</option>
+
+                                            </select>
+                                        </div>
+                                    </div> 
+                                    <div class="form-group document_given_to_agent_for_regular_no">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">document Given to Customer ? </small>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
+                                            <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" class="js-switch" unchecked  value="1"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group select_no_for_choice">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">Select No. ? </small>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="select_no_for_choice" id="select_no_for_choice" type="checkbox" class="js-switch" unchecked />
+                                        </div>
+                                    </div>
+                                    <div class="form-group document_given_to_agent_for_choice_no">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">document Given to Customer ? </small>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="document_given_to_agent_for_choice_no"  type="hidden" class="js-switch" value="0" />
+                                            <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" class="js-switch" value="1" />
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step" data-state="3">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary btn-info-full next-step" data-state="3">Save and continue</button></li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div id="step4" class="tab-pane" role="tabpanel" >
+                            <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_number">
+                                <div class="step44">
+                                    <input type="hidden" name="state" id="state" value="4"/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <div class="form-group no_given_to_cus">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">No. Given to Customer ? </small>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="no_given_to_customor"  type="hidden" class="js-switch" value="0"  />
+                                            <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" value="1" unchecked />
+                                        </div>
+                                    </div>
+                                    <div class="show_information_notification">
+                                        <div class="alert alert-info alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">�</a>
+                                            Take Follow-up by SC for confirmation of Registration No.
+                                        </div>
+                                        <div class="alert alert-info alert-dismissable">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">�</a>
+                                            Told Customer RC Card reached at your address within 15 days.
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step" data-state="4">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary btn-info-full next-step" data-state="4">Save and continue</button></li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="complete">
+                            <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_rc">
+                                <div class="step55">
+
+                                    <input type="hidden" name="state" id="state" value="5"/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                    <div class="form-group call_agent">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="call_agent"  type="hidden" class="js-switch"  value="0" />
+                                            <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked value="1" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group call_agent_reason">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"></textarea>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-default prev-step" data-state="5">Previous</button></li>
+                                    <li><button type="button" class="btn btn-primary btn-info-full finish-step" data-state="5">Finish</button></li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="tab-pane" role="tabpanel" id="step2">
-                        <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_tax">
-                            <div class="step2">
-                                <input type="hidden" name="state" id="state" value="2"/>
-                                <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="hidden" name="payment_status" value="0"/>
-                                        <input name="tax_payment_status" type="hidden"   value="0" />
-                                        <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
-                                    </div>
-                                </div>
-                                <div class="form-group tax_payment_reason">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea class="form-control" name="tax_payment_reason" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
-                                    </div>
-                                </div>
-                                <!--                       <div class="form-group selection_of_registration_no">
-                                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                                          <small class="text-navy">Selection of Registration No. ? </small>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                              <input name="selection_of_registration_no" id="selection_of_registration_no" type="checkbox" class="js-switch" unchecked />
-                                                       </div>
-                                                       </div>-->
 
-
-
-                            </div>
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step" data-state="2">Previous</button></li>
-                                <li><button type="button" class="btn btn-primary next-step" data-state="2">Save and continue</button></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="step3">
-                        <form class="form-horizontal form-label-left" method="post" enctype="x/data" id="customer_registrationdetail">
-                            <div class="step33">
-                                <input type="hidden" name="state" id="state" value="3"/>
-                                <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                <div class="form-group registration_no_type">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">Registration No. Type</small>
-                                    </label>
-                                    <div class="col-md-9 col-sm-9 col-xs-12">
-                                        <select class="form-control" id="registration_no_type" name="registration_no_type">
-                                            <option value="regular_no">Regular No</option>
-                                            <option value="choice_no">Choice No</option>
-                                            <option value="vip_no">VIP NO</option>
-
-                                        </select>
-                                    </div>
-                                </div> 
-                                <div class="form-group document_given_to_agent_for_regular_no">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">document Given to Customer ? </small>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
-                                        <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" class="js-switch" unchecked  value="1"/>
-                                    </div>
-                                </div>
-                                <div class="form-group select_no_for_choice">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">Select No. ? </small>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="select_no_for_choice" id="select_no_for_choice" type="checkbox" class="js-switch" unchecked />
-                                    </div>
-                                </div>
-                                <div class="form-group document_given_to_agent_for_choice_no">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">document Given to Customer ? </small>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="document_given_to_agent_for_choice_no"  type="hidden" class="js-switch" value="0" />
-                                        <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" class="js-switch" value="1" />
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step" data-state="3">Previous</button></li>
-                                <li><button type="button" class="btn btn-primary btn-info-full next-step" data-state="3">Save and continue</button></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div id="step4" class="tab-pane" role="tabpanel" >
-                        <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_number">
-                            <div class="step44">
-                                <input type="hidden" name="state" id="state" value="4"/>
-                                <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                <div class="form-group no_given_to_cus">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">No. Given to Customer ? </small>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="no_given_to_customor"  type="hidden" class="js-switch" value="0"  />
-                                        <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" value="1" unchecked />
-                                    </div>
-                                </div>
-                                <div class="show_information_notification">
-                                    <div class="alert alert-info alert-dismissable">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">�</a>
-                                        Take Follow-up by SC for confirmation of Registration No.
-                                    </div>
-                                    <div class="alert alert-info alert-dismissable">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">�</a>
-                                        Told Customer RC Card reached at your address within 15 days.
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step" data-state="4">Previous</button></li>
-                                <li><button type="button" class="btn btn-primary btn-info-full next-step" data-state="4">Save and continue</button></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="tab-pane" role="tabpanel" id="complete">
-                        <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_rc">
-                            <div class="step55">
-
-                                <input type="hidden" name="state" id="state" value="5"/>
-                                <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                <div class="form-group call_agent">
-                                    <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                        <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input name="call_agent"  type="hidden" class="js-switch"  value="0" />
-                                        <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked value="1" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group call_agent_reason">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"></textarea>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                            <ul class="list-inline pull-right">
-                                <li><button type="button" class="btn btn-default prev-step" data-state="5">Previous</button></li>
-                                <li><button type="button" class="btn btn-primary btn-info-full finish-step" data-state="5">Finish</button></li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
-
+            </section>
         </div>
-        </section>
     </div>
-</div>
 </div>
 <script>
     $(document).ready(function () {
@@ -455,6 +474,35 @@
             $("#bank_name").show();
 
         }
+        var amount = $('#remaining_amt').val();
+        if (amount == 0) {
+            $("#amount").hide();
+        } else {
+            $("#amount").show();
+
+        }
+        $('body').on('change', '#remaining_amt', function () {
+            var amount = $(this).val();
+            if (amount == 0) {
+                $("#amount").hide();
+            } else {
+                $("#amount").show();
+
+            }
+        });
+        //cheque no 
+        $("#cheque_no").hide();
+        $("body").on('click', '#optionsRadios1', function () {
+
+            $("#cheque_no").hide();
+            $("#cheque_no").val("");
+        });
+        $("body").on('click', '#optionsRadios2', function () {
+
+            $("#cheque_no").show();
+
+        });
+
         $('body').on('change', '#finance', function () {
             var finance = $(this).val();
             if (finance == 0) {
@@ -622,7 +670,7 @@
                     required: true,
                     number: true
                 },
-                payment_status: "required",
+                consultant_name: "required",
                 documents_status: "required",
                 "document[]": {
                     required: function (element) {
@@ -633,7 +681,28 @@
                     required: function (element) {
                         return $('#optionsRadios2').is(':checked')
                     }
-                }
+                },
+                amount: {
+                    required: function (element) {
+                        if ($('#remaining_amt').val() == 1) {
+                            return true;
+                        } else {
+                            return false;
+
+                        }
+                    },
+                    number: true
+                },
+                bank_name: {
+                    required: function (element) {
+                        if ($('#finance').val() == 1) {
+                            return true;
+                        } else {
+                            return false;
+
+                        }
+                    }
+                },
             }, messages: {
                 customer_name: {required: "Customer Name is Required"},
                 customer_email: {required: "Customer Email is required"},
@@ -641,9 +710,11 @@
                 customer_phone: {required: "Customer Phone no is required"},
                 customer_address: {required: "Customer address is required"},
                 customer_chesisno: {required: "Vehicle Chesis no is required"},
-                payment_status: {required: "Payment Status is required"},
+                consultant_name: {required: "Consultant name is required"},
                 documents_status: {required: "Document Status is required"},
                 cheque_no: {required: "Document Status is required"},
+                amount: {required: "Amount is required"},
+                bank_name: {required: "Bank name is required"},
                 "document[]": {required: "Document Type is required"}
             }
         });
