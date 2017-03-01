@@ -60,3 +60,8 @@ $route['customer/testedit/(:num)'] = 'customerController/testedit/$1';
 $route['customer/edit/(:num)'] = 'customerController/edit/$1';
 $route['customer/delete/(:num)'] = 'customerController/delete/$1';
 /*******************Customer Route***************************/
+/*******************Prospect Route***************************/
+$route['customer/search'] = 'customerController/search';
+$route['customer/searchData'] = 'customerController/searchData';
+
+/*******************Prospect Route***************************/

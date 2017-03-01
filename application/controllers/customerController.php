@@ -208,4 +208,8 @@ class CustomerController extends CI_Controller {
             redirect('customer/demo');
         }
     }
+    function search(){
+        
+        $this->load->template('/customer/search');
+    }
 }
