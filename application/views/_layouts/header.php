@@ -26,6 +26,7 @@
 	  <link href="<?php echo base_url();?>assets/css/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
 	  <!-- bootstrap-daterangepicker -->
 	  <link href="<?php echo base_url();?>assets/css/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+	  <link href="<?php echo base_url();?>assets/js/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 
 	  <!-- Custom Theme Style -->
 	  <link href="<?php echo base_url();?>assets/css/custom.min.css" rel="stylesheet">
@@ -43,6 +44,7 @@
                   
                    <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Bootstrap -->
     <script src="<?php echo base_url();?>assets/js/bootstrap/js/bootstrap.min.js"></script><!--
      FastClick 

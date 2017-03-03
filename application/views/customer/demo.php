@@ -97,8 +97,12 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="branch" id="branch">
-                                                <option value="fordfiesta">Ford Fiesta</option>
-                                                <option value="fordfigo">Ford Figo</option>
+                                                <option value="Ford EcoSport">Ford EcoSport</option>
+                                                <option value="Ford Figo">Ford Figo</option>
+                                                <option value="Ford Aspire">Ford Aspire</option>
+                                                <option value="Ford Mustang">Ford Mustang</option>
+                                                <option value="Ford Fiesta">Ford Fiesta</option>
+                                                <option value="Ford Classic">Ford Classic</option>
                                             </select>
                                         </div>
                                     </div>

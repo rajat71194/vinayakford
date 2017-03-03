@@ -77,7 +77,9 @@ class Welcome extends CI_Controller {
             }
         }
     }
-
+    public function user(){
+        $this->load->template('user/index');
+    }
     public function logout() {
 
         $this->session->sess_destroy();

@@ -5,26 +5,26 @@
                 <h3>General</h3>
                 <ul class="nav side-menu">
                     <li><a href="javascript:void(0)"><i class="fa fa-home"></i> Home </a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-home"></i> Logout </a></li>
-                    <li><a href="javascript:void(0)"><i class="fa fa-home"></i> Change Password </a></li>
-                  <li><a><i class="fa fa-users"></i>Data Entry <span class="fa fa-chevron-down"></span></a>
+                    <li><a href="<?php echo base_url('welcome/logout');?>"><i class="fa fa-sign-out"></i> Logout </a></li>
+                    <li><a href="javascript:void(0)"><i class="fa fa-unlock-alt"></i> Change Password </a></li>
+                  <li><a><i class="fa fa-database"></i>Data Entry <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url();?>">Prospect Data</a></li>
-                      <li><a href="<?php echo base_url();?>">Pending Cases</a></li>
-                      <li><a href="<?php echo base_url();?>">Payment Pending</a></li>
-                      <li><a href="<?php echo base_url();?>">Follow-up</a></li>
+                      <li><a href="<?php echo base_url('customer/search');?>">Prospect Data</a></li>
+                      <li><a href="<?php echo base_url('customer/pending');?>">Pending Cases</a></li>
+                      <li><a href="<?php echo base_url('customer/payment');?>">Payment Pending</a></li>
+                      <li><a href="<?php echo base_url();?>enquiry/followup">Follow-up</a></li>
                       
                     </ul>
                   </li>
-                  <li><a href="javascript:void(0)"><i class="fa fa-home"></i> Report </a></li>
+                  <li><a href="<?php echo base_url('report');?>"><i class="fa fa-flag"></i> Report </a></li>
                   <li><a><i class="fa fa-users"></i>Setup <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url();?>">User</a></li>
+                      <li><a href="<?php echo base_url('welcome/user');?>">User</a></li>
                       
                       
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-users"></i>Employees <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-eye"></i>Employees <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo base_url();?>employees">Employees List</a></li>
                       <li><a href="<?php echo base_url();?>employees/edit">Create Employee</a></li>
@@ -33,7 +33,7 @@
                   </li>
                   <li><a><i class="fa fa-phone"></i>Enquiry<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo base_url();?>enquiry/followup">FollowUp</a></li>
+                      <!--<li><a href="<?php echo base_url();?>enquiry/followup">FollowUp</a></li>-->
                       <li><a href="<?php echo base_url();?>enquiry/edit">Add Enquiry</a></li>
                       
                     </ul>

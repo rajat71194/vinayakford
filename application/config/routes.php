@@ -62,6 +62,12 @@ $route['customer/delete/(:num)'] = 'customerController/delete/$1';
 /*******************Customer Route***************************/
 /*******************Prospect Route***************************/
 $route['customer/search'] = 'customerController/search';
+$route['customer/payment'] = 'customerController/payment_pending';
+$route['customer/pending'] = 'customerController/pending_case';
 $route['customer/searchData'] = 'customerController/searchData';
 
 /*******************Prospect Route***************************/
+/*******************Report Route***************************/
+$route['report'] = 'reportController/index';
+
+/*******************Report Route***************************/

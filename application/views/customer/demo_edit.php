@@ -111,8 +111,13 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="branch" id="branch">
-                                                <option <?php echo ($custdata['branch'] == "fordfiesta") ? " selected " : " " ?> value="fordfiesta">Ford Fiesta</option>
-                                                <option <?php echo ($custdata['branch'] == "fordfigo") ? " selected " : " " ?> value="fordfigo">Ford Figo</option>
+                                                
+                                                 <option  <?php echo ($custdata['branch'] == "Ford EcoSport") ? " selected " : " " ?>  value="Ford EcoSport">Ford EcoSport</option>
+                                                <option  <?php echo ($custdata['branch'] == "Ford Figo") ? " selected " : " " ?>  value="Ford Figo">Ford Figo</option>
+                                                <option  <?php echo ($custdata['branch'] == "Ford Aspire") ? " selected " : " " ?>  value="Ford Aspire">Ford Aspire</option>
+                                                <option  <?php echo ($custdata['branch'] == "Ford Mustang") ? " selected " : " " ?>  value="Ford Mustang">Ford Mustang</option>
+                                                <option  <?php echo ($custdata['branch'] == "Ford Fiesta") ? " selected " : " " ?>  value="Ford Fiesta">Ford Fiesta</option>
+                                                <option  <?php echo ($custdata['branch'] == "Ford Classic") ? " selected " : " " ?>  value="Ford Classic">Ford Classic</option>
                                             </select>
                                         </div>
                                     </div>

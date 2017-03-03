@@ -45,15 +45,16 @@
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap datatable-buttons responsive-utilities jambo_table bulk_action" cellspacing="0" width="100%">
                           <thead>
                             <tr class="headings">
-<!--                                <th>
-                          <input type="checkbox" id="checkedAll" class="flat">
-                        </th>-->
-                              <th>Customer Name</th>
-                              <th>Email</th>
-                              <th>Mobile No</th>
-                              <th>Chesis No</th>
-                              <th>Payment Type</th>
-                              <th>Stage Completed</th>
+
+                              <th>Prospect Id</th>
+                              <th>Vin No</th>
+                              <th>Delivery Date</th>
+                              <th>Branch</th>
+                              <th>Sales Consultant</th>
+                              <th>Client</th>
+                              <th>Vehicle</th>
+                              <th>Followup</th>
+                              <th>Balance Payment</th>
                               <th class="column-title no-link last"><span class="nobr">Action</span></th>
                                <th class="bulk-actions" colspan="6">
                           <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -62,25 +63,7 @@
                           </thead>
                           <tbody>
                               
-                              <?php
-                              if(!empty($customers)){
-                              foreach ($customers as $key => $value) { ?>
-                                  <tr>
-<!--                                 <td class="a-center">
-                          <input type="checkbox" class="checkSingle flat" name="table_records">
-                        </td>-->
-                              <td><?php echo $value['customer_name']; ?></td>
-                              <td><?php echo $value['email']; ?></td>
-                              <td><?php echo $value['mobile_no']; ?></td>
-                              <td><?php echo $value['engine_chesis_no']; ?></td>
-                              <td><?php echo ($value['payment_type']=="cash")?'Cash':'Cheque'; ?></td>
-                              <td><?php echo "Step-".$value['customer_state']; ?></td>
-                  
-                               <td class=" last"><a href="./customer/testedit/<?php echo $value['id']; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./customer/delete/<?php echo $value['id']; ?>" class="btn btn-danger btn-xs">delete</a></td>
-                            </tr>
-                              <?php } }?>
-                           
-               
+                              
                           </tbody>
                         </table>
 

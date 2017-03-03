@@ -212,4 +212,12 @@ class CustomerController extends CI_Controller {
         
         $this->load->template('/customer/search');
     }
+    function payment_pending(){
+        
+        $this->load->template('/customer/paymentcase');
+    }
+    function pending_case(){
+        
+        $this->load->template('/customer/pendingcase');
+    }
 }

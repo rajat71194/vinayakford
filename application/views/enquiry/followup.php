@@ -6,7 +6,7 @@
   <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/animate/animate.min.css" rel="stylesheet">
 
-   Custom styling plus plugins 
+<!--   Custom styling plus plugins -->
   <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/iCheck/flat/green.css" rel="stylesheet">
 

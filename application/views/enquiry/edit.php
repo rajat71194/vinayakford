@@ -128,12 +128,24 @@
                           </div>
                           <div class="form-group">
                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+<!--                            <div class="col-md-6 col-sm-6 col-xs-12">
                                
                               <input class="form-control" id="enquiry_date" name="enquiry_date" data-inputmask="'mask' : '9999-99-99 99:99:99'" placeholder="Date" type="text" value="<?php if(!empty($this->data['enquiry']->date)){echo $this->data['enquiry']->date;} ?>">
+                              
+                              
+                              
                               <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span><span>(YYYY-MM-DD HH:II:SS)</span>
-                            </div>
-                          </div>
+                            </div>-->
+                          
+                   
+                           <div class='input-group date' id='datetimepicker1'>
+                               <input type='text' id="enquiry_date" class="form-control" value="<?php if(!empty($this->data['enquiry']->date)){echo $this->data['enquiry']->date;} ?>"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+                   </div>
+                   
                            <div class="form-group">
                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Employee Name</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -206,9 +218,14 @@
     </div>
 
        </div>                   
-                       
+                  <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>     
                        
      <script type="text/javascript">
+         
   $(document).ready(function(){
       
       $("#enquiry_form").validate({
