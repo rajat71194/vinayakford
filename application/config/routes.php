@@ -54,20 +54,20 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 /*******************Customer Route***************************/
 //$route['customer/create'] = 'customerController/create';
-$route['customer/create'] = 'customerController/test';
-$route['customer'] = 'customerController/index';
-$route['customer/testedit/(:num)'] = 'customerController/testedit/$1';
-$route['customer/edit/(:num)'] = 'customerController/edit/$1';
-$route['customer/delete/(:num)'] = 'customerController/delete/$1';
+$route['customer/create'] = 'CustomerController/create';
+$route['customer'] = 'CustomerController/index';
+$route['customer/testedit/(:num)'] = 'CustomerController/testedit/$1';
+$route['customer/edit/(:num)'] = 'CustomerController/edit/$1';
+$route['customer/delete/(:num)'] = 'CustomerController/delete/$1';
 /*******************Customer Route***************************/
 /*******************Prospect Route***************************/
-$route['customer/search'] = 'customerController/search';
-$route['customer/payment'] = 'customerController/payment_pending';
-$route['customer/pending'] = 'customerController/pending_case';
-$route['customer/searchData'] = 'customerController/searchData';
+$route['customer/search'] = 'CustomerController/search';
+$route['customer/payment'] = 'CustomerController/payment_pending';
+$route['customer/pending'] = 'CustomerController/pending_case';
+$route['customer/searchData'] = 'CustomerController/searchData';
 
 /*******************Prospect Route***************************/
 /*******************Report Route***************************/
-$route['report'] = 'reportController/index';
+$route['report'] = 'ReportController/index';
 
 /*******************Report Route***************************/

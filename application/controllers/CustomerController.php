@@ -67,11 +67,12 @@ class CustomerController extends CI_Controller {
 //               echo json_encode($insertArr);die;
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
-
+                    getProspect($insert_id);
                     if ($insert_id) {
                         $id = $insert_id;
                     }
                 } else {
+                    getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
@@ -91,11 +92,12 @@ class CustomerController extends CI_Controller {
                 }
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
-
+                     getProspect($insert_id);
                     if ($insert_id) {
                         $id = $insert_id;
                     }
                 } else {
+                     getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
@@ -115,11 +117,12 @@ class CustomerController extends CI_Controller {
                 
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
-
+                     getProspect($insert_id);
                     if ($insert_id) {
                         $id = $insert_id;
                     }
                 } else {
+                     getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
@@ -136,11 +139,12 @@ class CustomerController extends CI_Controller {
                 );
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
-
+                     getProspect($insert_id);
                     if ($insert_id) {
                         $id = $insert_id;
                     }
                 } else {
+                     getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
@@ -159,11 +163,12 @@ class CustomerController extends CI_Controller {
                 }
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
-
+                     getProspect($insert_id);
                     if ($insert_id) {
                         $id = $insert_id;
                     }
                 } else {
+                     getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
@@ -176,7 +181,7 @@ class CustomerController extends CI_Controller {
                 break;
         }
     }
-    function edit($id=0){
+    function edit_bk($id=0){
         
        $arrData['customerdata'] =  $this->ford->getData('customers','*',array('id'=>$id));
        
@@ -197,15 +202,15 @@ class CustomerController extends CI_Controller {
     function test(){
 	 $this->load->template('/customer/demo');
     }
-    function testedit($id=1){
+    function edit($id=1){
         
 	$arrData['customerdata'] =  $this->ford->getData('customers','*',array('id'=>$id));
        
         if(!empty($arrData['customerdata'])){
-        $this->load->template('/customer/demo_edit',$arrData);
+        $this->load->template('/customer/edit',$arrData);
             
         }else{
-            redirect('customer/demo');
+            redirect('customer/create');
         }
     }
     function search(){

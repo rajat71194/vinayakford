@@ -76,7 +76,7 @@
                               <td><?php echo ($value['payment_type']=="cash")?'Cash':'Cheque'; ?></td>
                               <td><?php echo "Step-".$value['customer_state']; ?></td>
                   
-                               <td class=" last"><a href="./customer/testedit/<?php echo $value['id']; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./customer/delete/<?php echo $value['id']; ?>" class="btn btn-danger btn-xs">delete</a></td>
+                               <td class=" last"><a href="./customer/edit/<?php echo $value['id']; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./customer/delete/<?php echo $value['id']; ?>" class="btn btn-danger btn-xs">delete</a></td>
                             </tr>
                               <?php } }?>
                            

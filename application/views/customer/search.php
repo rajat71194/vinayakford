@@ -47,14 +47,14 @@
                             <tr class="headings">
 
                               <th>Prospect Id</th>
-                              <th>Vin No</th>
                               <th>Delivery Date</th>
+                              <th>Vin No</th>
+                              <th>Customer Name</th>
                               <th>Branch</th>
-                              <th>Sales Consultant</th>
-                              <th>Client</th>
                               <th>Vehicle</th>
-                              <th>Followup</th>
                               <th>Balance Payment</th>
+                              <th>Followup</th>
+                              <th>Sales Consultant</th>
                               <th class="column-title no-link last"><span class="nobr">Action</span></th>
                                <th class="bulk-actions" colspan="6">
                           <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
