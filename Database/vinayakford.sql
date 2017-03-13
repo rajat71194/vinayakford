@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2017 at 07:41 PM
+-- Generation Time: Mar 13, 2017 at 11:24 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `customers` (
+  `prospect_id` int(11) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `customer_name` varchar(1000) NOT NULL,
   `email` varchar(1000) NOT NULL,
@@ -61,28 +62,23 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `followup` varchar(1000) NOT NULL,
   `vehicle_reg` varchar(255) NOT NULL,
   `branch` varchar(500) NOT NULL,
+  `vehicle_name` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `customer_name`, `email`, `mobile_no`, `phone_no`, `address`, `engine_chesis_no`, `payment_complete`, `payment_fail_reason`, `payment_type`, `cheque_no`, `document_complete`, `document_ids`, `tax_complete`, `tax_fail_reason`, `registration_no_type`, `document_given_customer`, `no_for_choice`, `no_given_customer`, `document_for_no_choice`, `call_agent_rc`, `rc_dispached_not_reason`, `customer_state`, `active`, `delivery_date`, `consultant_name`, `remaining_amt`, `amount`, `finance`, `bank_name`, `insurance`, `followup`, `vehicle_reg`, `branch`) VALUES
-(1, 'Rajat', 'rajat@eail.co', '2147483647', '2147483647', '9806203545', '9806203545', 1, '', 'cheque', 0, 1, '1,2,3', 1, '', 'vip_no', 1, '1', 1, 1, 0, '', 1, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(4, 'adasasd', '', '0', '0', '', '', 1, '', 'cash', 0, 1, '', 1, '', 'choice_no', 1, '1', 1, 1, 0, '', 3, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(5, '', '', '0', '0', '', '', 0, '', 'cash', 0, 0, '', 0, '', 'regular_no', 0, '', 0, 0, 0, '', 3, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(6, '', '', '0', '0', '', '', 0, '', 'cash', 0, 0, '', 0, '', 'regular_no', 0, '', 0, 0, 0, '', 1, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(7, 'dsadsa', 'dasdsa', '0', '0', 'dsad', '4332', 1, '', 'cash', 0, 1, '1', 1, '', 'choice_no', 0, 'on', 0, 0, 0, '', 3, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(8, 'dsdsd', 'rajat@gmail.com', '2147483647', '2147483647', '9806203545', '9806203545', 1, '', 'cheque', 433434, 1, '2,3', 1, '', 'regular_no', 1, '', 0, 0, 0, '', 3, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(9, '', '', '0', '0', '', '', 0, '', '', 0, 0, '', 1, '', 'regular_no', 1, '', 1, 0, 0, '', 4, 0, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(10, 'Rajat Gupta', 'rajat@gmail.com', '9806203545', '2147483647', '9806203545', '9806203545', 1, '', 'cash', 0, 1, '2,3', 1, 'Test', 'choice_no', 0, 'on', 1, 0, 0, '', 2, 1, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(11, 'Dharmendra Deora', 'deoradharmendra@gmail.com', '9630258741', '9658741458', 'Biyabani Indore', '9856214558', 1, '', 'cheque', 9635, 1, '1,3', 1, '', 'regular_no', 1, '0', 1, 0, 0, '', 4, 1, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(12, 'Praveen Chouhan', 'praveen@gmail.com', '9412547485', '9320147857', 'Rajmohalla Indore', '9632547487', 1, '', 'cash', 0, 1, '1,2', 1, '', 'choice_no', 0, '0', 0, 0, 0, '', 3, 1, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(13, 'Ramesh Lal', 'ramesh@gmail.com', '9631478547', '7854741458', 'Gangwal indore', '9874521475', 1, '', 'cheque', 96547, 1, '1,2,3', 0, 'Check Clearance', 'choice_no', 0, 'on', 1, 1, 0, '', 4, 1, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(14, 'Raghvendra Singh', 'ragven@gmail.com', '9541745874', '9321475874', 'Bombay Hospital Indore', '9654148822', 1, '', 'cheque', 4343, 1, '1,2,3', 1, '', 'choice_no', 0, 'on', 1, 0, 1, '', 5, 1, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(15, 'dsadsa', 'dss@ffdf.fd', '4324344444', '4324344444', 'dsadsadsdssa', '43232', 1, '', 'cash', 0, 1, '1', 0, '', '', 0, '', 0, 0, 0, '', 1, 1, '0000-00-00 00:00:00', '', 0, 0, 0, '0', '', '', '', ''),
-(16, 'Rajat Gupta', 'rajat@gmail.com', '9806203545', '9806203545', '98062035459', '123456', 1, '', 'cheque', 87654, 1, '1,3', 0, '', '', 0, '', 0, 0, 0, '', 1, 1, '2017-02-27 23:03:00', 'Dharmendra Deora', 1, 100, 0, '', 'self', '9806203545', 'c/o', 'fordfigo');
+INSERT INTO `customers` (`prospect_id`, `id`, `customer_name`, `email`, `mobile_no`, `phone_no`, `address`, `engine_chesis_no`, `payment_complete`, `payment_fail_reason`, `payment_type`, `cheque_no`, `document_complete`, `document_ids`, `tax_complete`, `tax_fail_reason`, `registration_no_type`, `document_given_customer`, `no_for_choice`, `no_given_customer`, `document_for_no_choice`, `call_agent_rc`, `rc_dispached_not_reason`, `customer_state`, `active`, `delivery_date`, `consultant_name`, `remaining_amt`, `amount`, `finance`, `bank_name`, `insurance`, `followup`, `vehicle_reg`, `branch`, `vehicle_name`) VALUES
+(100002, 1, 'Rajat', 'rajat@email.com', '9856475487', '9856475487', '9806203545', '9806203545', 1, '', 'cash', 0, 1, '1,2,3', 1, '', 'vip_no', 1, '1', 1, 1, 0, '', 1, 1, '2017-03-01 00:00:00', 'Sachin Singh', 1, 85200, 1, '14555', 'vapl', 'Vinayak Have Collection of cars', 'normal', 'indore', 'Ford EcoSport'),
+(100011, 10, 'Rajat Gupta', 'rajat@gmail.com', '9806203545', '2147483647', '9806203545', '9806203545', 1, '', 'cash', 0, 1, '2,3', 1, 'Test', 'choice_no', 0, 'on', 1, 0, 0, '', 5, 1, '2017-03-07 00:00:00', 'Bhim Singh', 0, 0, 0, '', 'vapl', 'Knowledge Ford', 'normal', 'indore', 'Ford EcoSport'),
+(100012, 11, 'Dharmendra Deora', 'deoradharmendra@gmail.com', '9630258741', '9658741458', 'Biyabani Indore', '9856214558', 1, '', 'cheque', 9635, 1, '1,3', 1, '', 'regular_no', 1, '0', 1, 0, 0, '', 1, 1, '2017-03-02 00:00:00', 'Mahendra Singh', 1, 1000, 0, '', 'vapl', 'Loyal', 'normal', 'indore', 'Ford EcoSport'),
+(100013, 12, 'Praveen Chouhan', 'praveen@gmail.com', '9412547485', '9320147857', 'Rajmohalla Indore', '9632547487', 1, '', 'cash', 0, 1, '1,2', 1, '', 'choice_no', 0, '0', 0, 0, 0, '', 1, 1, '2017-03-03 04:09:14', 'Vinod Misra', 1, 3000, 0, '', 'vapl', 'Ford Rocks', 'normal', 'indore', 'Ford EcoSport'),
+(100014, 13, 'Ramesh Lal', 'ramesh@gmail.com', '9631478547', '7854741458', 'Gangwal indore', '9874521475', 1, '', 'cheque', 96547, 1, '1,2,3', 0, 'Check Clearance', 'choice_no', 0, 'on', 1, 1, 0, '', 1, 1, '2017-03-01 00:00:00', 'Ramlal', 1, 0, 0, '', 'vapl', 'Good Service', 'normal', 'indore', 'Ford EcoSport'),
+(100015, 14, 'Raghvendra Singh', 'ragven@gmail.com', '9541745874', '9321475874', 'Bombay Hospital Indore', '9654148822', 1, '', 'cheque', 4343, 1, '1,2,3', 1, '', 'choice_no', 0, 'on', 1, 0, 1, '', 5, 1, '2017-03-08 08:20:16', 'Nilesh Lal', 0, 0, 0, '', 'vapl', 'Modesty Ford', 'normal', 'indore', 'Ford EcoSport'),
+(100018, 17, 'Mankunwar Deora', 'deoradharmendra@gmail.com', '9770348768', '0731434095', '33/2 Biyabani Dhar Road Indore', '10588', 1, '', 'cheque', 255, 1, '2,3', 1, 'testkbjgg', 'regular_no', 1, '0', 1, 0, 0, '', 4, 1, '2017-03-12 21:03:00', 'Ankit Maltare', 1, 0, 1, 'ICICI BANK RAJMOHALLA', 'vapl', 'She want to extra accessories in Figo', 'c/o', 'indore', 'Ford Mustang'),
+(100019, 18, 'bnhnhmg', '', '2354253355', '', 'bmdngmnmnncbnm,', '5555555555', 1, '', 'cash', 0, 1, '1,2,3', 0, '', '', 0, '', 0, 0, 0, '', 1, 1, '2017-03-12 20:52:00', 'xbmnmxnm', 0, 0, 1, 'hjdghjgh', 'vapl', '', 'normal', 'indore', 'Ford Classic');
 
 -- --------------------------------------------------------
 
@@ -123,7 +119,14 @@ CREATE TABLE IF NOT EXISTS `enquiry` (
   `date` datetime NOT NULL,
   `taken` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `enquiry`
+--
+
+INSERT INTO `enquiry` (`id`, `employee_id`, `name`, `email`, `phone`, `address`, `reason`, `date`, `taken`) VALUES
+(1, 1, 'Rajat Gupta', 'rajatgupta.gupta1@gmail.com', '(980) 620-3545', 'Test', 'Test', '2017-03-03 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `password`, `type`) VALUES
-(1, 'Rajat', 'rajat@mail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Admin');
+(1, 'Rajat', 'rajat@mail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
