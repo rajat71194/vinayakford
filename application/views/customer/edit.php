@@ -85,7 +85,8 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess3" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i A',strtotime($custdata['delivery_date'])); ?>" readonly="">
+                                            <input class="form-control" id="inputSuccess3" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i A'); ?>" readonly="">   
+                                            <!--date('d-m-Y h:i A',strtotime($custdata['delivery_date']));-->
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -110,14 +111,14 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Vehicle Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" name="branch" id="branch">
+                                            <select class="form-control" name="vehicle_name" id="vehicle_name">
                                                 
-                                                 <option  <?php echo ($custdata['branch'] == "Ford EcoSport") ? " selected " : " " ?>  value="Ford EcoSport">Ford EcoSport</option>
-                                                <option  <?php echo ($custdata['branch'] == "Ford Figo") ? " selected " : " " ?>  value="Ford Figo">Ford Figo</option>
-                                                <option  <?php echo ($custdata['branch'] == "Ford Aspire") ? " selected " : " " ?>  value="Ford Aspire">Ford Aspire</option>
-                                                <option  <?php echo ($custdata['branch'] == "Ford Mustang") ? " selected " : " " ?>  value="Ford Mustang">Ford Mustang</option>
-                                                <option  <?php echo ($custdata['branch'] == "Ford Fiesta") ? " selected " : " " ?>  value="Ford Fiesta">Ford Fiesta</option>
-                                                <option  <?php echo ($custdata['branch'] == "Ford Classic") ? " selected " : " " ?>  value="Ford Classic">Ford Classic</option>
+                                                 <option  <?php echo ($custdata['vehicle_name'] == "Ford EcoSport") ? " selected " : " " ?>  value="Ford EcoSport">Ford EcoSport</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Figo") ? " selected " : " " ?>  value="Ford Figo">Ford Figo</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Aspire") ? " selected " : " " ?>  value="Ford Aspire">Ford Aspire</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Mustang") ? " selected " : " " ?>  value="Ford Mustang">Ford Mustang</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Fiesta") ? " selected " : " " ?>  value="Ford Fiesta">Ford Fiesta</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Classic") ? " selected " : " " ?>  value="Ford Classic">Ford Classic</option>
                                             </select>
                                         </div>
                                     </div>
@@ -353,7 +354,7 @@
                                     </div> 
                                     <div class="form-group document_given_to_agent_for_regular_no">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                            <small class="text-navy">document Given to Customer ? </small>
+                                            <small class="text-navy">Document Given to Agent </small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
@@ -371,7 +372,7 @@
                                     </div>
                                     <div class="form-group document_given_to_agent_for_choice_no">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                            <small class="text-navy">document Given to Customer ? </small>
+                                            <small class="text-navy">Document Given to Agent</small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="document_given_to_agent_for_choice_no"  type="hidden"   value="0" />

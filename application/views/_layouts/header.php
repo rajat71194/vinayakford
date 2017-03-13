@@ -8,29 +8,28 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	  <title>Ford | Vinayk Ford</title>
-
+          <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
+  <link href="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="<?php echo base_url();?>assets/js/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
 	  <!-- Bootstrap -->
 	  <link href="<?php echo base_url();?>assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	  <!-- Font Awesome -->
 	  <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	  <!-- NProgress -->
-	  <link href="<?php echo base_url();?>assets/css/nprogress/nprogress.css" rel="stylesheet">
-	  <!-- iCheck -->
-	  <link href="<?php echo base_url();?>assets/css/iCheck/skins/flat/green.css" rel="stylesheet">
-	  <!-- bootstrap-progressbar -->
-	  <link href="<?php echo base_url();?>assets/css/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+	
 	      <!-- Switchery -->
     <link href="<?php echo base_url();?>assets/js/switchery/dist/switchery.min.css" rel="stylesheet">
-          <!-- JQVMap -->
-	  <link href="<?php echo base_url();?>assets/css/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+        
 	  <!-- bootstrap-daterangepicker -->
 	  <link href="<?php echo base_url();?>assets/css/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-	  <link href="<?php echo base_url();?>assets/js/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-
+	 
 	  <!-- Custom Theme Style -->
 	  <link href="<?php echo base_url();?>assets/css/custom.min.css" rel="stylesheet">
 	  <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
+	  <link href="<?php echo base_url();?>assets/css/datepicker/css/bootstrap-datepicker.css" rel="stylesheet">
 	  <!--Add CSS From Controller-->  
 	  <?php
 	  if (isset($style_to_load)) :
@@ -44,44 +43,18 @@
                   
                    <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/datepicker/js/bootstrap-datepicker.min.js"></script>
+   
     <!-- Bootstrap -->
     <script src="<?php echo base_url();?>assets/js/bootstrap/js/bootstrap.min.js"></script><!--
-     FastClick 
--->    <script src="<?php echo base_url();?>assets/js/fastclick/lib/fastclick.js"></script><!--
-        Custom Theme Scripts 
-    
+   
 -->    <script src="<?php echo base_url();?>assets/js/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <script src="<?php echo base_url();?>assets/js/switchery/dist/switchery.min.js"></script>
      <!--
 -->    <script src="<?php echo base_url();?>assets/js/nprogress/nprogress.js"></script>
-<!--     Chart.js 
--->    <script src="<?php echo base_url();?>assets/js/chartjs/Chart.min.js"></script><!--
-     gauge.js 
--->    <script src="<?php echo base_url();?>assets/js/gauge.js/dist/gauge.min.js"></script><!--
-     bootstrap-progressbar 
--->    <script src="<?php echo base_url();?>assets/js/bootstrap-progressbar/bootstrap-progressbar.min.js"></script><!--
-     iCheck 
--->    <script src="<?php echo base_url();?>assets/js/iCheck/icheck.min.js"></script><!--
-     Skycons 
--->    <script src="<?php echo base_url();?>assets/js/skycons/skycons.js"></script><!--
-    
-     Flot 
--->    <script src="<?php echo base_url();?>assets/js/Flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url();?>assets/js/Flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo base_url();?>assets/js/Flot/jquery.flot.time.js"></script>
-    <script src="<?php echo base_url();?>assets/js/Flot/jquery.flot.stack.js"></script>
-    <script src="<?php echo base_url();?>assets/js/Flot/jquery.flot.resize.js"></script>
-<!--     Flot plugins 
--->    <script src="<?php echo base_url();?>assets/js/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="<?php echo base_url();?>assets/js/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="<?php echo base_url();?>assets/js/flot.curvedlines/curvedLines.js"></script><!--
-     DateJS 
--->    <script src="<?php echo base_url();?>assets/js/DateJS/build/date.js"></script><!--
-     JQVMap 
--->    <script src="<?php echo base_url();?>assets/js/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="<?php echo base_url();?>assets/js/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="<?php echo base_url();?>assets/js/jqvmap/examples/js/jquery.vmap.sampledata.js"></script><!--
+
+   
+   <!--
      bootstrap-daterangepicker 
 -->    <script src="<?php echo base_url();?>assets/js/moment/min/moment.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -90,6 +63,24 @@
 <script src="<?php echo base_url();?>assets/js/jquery.validate.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/additional-methods.min.js"></script>
  
+
+
+
+ <!-- Datatables-->
+        <script src="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.bootstrap.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.buttons.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/buttons.bootstrap.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/jszip.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/pdfmake.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/vfs_fonts.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/buttons.html5.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/buttons.print.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.fixedHeader.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.keyTable.min.js"></script>
+<!--        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.responsive.min.js"></script>
+        <script src="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.js"></script>-->
+        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.scroller.min.js"></script>
      </head>
 
      <body class="nav-md">
@@ -103,17 +94,5 @@
 
 			      <div class="clearfix"></div>
 
-			      <!-- menu profile quick info -->
-			      <div class="profile">
-				   <div class="profile_pic">
-					<img src="<?php echo base_url();?>assets/img/img.jpg" alt="..." class="img-circle profile_img">
-				   </div>
-				   <div class="profile_info">
-					<span>Welcome,</span>
-					<h2>John Doe</h2>
-				   </div>
-			      </div>
-			      <!-- /menu profile quick info -->
-
-			      <br />
+			  
                               <input type="hidden" name="base_url" id="base_url" value="<?php echo base_url();?>"/>

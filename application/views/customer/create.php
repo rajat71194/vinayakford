@@ -96,7 +96,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Vehicle Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" name="branch" id="branch">
+                                            <select class="form-control" name="vehicle_name" id="vehicle_name">
                                                 <option value="Ford EcoSport">Ford EcoSport</option>
                                                 <option value="Ford Figo">Ford Figo</option>
                                                 <option value="Ford Aspire">Ford Aspire</option>
@@ -327,7 +327,7 @@
                                     </div> 
                                     <div class="form-group document_given_to_agent_for_regular_no">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                            <small class="text-navy">document Given to Customer ? </small>
+                                            <small class="text-navy">Document Given to Agent</small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
@@ -344,7 +344,7 @@
                                     </div>
                                     <div class="form-group document_given_to_agent_for_choice_no">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                            <small class="text-navy">document Given to Customer ? </small>
+                                            <small class="text-navy">Document Given to Agent</small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="document_given_to_agent_for_choice_no"  type="hidden" class="js-switch" value="0" />

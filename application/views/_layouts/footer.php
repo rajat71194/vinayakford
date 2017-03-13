@@ -12,15 +12,17 @@ endif;
 ?>
 
 	<!-- footer content -->
-        <footer>
-          <div class="pull-right">
-           Ford 2016 <a href="https://colorlib.com">Colorlib</a>
+        
+        <!-- /footer content -->
+      </div>
+      <footer>
+          <div class="center">
+            Vinayak Ford @<?php echo date('Y'); ?>
           </div>
           <div class="clearfix"></div>
         </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
+    </div
+   
 
    
     <!-- Flot -->
@@ -100,6 +102,12 @@ endif;
     <!-- /Flot -->
 
     <!-- JQVMap -->
+     <style>
+        .center {
+    text-align: center;
+}
+        
+    </style>
     <script>
 //      $(document).ready(function(){
 //        $('#world-map-gdp').vectorMap({

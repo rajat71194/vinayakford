@@ -69,5 +69,10 @@ $route['customer/searchData'] = 'CustomerController/searchData';
 /*******************Prospect Route***************************/
 /*******************Report Route***************************/
 $route['report'] = 'ReportController/index';
+$route['report/pendingdata'] = 'ReportController/pendingDataReport';
+$route['report/statuswise'] = 'ReportController/statusWiseData';
+$route['report/statuswisereport'] = 'ReportController/statusWiseDataReport';
+$route['report/datewisedata'] = 'ReportController/dateWiseData';
+$route['report/datewisedatareport'] = 'ReportController/dateWiseDataReport';
 
 /*******************Report Route***************************/

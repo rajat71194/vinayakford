@@ -21,7 +21,7 @@ class Welcome extends CI_Controller {
      */
     function __construct() {
         parent::__construct();
-        $this->load->model('ford_model');
+        $this->load->model('ford_model','ford');
     }
 
     public function index() {
@@ -44,24 +44,26 @@ class Welcome extends CI_Controller {
 
 
             if ($this->input->post()) {
-                $row = $this->ford_model->admin_data();
+                $row = $this->ford->admin_data();
 
 
                 if (!empty($row[0])) {
                     foreach ($row as $rw) {
+                        $name = $rw->name;
                         $admin_id = $rw->id;
                         $admin_name = $rw->username;
                         $type = $rw->type;
                     }
                     $newdata = array(
                         'username' => $admin_name,
+                        'name' => $name,
                         'admin_id' => $admin_id,
                         'type' => $type
                     );
                     $this->session->set_userdata($newdata);
 
 
-                    redirect('employees');
+                    redirect('customer/search', 'refresh');
 
 //                $this->load->view('common/header');
 //                $this->load->view('admin/restaurant');
@@ -77,13 +79,56 @@ class Welcome extends CI_Controller {
             }
         }
     }
-    public function user(){
+
+    public function user() {
         $this->load->template('user/index');
     }
+
     public function logout() {
 
         $this->session->sess_destroy();
         redirect('welcome/login', 'refresh');
+    }
+
+    public function changepassword() {
+
+
+        $this->load->template('profile/change_password');
+    }
+
+    public function updatepassword() {
+        if ($this->input->post('user_id')) {
+            $this->form_validation->set_rules('old_password', 'Old Password', 'required');
+            $this->form_validation->set_rules('new_password', 'New Password', 'required');
+            $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->template('profile/change_password');
+            } else {
+                $old_password = $this->input->post('old_password');
+                $new_password = $this->input->post('new_password');
+                $user_id = $this->input->post('user_id');
+                $row = $this->ford->getRowCount('user', '*', array('password' => md5($old_password), 'id' => $user_id));
+                
+                if ($row != 0) {
+                    $row = $this->ford->rowUpdate('user', array('password' => md5($new_password)),array('id' => $user_id));
+                    if ($row) {
+                        $this->session->set_flashdata('success', 'Password Successfully Changed');
+                    } else {
+                        $this->session->set_flashdata('msg', 'Password does not changed');
+                    }
+                    redirect('welcome/changepassword', 'redirect');
+                } else {
+                     $this->session->set_flashdata('msg', 'Old Password does not Mathced');
+                    $this->load->template('profile/change_password');
+                }
+            }
+        } else {
+            $this->load->template('profile/change_password');
+        }
+    }
+
+    function old_password($old_password, $user_id) {
+        
     }
 
 }

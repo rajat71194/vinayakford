@@ -1,193 +1,159 @@
 
-  <!-- Bootstrap core CSS -->
-
-  <link href="<?php echo base_url();?>assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/css/animate/animate.min.css" rel="stylesheet">
-
-  
-  <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/css/iCheck/flat/green.css" rel="stylesheet">
-
-  <link href="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-  <link href="<?php echo base_url();?>assets/js/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="<?php echo base_url();?>assets/js/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
-  <link href="<?php echo base_url();?>assets/js/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-      <!-- page content -->
-      <div class="right_col" role="main">
-        <div class="">
-          <div class="page-title">
+<!-- Bootstrap core CSS -->
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
             <div class="title_left">
-              <h3>
+                <h3>
                     Prospact Data List-Delivered Vehicles
-                    
+
                 </h3>
             </div>
-              
-           
-          </div>
-          <div class="clearfix"></div>
 
-          <div class="row">
 
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="x_panel">
-                      <div class="x_title">
-                        <h2>Users</h2>
-                        
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">Sales Consultant</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="text" name="sales_consultant" id="sales_consultant" class="form-control" placeholder="Sales Consultant"/></div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">Client Given Name</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="text" name="customer_name" id="customer_name" class="form-control" placeholder="Customer Name"/></div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">VIN No</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="text" name="vin_no" id="vin_no" class="form-control" placeholder="VIN No"/></div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">Prospect Id</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="text" name="prospect_id" id="prospect_id" class="form-control" placeholder="Prospect Id"/></div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">Mobile No</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="number" name="mobile_no" id="mobile_no" class="form-control" placeholder="Mobile No"/></div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">From Date</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">To Date</label></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date"/>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="button" class="btn btn-small btn-info filter_search" value="Search"/></div>
+                        </div>
+
                         <div class="clearfix"></div>
-                      </div>
-                      <div class="x_content">
-                        
-                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap datatable-buttons responsive-utilities jambo_table bulk_action" cellspacing="0" width="100%">
-                          <thead>
-                            <tr class="headings">
+                    </div>
+                    <div class="x_content">
 
-                              <th>Prospect Id</th>
-                              <th>Delivery Date</th>
-                              <th>Vin No</th>
-                              <th>Customer Name</th>
-                              <th>Branch</th>
-                              <th>Vehicle</th>
-                              <th>Balance Payment</th>
-                              <th>Followup</th>
-                              <th>Sales Consultant</th>
-                              <th class="column-title no-link last"><span class="nobr">Action</span></th>
-                               <th class="bulk-actions" colspan="6">
-                          <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
-                        </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              
-                              
-                          </tbody>
+                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap datatable-buttons responsive-utilities jambo_table bulk_action" cellspacing="0" width="100%">
+                            <thead>
+                                <tr class="headings">
+
+                                    <th>Prospect Id</th>
+                                    <th>Delivery Date</th>
+                                    <th>Vin No</th>
+                                    <th>Customer Name</th>
+                                    <th>Mobile No</th>
+                                    <th>Branch</th>
+                                    <th>Vehicle</th>
+                                    <th>Followup</th>
+                                    <th>Sales Consultant</th>
+<!--                                    <th>Mobile No</th>-->
+<!--                                    <th class="column-title no-link last"><span class="nobr">Action</span></th>
+                                    <th class="bulk-actions" colspan="6">
+                                        <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                                    </th>-->
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                            </tbody>
                         </table>
 
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              <!-- footer content -->
-              
-              <!-- /footer content -->
-
             </div>
-            <!-- /page content -->
-         
+        </div>
+    </div>
+    <!-- footer content -->
 
-        
+    <!-- /footer content -->
+    <a href="<?php echo base_url('customer/create'); ?>" class="btn btn-sm btn-success">Add Customer</a>
+</div>
 
-       
-
-        
-      <script src="<?php echo base_url();?>assets/js/bootstrap/js/bootstrap.min.js"></script>
-
-        <!-- bootstrap progress js -->
-        <script src="<?php echo base_url();?>assets/js/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/nicescroll/jquery.nicescroll.min.js"></script>
-        <!-- icheck -->
-        <script src="<?php echo base_url();?>assets/js/iCheck/icheck.min.js"></script>
-
-        
-
-
-        <!-- Datatables -->
-        <!-- <script src="js/datatables/js/jquery.dataTables.js"></script>
-  <script src="js/datatables/tools/js/dataTables.tableTools.js"></script> -->
-
-        <!-- Datatables-->
-        <script src="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.bootstrap.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.buttons.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/buttons.bootstrap.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/jszip.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/pdfmake.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/vfs_fonts.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/buttons.html5.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/buttons.print.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.fixedHeader.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.keyTable.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.responsive.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.scroller.min.js"></script>
-
-
-        <!-- pace -->
-        <script src="<?php echo base_url();?>assets/js/pace/pace.min.js"></script>
-        <script>
-          var handleDataTableButtons = function() {
-              "use strict";
-              0 !== $(".datatable-buttons").length && $(".datatable-buttons").DataTable({
-                dom: "Bfrtip",
-                buttons: [{
-                  extend: "copy",
-                  className: "btn-sm"
+<script>
+    var handleDataTableButtons = function () {
+        "use strict";
+        0 !== $(".datatable-buttons").length && $(".datatable-buttons").DataTable({
+            dom: "Bfrtip",
+            buttons: [{
+                    extend: "copy",
+                    className: "btn-sm"
                 }, {
-                  extend: "csv",
-                  className: "btn-sm"
+                    extend: "csv",
+                    className: "btn-sm"
                 }, {
-                  extend: "excel",
-                  className: "btn-sm"
+                    extend: "excel",
+                    className: "btn-sm"
                 }, {
-                  extend: "pdf",
-                  className: "btn-sm"
+                    extend: "pdf",
+                    className: "btn-sm"
                 }, {
-                  extend: "print",
-                  className: "btn-sm"
+                    extend: "print",
+                    className: "btn-sm"
                 }],
-                responsive: !0
-              })
-            },
-            TableManageButtons = function() {
-              "use strict";
-              return {
-                init: function() {
-                  handleDataTableButtons()
+            responsive: !0
+        })
+    },
+            TableManageButtons = function () {
+                "use strict";
+                return {
+                    init: function () {
+                        handleDataTableButtons()
+                    }
                 }
-              }
             }();
-        </script>
-        <script type="text/javascript">
-          $(document).ready(function() {
-            $('#datatable').dataTable();
-            
-            $('#datatable-responsive').DataTable();
-            
-          
-          });
-          TableManageButtons.init();
-        </script>
-<!--        <script>
-            $(document).ready(function() {
-                $("#checkedAll").change(function(){
-                  if(this.checked){
-                    $(".checkSingle").each(function(){
-                      this.checked=true;
-                    })              
-                  }else{
-                    $(".checkSingle").each(function(){
-                      this.checked=false;
-                    })              
-                  }
-                });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datatable').dataTable();
 
-                $(".checkSingle").click(function () {
-                  if ($(this).is(":checked")){
-                    var isAllChecked = 0;
-                    $(".checkSingle").each(function(){
-                      if(!this.checked)
-                         isAllChecked = 1;
-                    })              
-                    if(isAllChecked == 0){ $("#checkedAll").prop("checked", true); }     
-                  }
-                  else {
-                    $("#checkedAll").prop("checked", false);
-                  }
-                });
-              });
-            </script>-->
+//        $('#datatable-responsive').DataTable();
+        $.fn.datepicker.noConflict;
+        $('#from_date').datepicker({
+            "format": 'dd-mm-yyyy',
+            minDate: 0,
+            todayHighlight: 'TRUE',
+            autoclose: true
+        });
+
+        $('#to_date').datepicker(
+                {
+                    "format": 'dd-mm-yyyy',
+                    "minDate": '04-03-2017',
+                    todayHighlight: 'TRUE',
+                    autoclose: true
+                }
+        );
+    });
+//    TableManageButtons.init();
+</script>
