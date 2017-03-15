@@ -60,12 +60,7 @@ $(document).ready(function () {
                 "bSortable": false,
                 //"sWidth":'15%'
             },
-//            {
-//                "sClass": "amount",
-//                "mDataProp": "amount",
-//                "bSortable": true,
-//                //"sWidth":'15%'
-//            },
+
             {
                 "sClass": "followup",
                 "mDataProp": "followup",
@@ -81,7 +76,7 @@ $(document).ready(function () {
            
 
         ],
-        dom: "Bfrtip",
+        dom: "Blfrtip",
             buttons: [
 //                {
 //                    extend: "copy",
@@ -97,21 +92,9 @@ $(document).ready(function () {
                     extend: "pdf",
                     className: "btn-sm"
                 },
-//                {
-//                    extend: "print",
-//                    className: "btn-sm"
-//                }
             ],
-//            responsive: !0,
         columnDefs: [{
-//            "targets": 1,
-//            "data": "delivery_date",
-//            "render": function (data, type, full, meta) {
-//
-//                var date = new Date(data);
-//                var create_date = date.getDate() +  '-' +(date.getMonth() + 1) +  '-' +  date.getFullYear()
-//                return create_date;
-//            }
+
             }],
         aaSorting: [[1, 'desc']],
         "bProcessing": true,
@@ -127,14 +110,11 @@ $(document).ready(function () {
         "sAjaxSource": base_url + 'CustomerController/search_customer',
         "oLanguage": {
             "sZeroRecords": "No records found",
-            // "sInfo": "Showing START to END of TOTAL records",
-            // "sInfoEmpty": "Showing 0 to 0 of 0 records",
             "sInfoFiltered": "",
             "sProcessing": ""
         },
      
         "fnServerParams": function (aoData) {
-//            aoData.push({"name": "crop_id", "value": $('select[id="crop_id"]').val()});
             aoData.push({"name": "sales_consultant", "value": sales_consultant});
             aoData.push({"name": "customer_name", "value": customer_name});
             aoData.push({"name": "vin_no", "value": vin_no});
@@ -144,26 +124,7 @@ $(document).ready(function () {
             aoData.push({"name": "mobile_no", "value": mobile_no});
         },
         "fnFooterCallback": function (row, data, start, end, display) {
-//            var from_date_field = '' ;
-//            var to_date_field = '';
-//            data.forEach(function (elementVal) {
-//                from_date_field = elementVal.from_date;
-//                to_date_field = elementVal.to_date;
-//            });
-//            if(from_date_field != '') {
-//                var d = new Date(from_date_field.split("/").reverse().join("-"));
-//                var dd=d.getDate();
-//                var mm=d.getMonth()+1;
-//                var yy=d.getFullYear();
-//                from_date_field = dd+'-'+mm+'-'+yy;
-//                var d2 = new Date(to_date_field.split("/").reverse().join("-"));
-//                var dd2=d2.getDate();
-//                var mm2=d2.getMonth()+1;
-//                var yy2=d2.getFullYear();
-//                to_date_field = dd2+'-'+mm2+'-'+yy2;
-//            }
-//            $("#from_date_select").val(from_date_field).prop('disabled', true);;
-//            $("#to_date_select").val(to_date_field).prop('disabled', true);;
+
 
         },
     });
@@ -177,11 +138,6 @@ $(document).ready(function () {
         from_date = $('#from_date').val();
         to_date = $('#to_date').val();
          otable1.fnDraw();
-         
-         
-    
-      
-         
          
     });
 
