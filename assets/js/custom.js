@@ -333,3 +333,8 @@ if (typeof NProgress != 'undefined') {
     });
 }
 /** ******  NProgress  *********************** **/
+
+
+$(window).load(function() {
+    $(".pageloader").fadeOut("slow");
+});

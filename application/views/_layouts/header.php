@@ -63,9 +63,6 @@
 <script src="<?php echo base_url();?>assets/js/jquery.validate.min.js"></script>
 <script src="<?php echo base_url();?>assets/js/additional-methods.min.js"></script>
  
-
-
-
  <!-- Datatables-->
         <script src="<?php echo base_url();?>assets/js/datatables/jquery.dataTables.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/datatables/dataTables.bootstrap.js"></script>
@@ -78,13 +75,12 @@
         <script src="<?php echo base_url();?>assets/js/datatables/buttons.print.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/datatables/dataTables.fixedHeader.min.js"></script>
         <script src="<?php echo base_url();?>assets/js/datatables/dataTables.keyTable.min.js"></script>
-<!--        <script src="<?php echo base_url();?>assets/js/datatables/dataTables.responsive.min.js"></script>
-        <script src="<?php echo base_url();?>assets/js/datatables/responsive.bootstrap.min.js"></script>-->
         <script src="<?php echo base_url();?>assets/js/datatables/dataTables.scroller.min.js"></script>
      </head>
 
      <body class="nav-md">
-	  <div class="container body">
+     <div class="pageloader"></div>
+     <div class="container body">
 	       <div class="main_container">
 		    <div class="col-md-3 left_col">
 			 <div class="left_col scroll-view">
