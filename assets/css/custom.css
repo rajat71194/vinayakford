@@ -5406,3 +5406,9 @@ ul.notifications {
   background: url('../img/pageloader.gif') 50% 50% no-repeat rgb(249,249,249);
   opacity: .8;
 }
+.top_nav .nav_menu .nav.toggle {
+    width: 100%;
+}
+.top_nav .nav_menu .nav.toggle #menu_toggle {
+    display: none;
+}

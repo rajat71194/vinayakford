@@ -234,7 +234,7 @@
                                     <div class="form-group payment_reason">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="2" name="customer_payment_reason" placeholder="Reason For Payment Not Received"><?php echo $custdata['payment_fail_reason'] ?></textarea>
+                                            <textarea class="form-control" rows="2" name="customer_payment_reason" id="customer_payment_reason" placeholder="Reason For Payment Not Received"><?php echo $custdata['payment_fail_reason'] ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group payment_type">
@@ -712,11 +712,21 @@
                     required: true,
 //                    number: true
                 },
-                payment_status: "required",
+//                payment_status: "required",
                 documents_status: "required",
                 "document[]": {
                     required: function (element) {
                         return $('#documents_status').is(':checked')
+                    }
+                },
+                "customer_payment_reason": {
+                    required: function (element) {
+                         if($('#payment_status').val()==0){
+                             return true;
+                         }else{
+                             return false;
+                             
+                         }
                     }
                 },
                 cheque_no: {
@@ -732,6 +742,7 @@
                 customer_address: {required: "Customer address is required"},
                 customer_chesisno: {required: "Vehicle Chesis no is required"},
                 payment_status: {required: "Payment Status is required"},
+                customer_payment_reason: {required: "Payment Reason is required"},
                 documents_status: {required: "Document Status is required"},
                 cheque_no: {required: "Document Status is required"},
                 "document[]": {required: "Document Type is required"}
@@ -932,9 +943,12 @@
             data: formdata,
             success: function (data) {
                 var data = $.parseJSON(data);
-                console.log(data);
+                
                 if (data.flag) {
                     $('body').find('.customer_id').val(data.custíd);
+                    if(data.redirect){
+                        location.href = base_url+"customer/search";
+                    }
 
                 }
             }

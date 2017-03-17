@@ -55,6 +55,7 @@ class CustomerController extends CI_Controller {
                     'address' => $data['customer_address'],
                     'engine_chesis_no' => $data['customer_chesisno'],
                     'payment_complete' => $data['payment_status'],
+                    'customer_payment_reason' => $data['customer_payment_reason'],
                     'payment_type' => $data['customer_payment'],
                     'cheque_no' => $data['cheque_no'],
                     'document_complete' => $data['documents_status'],
@@ -62,7 +63,10 @@ class CustomerController extends CI_Controller {
                     'customer_state' => $data['state'],
                     'active' => 1
                 );
-
+                $redirect = FALSE;
+                if($data['payment_status']==0){
+                $redirect = TRUE;
+                }
 //               echo json_encode($insertArr);die;
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
@@ -76,7 +80,7 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $result['custíd'] = $id;
-                $result['redirect'] = TRUE;
+                $result['redirect'] = $redirect;
                 $result['flag'] = TRUE;
 
                 echo json_encode($result);
@@ -99,6 +103,10 @@ class CustomerController extends CI_Controller {
                     getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
+                }
+                $redirect = FALSE;
+                if($data['tax_payment_status']==0){
+                 $redirect = TRUE;   
                 }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
@@ -125,6 +133,10 @@ class CustomerController extends CI_Controller {
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
+                $redirect = FALSE;
+                if($data['document_given_to_agent_for_regular_no']==0){
+                 $redirect = TRUE;   
+                }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = FALSE;
@@ -145,6 +157,10 @@ class CustomerController extends CI_Controller {
                     getProspect($data['customer_id']);
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
+                }
+                $redirect = FALSE;
+                if($data['no_given_to_customor']==0){
+                 $redirect = TRUE;   
                 }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;

@@ -138,37 +138,16 @@
 
         ],
                 dom: "Bfrtip",
-            buttons: [
-//                {
-//                    extend: "copy",
-//                    className: "btn-sm"
-//                }, {
-//                    extend: "csv",
-//                    className: "btn-sm"
-//                }, 
+            buttons: [ 
                 {
                     extend: "excel",
                     className: "btn-sm"
                 }, {
                     extend: "pdf",
                     className: "btn-sm"
-                },
-//                {
-//                    extend: "print",
-//                    className: "btn-sm"
-//                }
+                }
             ],
             responsive: !0,
-        columnDefs: [{
-//            "targets": 1,
-//            "data": "delivery_date",
-//            "render": function (data, type, full, meta) {
-//
-//                var date = new Date(data);
-//                var create_date = date.getDate() +  '-' +(date.getMonth() + 1) +  '-' +  date.getFullYear()
-//                return create_date;
-//            }
-            }],
         aaSorting: [[1, 'desc']],
         "bProcessing": true,
         "bLengthChange ": false,
@@ -183,8 +162,6 @@
         "sAjaxSource": base_url + 'CustomerController/case_customer',
         "oLanguage": {
             "sZeroRecords": "No records found",
-            // "sInfo": "Showing START to END of TOTAL records",
-            // "sInfoEmpty": "Showing 0 to 0 of 0 records",
             "sInfoFiltered": "",
             "sProcessing": ""
         },
