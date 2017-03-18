@@ -5397,7 +5397,7 @@ ul.notifications {
 }
 
 .pageloader {
-  position: fixed;
+  position: fixed;  
   left: 0px;
   top: 0px;
   width: 100%;
@@ -5406,9 +5406,44 @@ ul.notifications {
   background: url('../img/pageloader.gif') 50% 50% no-repeat rgb(249,249,249);
   opacity: .8;
 }
+.navbar.nav_title {
+    display: none;
+}
+.main_menu_side .menu_section h3 {
+    font-size: 16px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.main_container .top_nav {
+    min-height: 100px;
+}
 .top_nav .nav_menu .nav.toggle {
     width: 100%;
+    padding-bottom: 16px;
 }
 .top_nav .nav_menu .nav.toggle #menu_toggle {
     display: none;
+}
+.top_nav .nav_menu .nav.toggle .HeadLeft h3 {
+    font-size: 26px;
+    font-style: italic;
+    margin: 15px 0 0;
+}
+.top_nav .nav_menu .nav.toggle .HeadLeft span.title {
+    display: table;
+    text-indent: 5px;
+    position: relative;
+}
+.top_nav .nav_menu .nav.toggle .HeadLeft span.title:after {
+    left: 5px;
+    width: 54px;
+    height: 2px;
+    bottom: 0px;
+    content: '';
+    position: absolute;
+    background: #73879c;
+}
+.top_nav .nav_menu .nav.toggle .HeadRight img {
+    /*width: 50px;*/
 }
