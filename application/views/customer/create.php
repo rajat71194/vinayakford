@@ -31,7 +31,7 @@
                             <li role="presentation" class="disabled">
                                 <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
                                     <span class="round-tab">
-                                        <i class="glyphicon glyphicon-lock"></i>
+                                        <i class="fa fa-money" aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </li>
@@ -109,7 +109,7 @@
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Vin Number <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chasis Number" type="text">
+                                            <input class="form-control" id="customer_chesisno" name="customer_chesisno" placeholder="Chasis Number" type="text">
                                             <span class="fa fa-automobile form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
@@ -138,7 +138,7 @@
                                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email <span class="required">*</span></label>
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text">
                                             <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
@@ -172,7 +172,7 @@
                                         </div>
                                     </div>   
 
-
+                                    
 
 
                                     <div class="form-group">
@@ -196,13 +196,54 @@
                                             </select>
                                         </div>
                                     </div>
-
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address <span class="required">*</span></label></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"></textarea>
                                         </div>
                                     </div>
+                                   
+                                    <div class="form-group">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ? <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+<!--                                            <input name="documents_status"  type="hidden" class="js-switch" value="0" />
+                                            <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1"  <?= ( $custdata['document_complete'] == "1") ? '   checked ' : ''; ?> />-->
+                                            <select name="documents_status" id="documents_status" class="form-control">
+                                                <option value="">Choose</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group document_type">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ? </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="pencard" value="1" name="document[]">Pan Card
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="drivinglic" value="2" name="document[]">Aadhar Card
+                                            </label>
+                                            
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="passport" value="3" name="document[]">Passport
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <ul class="list-inline pull-right">
+                                    <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_tax">
+                                <div class="step2">
+                                    <input type="hidden" name="state" id="state" value="2"/>
+                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
+                                     
 
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
@@ -214,7 +255,7 @@
                                     <div class="form-group payment_reason">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" rows="2" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
+                                            <textarea class="form-control" rows="2" id="customer_payment_reason" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group payment_type">
@@ -238,47 +279,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ? <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input name="documents_status"  type="hidden" class="js-switch" value="0" />
-                                            <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group document_type">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ? </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="1" name="document[]">Pan Card
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="2" name="document[]">Aadhar Card
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="3" name="document[]">Bank Do
-                                            </label>
-
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="4" name="document[]">Voter Id
-                                            </label>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <ul class="list-inline pull-right">
-                                    <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
-                                </ul>
-                            </form>
-                        </div>
-                        <div class="tab-pane" role="tabpanel" id="step2">
-                            <form class="form-horizontal form-label-left" method="post" enctype="multipart/data" id="customer_tax">
-                                <div class="step2">
-                                    <input type="hidden" name="state" id="state" value="2"/>
-                                    <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                    <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="hidden" name="payment_status" value="0"/>
+                                            
                                             <input name="tax_payment_status" type="hidden"   value="0" />
                                             <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
                                         </div>
@@ -374,6 +377,28 @@
                                             <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" value="1" unchecked />
                                         </div>
                                     </div>
+                                    <div class="form-group call_agent">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input name="call_agent"  type="hidden" class="js-switch"  value="0" />
+                                            <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked value="1" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group photo_agent_upload">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="file" name="files" class="form-control"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group call_agent_reason">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"></textarea>
+                                        </div>
+                                    </div>
+
                                     <div class="show_information_notification">
                                         <div class="alert alert-info alert-dismissable">
                                             <a href="#" class="close" data-dismiss="alert" aria-label="close">�</a>
@@ -399,23 +424,7 @@
 
                                     <input type="hidden" name="state" id="state" value="5"/>
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                    <div class="form-group call_agent">
-                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
-                                            <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input name="call_agent"  type="hidden" class="js-switch"  value="0" />
-                                            <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked value="1" />
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group call_agent_reason">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"></textarea>
-                                        </div>
-                                    </div>
-
+                                    
 
 
                                 </div>
@@ -671,8 +680,18 @@
                     minlength: 10,
                     maxlength: 100
                 },
+//                ^[A-Z]{2}[0-9]{5}$
                 customer_chesisno: {
-                    required: true,
+                    required: function (element) {
+                        var pat = /^[A-Z]{2}[0-9]{5}$/;
+                        var str = $("#customer_chesisno").val();
+                        if (str.match(pat)) {
+                            return false;
+                        } else {
+                            return true;
+
+                        }
+                    }
 //                    number: true
                 },
                 consultant_name: "required",
@@ -680,11 +699,6 @@
                 "document[]": {
                     required: function (element) {
                         return $('#documents_status').is(':checked')
-                    }
-                },
-                cheque_no: {
-                    required: function (element) {
-                        return $('#optionsRadios2').is(':checked')
                     }
                 },
                 amount: {
@@ -726,9 +740,15 @@
         //
         $("#customer_tax").validate({
             rules: {
-//                tax_payment_status: "required",
+                customer_payment_reason:"required",
+                 cheque_no: {
+                    required: function (element) {
+                        return $('#optionsRadios2').is(':checked')
+                    }
+                },
                 tax_payment_reason: "required",
             }, messages: {
+                customer_payment_reason:{ required:"Payment Reason is Required"},
                 tax_payment_status: "Tax Payment is Required",
                 tax_payment_reason: "Reason is required",
             }
@@ -736,7 +756,7 @@
         $("#customer_registrationdetail").validate({
             rules: {
                 registration_no_type: "required",
-                document_given_to_agent_for_regular_no: "required",
+//                document_given_to_agent_for_regular_no: "required",
             }, messages: {
                 registration_no_type: "registration no is Required",
                 document_given_to_agent_for_regular_no: "Docuemnt check is  required",
@@ -745,14 +765,20 @@
         $("#customer_number").validate({
             rules: {
                 no_given_to_customor: "required",
+//                call_agent: "required",
+                rc_reason: "required",
+                files:"required"
             }, messages: {
                 no_given_to_customor: "No given to customer is Required",
+                call_agent: "Call Agent RC Card Dispatched is required",
+                rc_reason: "Call Agent RC Card Dispatched reason is required",
+                files:"RC Document is required"
             }
         });
         $("#customer_rc").validate({
             rules: {
-                call_agent: "required",
-                rc_reason: "required"
+//                call_agent: "required",
+//                rc_reason: "required"
             }, messages: {
                 call_agent: "Call Agent RC Card Dispatched is required",
                 rc_reason: "Call Agent RC Card Dispatched reason is required"
@@ -804,7 +830,9 @@
 
         if ($("#call_agent").is(":checked")) {
             $(".call_agent_reason").hide();
+            $(".photo_agent_upload").show();
         } else {
+            $(".photo_agent_upload").hide();
             $(".call_agent_reason").show();
         }
 
@@ -818,13 +846,16 @@
                 $(".payment_type").hide();
             }
         });
-        $("#documents_status").change(function () {
-            if ($(this).is(":checked")) {
-
-
+        $("body").on('change', '#documents_status', function () {
+            if ($(this).val() == 1) {
                 $(".document_type").show();
+                $("#pencard").prop('checked', 'checked');
+                $("#drivinglic").prop('checked', 'checked');
+            } else if ($(this).val() == 0) {
+                $("#pencard").removeAttr('checked');
+                $("#drivinglic").removeAttr('checked');
+                $("#passport").removeAttr('checked');
             } else {
-
                 $(".document_type").hide();
             }
         });
@@ -896,8 +927,10 @@
 
             if ($(this).is(":checked")) {
                 $(".call_agent_reason").hide();
+            $(".photo_agent_upload").show();
             } else {
-                $(".call_agent_reason").show();
+                $(".photo_agent_upload").hide();
+            $(".call_agent_reason").show();
             }
 
 
@@ -910,6 +943,9 @@
             url: base_url + 'customerController/saveData',
             type: 'POST',
             data: formdata,
+          cache: false,
+        contentType: false,
+        processData: false,
             success: function (data) {
                 var data = $.parseJSON(data);
                 console.log(data);

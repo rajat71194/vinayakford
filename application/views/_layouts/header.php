@@ -43,6 +43,7 @@
                   
                    <!-- jQuery -->
     <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/jquery.form.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/datepicker/js/bootstrap-datepicker.min.js"></script>
    
     <!-- Bootstrap -->

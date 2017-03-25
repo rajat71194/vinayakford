@@ -5,7 +5,7 @@
               <div class="nav toggle">
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                 <div class="col-sm-6 HeadLeft">  
-                    <h3>Vinayank Ford</h3>
+                    <h3>Vinayak Ford</h3>
                     <span class="title">You Drive We Care</span>
                 </div>
                 

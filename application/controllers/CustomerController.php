@@ -31,7 +31,7 @@ class CustomerController extends CI_Controller {
         $data = $this->input->post();
         $state = $data['state'];
         $result['data'] = $data;
-
+       
         switch ($state) {
             case 1:
 
@@ -54,17 +54,24 @@ class CustomerController extends CI_Controller {
                     'phone_no' => $data['customer_phone'],
                     'address' => $data['customer_address'],
                     'engine_chesis_no' => $data['customer_chesisno'],
-                    'payment_complete' => $data['payment_status'],
-                    'customer_payment_reason' => $data['customer_payment_reason'],
-                    'payment_type' => $data['customer_payment'],
-                    'cheque_no' => $data['cheque_no'],
+//                    'payment_complete' => $data['payment_status'],
+//                    'customer_payment_reason' => $data['customer_payment_reason'],
+//                    'payment_type' => $data['customer_payment'],
+//                    'cheque_no' => $data['cheque_no'],
                     'document_complete' => $data['documents_status'],
-                    'document_ids' => implode(',', $data['document']),
+                   
                     'customer_state' => $data['state'],
                     'active' => 1
                 );
+                
+                if( isset($data['document'])&&$data['document']!=""){
+                    $insertArr['document_ids'] = implode(',', $data['document']);
+                }else{
+                    $insertArr['document_ids'] = "";
+                    
+                }
                 $redirect = FALSE;
-                if($data['payment_status']==0){
+                if($data['documents_status']!=1){
                 $redirect = TRUE;
                 }
 //               echo json_encode($insertArr);die;
@@ -88,7 +95,11 @@ class CustomerController extends CI_Controller {
             case 2:
                 $insertArr = array(
                     'tax_complete' => $data['tax_payment_status'],
-                    'customer_state' => $data['state']
+                    'customer_state' => $data['state'],
+                     'payment_complete' => $data['payment_status'],
+                    'customer_payment_reason' => $data['customer_payment_reason'],
+                    'payment_type' => $data['customer_payment'],
+                    'cheque_no' => $data['cheque_no']
                 );
                 if ($data['tax_payment_status'] == '0') {
                     $insertArr['tax_fail_reason'] = $data['tax_payment_reason'];
@@ -105,12 +116,13 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $redirect = FALSE;
-                if($data['tax_payment_status']==0){
+                if($data['payment_status']==0){
                  $redirect = TRUE;   
                 }
                 $result['custíd'] = $id;
+                $result['aaa'] = $data['payment_status'];
                 $result['flag'] = TRUE;
-                $result['redirect'] = FALSE;
+                $result['redirect'] = $redirect;
                 echo json_encode($result);
                 break;
             case 3:
@@ -137,16 +149,43 @@ class CustomerController extends CI_Controller {
                 if($data['document_given_to_agent_for_regular_no']==0){
                  $redirect = TRUE;   
                 }
-                $result['custíd'] = $id;
+               $amt =  $this->ford->getData('customers',array('remaining_amt','amount'),array('id'=>$id));   
+               if(!empty($amt)){
+                   if($amt[0]['remaining_amt']==0 && $amt[0]['amount']<0){
+                     $redirect = TRUE;   
+                   }
+               } 
+               
+               $result['custíd'] = $id;
                 $result['flag'] = TRUE;
-                $result['redirect'] = FALSE;
+                $result['redirect'] = $redirect;
                 echo json_encode($result);
                 break;
             case 4:
                 $insertArr = array(
                     'no_given_customer' => $data['no_given_to_customor'],
+                    'customer_state' => $data['state'],
+                    'call_agent_rc' => $data['call_agent'],
                     'customer_state' => $data['state']
                 );
+                 if ($data['call_agent'] == 0) {
+                    $insertArr['rc_dispached_not_reason'] = $data['rc_reason'];
+                }
+                
+                  $config['upload_path']          = './rc_document/';
+                $config['allowed_types']        = 'gif|jpg|png|pdf';
+//                $config['max_size']             = 100;
+//                $config['max_width']            = 1024;
+//                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);
+                $error = '';
+                if ( ! $this->upload->do_upload('files'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+
+                       
+                }
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
                     getProspect($insert_id);
@@ -158,10 +197,13 @@ class CustomerController extends CI_Controller {
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
+               
                 $redirect = FALSE;
                 if($data['no_given_to_customor']==0){
                  $redirect = TRUE;   
                 }
+                $result['files'] = $_FILES;
+                $result['error'] = $error;
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = FALSE;
@@ -169,23 +211,23 @@ class CustomerController extends CI_Controller {
                 break;
             case 5:
                 $insertArr = array(
-                    'call_agent_rc' => $data['call_agent'],
-                    'customer_state' => $data['state']
+//                    'call_agent_rc' => $data['call_agent'],
+//                    'customer_state' => $data['state']
                 );
                 if ($data['call_agent'] == 1) {
                     $insertArr['rc_dispached_not_reason'] = $data['rc_reason'];
                 }
-                if ($data['customer_id'] == "") {
-                    $insert_id = $this->ford->rowInsert('customers', $insertArr);
-                    getProspect($insert_id);
-                    if ($insert_id) {
-                        $id = $insert_id;
-                    }
-                } else {
-                    getProspect($data['customer_id']);
-                    $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
-                    $id = $data['customer_id'];
-                }
+//                if ($data['customer_id'] == "") {
+//                    $insert_id = $this->ford->rowInsert('customers', $insertArr);
+//                    getProspect($insert_id);
+//                    if ($insert_id) {
+//                        $id = $insert_id;
+//                    }
+//                } else {
+//                    getProspect($data['customer_id']);
+//                    $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
+//                    $id = $data['customer_id'];
+//                }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = FALSE;

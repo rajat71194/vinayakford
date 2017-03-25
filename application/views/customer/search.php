@@ -6,7 +6,7 @@
         <div class="page-title">
             <div class="title_left">
                 <h3>
-                    Prospact Data List-Delivered Vehicles
+                    Prospect Data List-Delivered Vehicles
 
                 </h3>
             </div>
