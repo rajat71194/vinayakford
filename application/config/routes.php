@@ -65,11 +65,13 @@ $route['customer/search'] = 'CustomerController/search';
 $route['customer/payment'] = 'CustomerController/payment_pending';
 $route['customer/pending'] = 'CustomerController/pending_case';
 $route['customer/searchData'] = 'CustomerController/searchData';
+$route['customer/upload'] = 'CustomerController/upload';
 
 /*******************Prospect Route***************************/
 /*******************Report Route***************************/
 $route['report'] = 'ReportController/index';
 $route['report/pendingdata'] = 'ReportController/pendingDataReport';
+$route['report/pendingdataview'] = 'ReportController/pendingview';
 $route['report/statuswise'] = 'ReportController/statusWiseData';
 $route['report/statuswisereport'] = 'ReportController/statusWiseDataReport';
 $route['report/datewisedata'] = 'ReportController/dateWiseData';

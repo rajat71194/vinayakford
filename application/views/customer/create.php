@@ -389,7 +389,8 @@
                                     <div class="form-group photo_agent_upload">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="file" name="files" class="form-control"/>
+                                           <input type="file" id="rc_file" name="files" class="form-control"/>
+                                           <input type="hidden" id="file_name"  name="file_name" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group call_agent_reason">
@@ -785,7 +786,17 @@
             }
         });
         //next button event
-
+       $("#rc_file").AjaxFileUpload({
+                                action: base_url+"customer/upload",
+				onComplete: function(filename, response) {
+					$("#file_name").val(filename);
+                                        $(".image_show").empty();
+                                        var name = base_url+"/rc_document/"+filename;
+                                        $(".image_show").html("<img height='100' class='thumbnail' width='150' src='"+name+"'>");
+                                        
+                                        
+				}
+			});
         $('body').on('click', '.buttonNext', function () {
 
 

@@ -36,10 +36,20 @@
                         <div class="col-md-12">
                             <form method="post" id="datewiseform" action="<?php echo base_url('report/datewisedatareport'); ?>" enctype="multipart/data">
                                 <div class="col-md-12 form-group">
+                                    <div class="col-md-2"><label>Select Branch</label></div>
+                                    <div class="col-md-4"><select id="branch" name="branch" class="form-control">
+                                            <option value="indore">Indore</option>    
+                                            <option value="khargone">Khargone</option>    
+                                            <option value="sagar">Sagar</option>    
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group">
                                     <div class="col-md-2 col-sm-3 col-xs-12"><label for="name">From Date</label></div>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
 
-                                        <input type="text" name="from_date" id="from_date" class="form-control" placeholder="From Date"/>
+                                        <input type="text" name="from_date" id="from_date_report" class="form-control" placeholder="From Date"/>
                                     </div>
                                 </div>
 
@@ -47,7 +57,7 @@
                                     <div class="col-md-2 col-sm-3 col-xs-12"><label for="name">To Date</label></div>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
 
-                                        <input type="text" name="to_date" id="to_date" class="form-control" placeholder="To Date"/>
+                                        <input type="text" name="to_date" id="to_date_report" class="form-control" placeholder="To Date"/>
 
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12"><input type="submit" class="btn btn-small btn-primary filter_search" value="Search"/></div>
@@ -65,23 +75,18 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $.fn.datepicker.noConflict;
-            $('#from_date').datepicker({
-                "format": 'dd-mm-yyyy',
-                minDate: 0,
-                todayHighlight: 'TRUE',
-                autoclose: true
-            });
+         //   $.fn.datepicker.noConflict;
+         $( "#from_date_report" ).datepicker({ dateFormat: 'dd-mm-yy' });
+         $( "#to_date_report" ).datepicker({ dateFormat: 'dd-mm-yy' });
+//            $('#from_date_report').datepicker({
+//                format: 'dd-mm-yyyy',
+//          
+//                todayHighlight: 'TRUE',
+//                autoclose: true
+//            });
 
-            $('#to_date').datepicker(
-                    {
-                        "format": 'dd-mm-yyyy',
-                        "minDate": '04-03-2017',
-                        todayHighlight: 'TRUE',
-                        autoclose: true
-                    }
-            );
-            $("#datewiseform").validate({
+//            $('#').datepicker();
+            $("#datewiseformaa").validate({
                 rules: {
                     from_date: {
                         required: true

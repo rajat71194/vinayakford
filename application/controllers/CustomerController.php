@@ -89,7 +89,7 @@ class CustomerController extends CI_Controller {
                 $result['custíd'] = $id;
                 $result['redirect'] = $redirect;
                 $result['flag'] = TRUE;
-
+                $result['state'] = 1;
                 echo json_encode($result);
                 break;
             case 2:
@@ -98,9 +98,11 @@ class CustomerController extends CI_Controller {
                     'customer_state' => $data['state'],
                      'payment_complete' => $data['payment_status'],
                     'customer_payment_reason' => $data['customer_payment_reason'],
-                    'payment_type' => $data['customer_payment'],
                     'cheque_no' => $data['cheque_no']
                 );
+                if (isset($data['customer_payment'])) {
+                    $insertArr['payment_type'] = $data['customer_payment'];
+                }
                 if ($data['tax_payment_status'] == '0') {
                     $insertArr['tax_fail_reason'] = $data['tax_payment_reason'];
                 }
@@ -123,6 +125,7 @@ class CustomerController extends CI_Controller {
                 $result['aaa'] = $data['payment_status'];
                 $result['flag'] = TRUE;
                 $result['redirect'] = $redirect;
+                $result['state'] = 2;
                 echo json_encode($result);
                 break;
             case 3:
@@ -159,6 +162,7 @@ class CustomerController extends CI_Controller {
                $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = $redirect;
+                $result['state'] = 3;
                 echo json_encode($result);
                 break;
             case 4:
@@ -168,6 +172,9 @@ class CustomerController extends CI_Controller {
                     'call_agent_rc' => $data['call_agent'],
                     'customer_state' => $data['state']
                 );
+                if(isset($data['file_name'])){
+                    $insertArr['file_name'] = $data['file_name'];
+                }
                  if ($data['call_agent'] == 0) {
                     $insertArr['rc_dispached_not_reason'] = $data['rc_reason'];
                 }
@@ -178,14 +185,7 @@ class CustomerController extends CI_Controller {
 //                $config['max_width']            = 1024;
 //                $config['max_height']           = 768;
 
-                $this->load->library('upload', $config);
-                $error = '';
-                if ( ! $this->upload->do_upload('files'))
-                {
-                        $error = array('error' => $this->upload->display_errors());
-
-                       
-                }
+              
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
                     getProspect($insert_id);
@@ -202,35 +202,55 @@ class CustomerController extends CI_Controller {
                 if($data['no_given_to_customor']==0){
                  $redirect = TRUE;   
                 }
-                $result['files'] = $_FILES;
-                $result['error'] = $error;
+                $customer = $this->ford->getData('customers', '*',array('id' => $data['customer_id']));
+                $result['custdata'] = $customer[0];
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = FALSE;
+                $result['state'] = 4;
                 echo json_encode($result);
                 break;
             case 5:
+               
                 $insertArr = array(
-//                    'call_agent_rc' => $data['call_agent'],
-//                    'customer_state' => $data['state']
+                    'delivery_date' => date('Y-m-d H:i:s', strtotime($data['delivery_date'])),
+                    'consultant_name' => $data['consultant_name'],
+                    'customer_name' => $data['customer_name'],
+                    'followup' => $data['followup'],
+                    'finance' => $data['finance'],
+                    'bank_name' => $data['bank_name'],
+                    'insurance' => $data['insurance'],
+                    'remaining_amt' => $data['remaining_amt'],
+                    'amount' => $data['amount'],
+                    'vehicle_reg' => $data['vehicle_reg'],
+                    'branch' => $data['branch'],
+                    'vehicle_name' => $data['vehicle_name'],
+                    'insurance' => $data['insurance'],
+                    'email' => $data['customer_email'],
+                    'mobile_no' => $data['customer_mobno'],
+                    'phone_no' => $data['customer_phone'],
+                    'address' => $data['customer_address'],
+                    'customer_state' => 5,
+                    'engine_chesis_no' => $data['customer_chesisno'],
+                    'active' => 1
                 );
-                if ($data['call_agent'] == 1) {
-                    $insertArr['rc_dispached_not_reason'] = $data['rc_reason'];
+           
+              
+                if ($data['customer_id'] == "") {
+                    $insert_id = $this->ford->rowInsert('customers', $insertArr);
+                    getProspect($insert_id);
+                    if ($insert_id) {
+                        $id = $insert_id;
+                    }
+                } else {
+                    getProspect($data['customer_id']);
+                    $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
+                    $id = $data['customer_id'];
                 }
-//                if ($data['customer_id'] == "") {
-//                    $insert_id = $this->ford->rowInsert('customers', $insertArr);
-//                    getProspect($insert_id);
-//                    if ($insert_id) {
-//                        $id = $insert_id;
-//                    }
-//                } else {
-//                    getProspect($data['customer_id']);
-//                    $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
-//                    $id = $data['customer_id'];
-//                }
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = FALSE;
+                $result['state'] = 5;
                 echo json_encode($result);
                 break;
             default:
@@ -498,5 +518,34 @@ class CustomerController extends CI_Controller {
         echo json_encode($out);
         exit;
     }
+    function  upload(){
+    $whitelist = array('jpg', 'jpeg', 'png', 'gif');
+$name      = null;
+$error     = 'No file uploaded.';
 
+if (isset($_FILES)) {
+	if (isset($_FILES['files'])) {
+		$tmp_name = $_FILES['files']['tmp_name'];
+		$name     = basename($_FILES['files']['name']);
+                $target_dir = "rc_document/";
+                $target_file = $target_dir . basename(basename($_FILES['files']['name']));
+		$error    = $_FILES['files']['error'];
+		
+		if ($error === UPLOAD_ERR_OK) {
+			$extension = pathinfo($name, PATHINFO_EXTENSION);
+
+			if (!in_array($extension, $whitelist)) {
+				$error = 'Invalid file type uploaded.';
+			} else {
+				move_uploaded_file($tmp_name, $target_file);
+			}
+		}
+	}
+}
+
+echo json_encode(array(
+	'name'  => $name,
+	'error' => $error,
+));
+    }
 }

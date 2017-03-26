@@ -21,14 +21,14 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Open Prospect Status</h2>
+                        <h2>Open Pending Status</h2>
                         <a href="<?php echo base_url('report')?>" class="btn btn-info btn-sm pull-right">Back</a>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
                         <div class="col-md-12">
-                            <form method="post" action="<?php echo base_url('report/statuswisereport');?>" enctype="multipart/data">
+                            <form method="post" action="<?php echo base_url('report/pendingdata');?>" enctype="multipart/data">
                                 <div class="col-md-12 form-group">
                                     <div class="col-md-2"><label>Select Branch</label></div>
                                     <div class="col-md-4"><select id="branch" name="branch" class="form-control">
@@ -39,17 +39,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-12 form-group">
-                                    <div class="col-md-2"><label>Select State</label></div>
-                                    <div class="col-md-4"><select id="customer_state" name="customer_state" class="form-control">
-                                            <option value="1">State-1</option>    
-                                            <option value="2">State-2</option>    
-                                            <option value="3">State-3</option>    
-                                            <option value="4">State-4</option>    
-                                            <option value="5">State-5</option>    
-                                        </select>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-12 form-group">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4 ">
