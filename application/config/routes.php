@@ -76,5 +76,7 @@ $route['report/statuswise'] = 'ReportController/statusWiseData';
 $route['report/statuswisereport'] = 'ReportController/statusWiseDataReport';
 $route['report/datewisedata'] = 'ReportController/dateWiseData';
 $route['report/datewisedatareport'] = 'ReportController/dateWiseDataReport';
+$route['report/paymentwisedata'] = 'ReportController/paymentWiseData';
+$route['report/paymentDateWiseDataReport'] = 'ReportController/paymentDateWiseDataReport';
 
 /*******************Report Route***************************/

@@ -31,7 +31,7 @@ class CustomerController extends CI_Controller {
         $data = $this->input->post();
         $state = $data['state'];
         $result['data'] = $data;
-       
+        
         switch ($state) {
             case 1:
 
@@ -71,9 +71,10 @@ class CustomerController extends CI_Controller {
                     
                 }
                 $redirect = FALSE;
-                if($data['documents_status']!=1){
+                if($data['documents_status']!=1 || $data['exit']==1){
                 $redirect = TRUE;
                 }
+                
 //               echo json_encode($insertArr);die;
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
@@ -118,7 +119,7 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $redirect = FALSE;
-                if($data['payment_status']==0){
+                if($data['payment_status']!=1){
                  $redirect = TRUE;   
                 }
                 $result['custíd'] = $id;

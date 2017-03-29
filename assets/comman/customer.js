@@ -17,6 +17,9 @@ $(document).ready(function () {
     var base_url = $("#base_url").val();
     var otable1; 
     otable1 = $('#datatable-responsive').dataTable({
+         language: {
+    processing: "<img src='img/loading.gif'> Loading...",
+  },
         "aoColumns": [
             {
                 "sClass": "prospect_id",

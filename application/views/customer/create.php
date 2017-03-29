@@ -79,6 +79,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="branch" id="branch">
+                                                <option value="">Select Branch</option>
                                                 <option value="indore">Ford Indore</option>
                                                 <option value="sagar">Ford Sagar</option>
                                                 <option value="khargone">Ford Khargone</option>
@@ -97,12 +98,12 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="vehicle_name" id="vehicle_name">
-                                                <option value="Ford EcoSport">Ford EcoSport</option>
-                                                <option value="Ford Figo">Ford Figo</option>
-                                                <option value="Ford Aspire">Ford Aspire</option>
-                                                <option value="Ford Mustang">Ford Mustang</option>
-                                                <option value="Ford Fiesta">Ford Fiesta</option>
-                                                <option value="Ford Classic">Ford Classic</option>
+                                                <option value="">Select Vehicle</option>
+                                                <option value="EcoSport">EcoSport</option>
+                                                <option value="Figo">Figo</option>
+                                                <option value="Aspire">Aspire</option>
+                                                <option value="Mustang">Mustang</option>
+                                                <option value="Endovour">Endovour</option>
                                             </select>
                                         </div>
                                     </div>
@@ -180,6 +181,8 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
 
                                             <select class="form-control" name="insurance" id="insurance">
+                                                
+                                                <option value="">Select Insurance</option>
                                                 <option value="vapl">VAPL</option>
                                                 <option value="self">Self</option>
                                             </select>
@@ -190,6 +193,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
 
                                             <select class="form-control" name="vehicle_reg" id="vehicle_reg">
+                                                <option value="">Select Registration</option>
                                                 <option value="normal">Normal</option>
                                                 <option value="c/o">C/O</option>
                                                  <option value="tr">TR</option>
@@ -228,12 +232,16 @@
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="passport" value="3" name="document[]">Passport
                                             </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="bankdoletter" value="4" name="document[]">Bank Do Letter
+                                            </label>
                                         </div>
                                     </div>
 
 
                                 </div>
                                 <ul class="list-inline pull-right">
+<!--                                    <li><input type="button" class="btn btn-primary next-step" value="Save and Exit" value="1" name="exit"/></li>-->
                                     <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
                                 </ul>
                             </form>
@@ -574,6 +582,7 @@
                 } else {
                     isStepValid = true
                     var formData = $("#customer_registration").serialize();
+                    alert(formData);
                     var formId = $("#customer_registration");
                     submitForm(formId, formData);
                     var $active = $('.wizard .nav-tabs li.active');
@@ -697,11 +706,15 @@
                 },
                 consultant_name: "required",
                 documents_status: "required",
-                "document[]": {
-                    required: function (element) {
-                        return $('#documents_status').is(':checked')
-                    }
-                },
+                vehicle_name: "required",
+                branch: "required",
+                insurance: "required",
+                vehicle_reg: "required",
+//                "document[]": {
+//                    required: function (element) {
+//                        return $('#documents_status').is(':checked')
+//                    }
+//                },
                 amount: {
                     required: function (element) {
                         if ($('#remaining_amt').val() == 1) {
@@ -734,8 +747,12 @@
                 documents_status: {required: "Document Status is required"},
                 cheque_no: {required: "Document Status is required"},
                 amount: {required: "Amount is required"},
+                vehicle_reg: {required: "Vehicle Registration is required"},
                 bank_name: {required: "Bank name is required"},
-                "document[]": {required: "Document Type is required"}
+                insurance: {required: "Insurance name is required"},
+                "document[]": {required: "Document Type is required"},
+                "vehicle_name": {required: "Vehicle Name is required"},
+                "branch": {required: "Branch Name is required"}
             }
         });
         //
@@ -862,10 +879,12 @@
                 $(".document_type").show();
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
+                $("#passport").prop('checked', 'checked');
             } else if ($(this).val() == 0) {
                 $("#pencard").removeAttr('checked');
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
+                $("#bankdoletter").removeAttr('checked');
             } else {
                 $(".document_type").hide();
             }
@@ -950,18 +969,52 @@
     function submitForm(formid, formdata) {
         var base_url = $('body').find('#base_url').val();
         var obj = formid;
+        alert(formdata);
         $.ajax({
             url: base_url + 'customerController/saveData',
             type: 'POST',
             data: formdata,
-          cache: false,
-        contentType: false,
-        processData: false,
             success: function (data) {
                 var data = $.parseJSON(data);
                 console.log(data);
                 if (data.flag) {
+                   
                     $('body').find('.customer_id').val(data.custíd);
+                    if (data.redirect) {
+                        location.href = base_url + "customer/search";
+                    }
+                    if(data.state==4){
+//                       alert(data.custdata["vehicle_name"]);
+                        if(data.custdata!=""){
+                           var branch =  data.custdata["branch"];
+                           var vehicle_name =  data.custdata["vehicle_name"];
+                           var finance =  data.custdata["finance"];
+                           var remaining_amt =  data.custdata["remaining_amt"];
+                           var vehicle_reg =  data.custdata["vehicle_reg"];
+                           if(remaining_amt==0){
+                               $("#amount_edit").hide();
+                           }
+                           if(finance==0){
+                               $("#finance_edit").hide();
+                           }
+                           $("#branch_edit option[value="+branch+"]").prop('selected','selected');
+                           $("inputSuccess3_edit").val(data.custdata["customer_name"]);
+                           $("#vehicle_name_edit option[value='"+vehicle_name+"']").prop('selected','selected');
+                           $("#inputSuccess7_edit").val(data.custdata["engine_chesis_no"]);
+                           $("#inputSuccess5_edit").val(data.custdata["mobile_no"]);
+                           $("#inputSuccess6_edit").val(data.custdata["phone_no"]);
+                           $("#followup_edit").text(data.custdata["followup"]);
+                           $("#consultant_name_edit").val(data.custdata["consultant_name"]);
+                           $("#inputSuccess4_edit").val(data.custdata["email"]);
+                           $("#remaining_amt_edit option[value="+remaining_amt+"]").prop('selected','selected');
+                           $("#finance_edit option[value="+finance+"]").prop('selected','selected');
+                           $("#vehicle_reg_edit option[value='"+vehicle_reg+"']").prop('selected','selected');
+                           $("#customer_address").text(data.custdata["address"]);
+                           
+                        }
+                    }
+                    
+                     flag = data.flag;
                 }
             }
         });

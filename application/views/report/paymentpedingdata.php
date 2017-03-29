@@ -13,22 +13,28 @@
 
 
         </div>
-  
+
         <div class="clearfix"></div>
 
         <div class="row">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
+                    <?php if($this->session->flashdata('msg')){?>
+                    <div class="alert alert-warning">
+                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <?php echo $this->session->flashdata('msg');?>
+                    </div>
+                    <?php }?>
                     <div class="x_title">
-                        <h2>Open Prospect Status</h2>
+                        <h2>Payment Data List</h2>
                         <a href="<?php echo base_url('report')?>" class="btn btn-info btn-sm pull-right">Back</a>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
 
                         <div class="col-md-12">
-                            <form method="post" action="<?php echo base_url('report/statuswisereport');?>" enctype="multipart/data">
+                            <form method="post" id="datewiseform" action="<?php echo base_url('report/paymentDateWiseDataReport'); ?>" enctype="multipart/data">
                                 <div class="col-md-12 form-group">
                                     <div class="col-md-2"><label>Select Branch</label></div>
                                     <div class="col-md-4"><select id="branch" name="branch" class="form-control">
@@ -40,17 +46,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <div class="col-md-2"><label>Select State</label></div>
-                                    <div class="col-md-4"><select id="customer_state" name="customer_state" class="form-control">
-                                            <option value="1">State-1</option>    
-                                            <option value="2">State-2</option>    
-                                            <option value="3">State-3</option>    
-                                            <option value="4">State-4</option>    
-                                            <option value="5">State-5</option>    
-                                        </select>
-                                    </div>
-                                </div>
-                                  <div class="col-md-12 form-group">
                                     <div class="col-md-2 col-sm-3 col-xs-12"><label for="name">From Date</label></div>
                                     <div class="col-md-4 col-sm-4 col-xs-12">
 
@@ -67,7 +62,7 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12"><input type="submit" class="btn btn-small btn-primary filter_search" value="Open"/></div>
                                 </div>
-                                
+
                             </form>
                         </div>
 
@@ -78,7 +73,7 @@
     </div>
     <!-- footer content -->
 
-<script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
          //   $.fn.datepicker.noConflict;
          $( "#from_date_report" ).datepicker({ dateFormat: 'dd-mm-yy' });

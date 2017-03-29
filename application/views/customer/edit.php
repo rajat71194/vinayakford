@@ -99,6 +99,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="branch" id="branch">
+                                                <option value="">Select Branch</option>
                                                 <option <?php echo ($custdata['branch'] == "indore") ? " selected " : " " ?> value="indore">Ford Indore</option>
                                                 <option <?php echo ($custdata['branch'] == "sagar") ? " selected " : " " ?> value="sagar">Ford Sagar</option>
                                                 <option <?php echo ($custdata['branch'] == "khargone") ? " selected " : " " ?> value="khargone">Ford Khargone</option>
@@ -117,13 +118,13 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" name="vehicle_name" id="vehicle_name">
-
-                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford EcoSport") ? " selected " : " " ?>  value="Ford EcoSport">Ford EcoSport</option>
-                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Figo") ? " selected " : " " ?>  value="Ford Figo">Ford Figo</option>
-                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Aspire") ? " selected " : " " ?>  value="Ford Aspire">Ford Aspire</option>
-                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Mustang") ? " selected " : " " ?>  value="Ford Mustang">Ford Mustang</option>
-                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Fiesta") ? " selected " : " " ?>  value="Ford Fiesta">Ford Fiesta</option>
-                                                <option  <?php echo ($custdata['vehicle_name'] == "Ford Classic") ? " selected " : " " ?>  value="Ford Classic">Ford Classic</option>
+                                                 <option value="">Select Vehicle</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "EcoSport") ? " selected " : " " ?>  value="EcoSport">EcoSport</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Figo") ? " selected " : " " ?>  value="Figo">Figo</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Aspire") ? " selected " : " " ?>  value="Aspire">Aspire</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Mustang") ? " selected " : " " ?>  value="Mustang">Mustang</option>
+                                                <option  <?php echo ($custdata['vehicle_name'] == "Endovour") ? " selected " : " " ?>  value="Fiesta">Ford Fiesta</option>
+                                             
                                             </select>
                                         </div>
                                     </div>
@@ -206,6 +207,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
 
                                             <select class="form-control" name="insurance" id="insurance">
+                                                <option value="">Select Insurance</option>
                                                 <option <?php echo ($custdata['insurance'] == "vapl") ? " selected " : " " ?> value="vapl">VAPL</option>
                                                 <option <?php echo ($custdata['insurance'] == "self") ? " selected " : " " ?> value="self">Self</option>
                                             </select>
@@ -216,6 +218,7 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
 
                                             <select class="form-control" name="vehicle_reg" id="vehicle_reg">
+                                                <option value="">Select Registration</option>
                                                 <option <?php echo ($custdata['vehicle_reg'] == "normal") ? " selected " : " " ?> value="normal">Normal</option>
                                                 <option <?php echo ($custdata['vehicle_reg'] == "c/o") ? " selected " : " " ?> value="c/o">C/O</option>
                                                 <option <?php echo ($custdata['vehicle_reg'] == "tr") ? " selected " : " " ?> value="tr">TR</option>
@@ -236,6 +239,7 @@
 <!--                                            <input name="documents_status"  type="hidden" class="js-switch" value="0" />
                                             <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1"  <?= ( $custdata['document_complete'] == "1") ? '   checked ' : ''; ?> />-->
                                             <select name="documents_status" id="documents_status" class="form-control">
+                                                
                                                 <option <?= ( $custdata['document_complete'] == "") ? '   selected ' : ''; ?> value="">Choose</option>
                                                 <option <?= ( $custdata['document_complete'] == 1) ? '   selected ' : ''; ?> value="1">Yes</option>
                                                 <option <?= ( $custdata['document_complete'] == 0) ? '   selected ' : ''; ?> value="0">No</option>
@@ -260,6 +264,9 @@
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="passport" value="3" <?php echo (in_array(3, $ids)) ? " checked " : " "; ?> name="document[]">Passport
                                             </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" id="bankdoletter" value="3" <?php echo (in_array(4, $ids)) ? " checked " : " "; ?> name="document[]">Bank Do Letter
+                                            </label>
                                         </div>
                                     </div>
 
@@ -267,6 +274,7 @@
 
                                 </div>
                                 <ul class="list-inline pull-right">
+<!--                                    <li><input type="button" class="btn btn-primary next-step" value="Save and Exit" value="1" name="exit"/></li>-->
                                     <li><button type="button"  class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
                                 </ul>
                             </form>
@@ -632,7 +640,7 @@
 </div>
 <script>
     $(document).ready(function () {
-//        $("body").find('.edit').attr('disabled',true);
+        $("body").find('.edit').attr('disabled',true);
         $('body').on('click','.edit_field',function(){
            $(this).text('Save'); 
            $(this).removeClass('edit_field'); 
@@ -1124,6 +1132,12 @@
                         }
                     }
                 },
+                consultant_name: "required",
+                documents_status: "required",
+                vehicle_name: "required",
+                branch: "required",
+                insurance: "required",
+                vehicle_reg: "required",
                 
             }, messages: {
                 customer_name: {required: "Customer Name is Required"},
@@ -1136,7 +1150,15 @@
                 amount: {required: "Amount is required"},
                 bank_name: {required: "Bank name is required"},
                 documents_status: {required: "Document Status is required"},
-               
+               consultant_name: {required: "Consultant name is required"},
+                documents_status: {required: "Document Status is required"},
+                cheque_no: {required: "Document Status is required"},
+                amount: {required: "Amount is required"},
+                vehicle_reg: {required: "Vehicle Registration is required"},
+                bank_name: {required: "Bank name is required"},
+                insurance: {required: "Insurance name is required"},
+                vehicle_name: {required: "Vehicle Name is required"},
+                branch: {required: "Branch Name is required"},
                 "document[]": {required: "Document Type is required"}
             }
         });
@@ -1214,10 +1236,12 @@
                 $(".document_type").show();
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
+                $("#passport").prop('checked', 'checked');
             } else if ($(this).val() == 0) {
                 $("#pencard").removeAttr('checked');
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
+                $("#bankdoletter").removeAttr('checked');
             } else {
                 $(".document_type").hide();
             }
