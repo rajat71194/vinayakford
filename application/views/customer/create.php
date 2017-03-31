@@ -67,17 +67,17 @@
                                 <div class="step1">
                                     <input type="hidden" name="state" id="state" value="1"/>
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control" id="inputSuccess3" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i A'); ?>" readonly="">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Branch <span class="required">*</span>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Branch <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <select class="form-control" name="branch" id="branch">
                                                 <option value="">Select Branch</option>
                                                 <option value="indore">Ford Indore</option>
@@ -86,17 +86,17 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Customer Full Name <span class="required">*</span>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Customer Full Name <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control" id="inputSuccess3" name="customer_name" placeholder="Full Name" type="text">
                                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span></div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Vehicle Name <span class="required">*</span>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Vehicle Name <span class="required">*</span>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <select class="form-control" name="vehicle_name" id="vehicle_name">
                                                 <option value="">Select Vehicle</option>
                                                 <option value="EcoSport">EcoSport</option>
@@ -107,45 +107,45 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Vin Number <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Engine Vin Number <span class="required">*</span></label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control" id="customer_chesisno" name="customer_chesisno" placeholder="Chasis Number" type="text">
                                             <span class="fa fa-automobile form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Mobile Number <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Mobile Number <span class="required">*</span></label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control" id="inputSuccess5" name="customer_mobno" placeholder="Mobile" type="text">
                                             <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Phone Number </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control" id="inputSuccess6" name="customer_phone" placeholder="Phone" type="text">
                                             <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Follow Up</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Follow Up</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <textarea name="followup" class="form-control" placeholder="Comment Here"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sales Consultant</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Sales Consultant</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" type="text">
                                             <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Email </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Email </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control has-feedback-right" name="customer_email" id="inputSuccess4" placeholder="Email" type="text">
                                             <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Balance Amount</label>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Balance Amount</label>
                                         <div class="col-md-3 col-sm-3 col-xs-12">
                                             <select class="form-control" name="remaining_amt" id="remaining_amt">
                                                 <option value="0">No</option>
@@ -158,8 +158,8 @@
                                             <input placeholder="Amount" type="text" class="form-control" name='amount' id="amount"/>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Finance</label>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Finance</label>
                                         <div class="col-md-3 col-sm-3 col-xs-12">
                                             <select class="form-control" name="finance" id="finance">
                                                 <option value="0">No</option>
@@ -176,9 +176,9 @@
                                     
 
 
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Insurance</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Insurance</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
 
                                             <select class="form-control" name="insurance" id="insurance">
                                                 
@@ -188,9 +188,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Vehicle Registration</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Vehicle Registration</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
 
                                             <select class="form-control" name="vehicle_reg" id="vehicle_reg">
                                                 <option value="">Select Registration</option>
@@ -200,16 +200,16 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Customer Address <span class="required">*</span></label></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Customer Address <span class="required">*</span></label></label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"></textarea>
                                         </div>
                                     </div>
                                    
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ? <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Documents Complete ? <span class="required">*</span></label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
 <!--                                            <input name="documents_status"  type="hidden" class="js-switch" value="0" />
                                             <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1"  <?= ( $custdata['document_complete'] == "1") ? '   checked ' : ''; ?> />-->
                                             <select name="documents_status" id="documents_status" class="form-control">
@@ -220,8 +220,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group document_type">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Type ? </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Documents Type ? </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="pencard" value="1" name="document[]">Pan Card
                                             </label>
@@ -240,10 +240,12 @@
 
 
                                 </div>
-                                <ul class="list-inline pull-right">
-<!--                                    <li><input type="button" class="btn btn-primary next-step" value="Save and Exit" value="1" name="exit"/></li>-->
-                                    <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
-                                </ul>
+                                <div class="col-xs-12 col-sm-12">
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" class="btn btn-primary savenexit"   name="exit">Save and Exit</button></li>
+                                        <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
+                                    </ul>
+                                </div>
                             </form>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step2">
@@ -253,16 +255,16 @@
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
                                      
 
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Payment Complete ?</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input  name="payment_status"  type="hidden" value="0" />
                                             <input id="payment_status" name="payment_status"  type="checkbox" class="js-switch" value="1"/>
                                         </div>
                                     </div>
                                     <div class="form-group payment_reason">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Reason</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <textarea class="form-control" rows="2" id="customer_payment_reason" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
                                         </div>
                                     </div>
@@ -286,17 +288,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Tax Payment Complete ?</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             
                                             <input name="tax_payment_status" type="hidden"   value="0" />
                                             <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
                                         </div>
                                     </div>
                                     <div class="form-group tax_payment_reason">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Reason</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <textarea class="form-control" name="tax_payment_reason" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
                                         </div>
                                     </div>
@@ -304,7 +306,7 @@
                                                             <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                                               <small class="text-navy">Selection of Registration No. ? </small>
                                                             </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="col-md-8 col-sm-8 col-xs-12">
                                                                   <input name="selection_of_registration_no" id="selection_of_registration_no" type="checkbox" class="js-switch" unchecked />
                                                            </div>
                                                            </div>-->
@@ -340,7 +342,7 @@
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Document Given to Agent</small>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" class="js-switch" unchecked  value="1"/>
                                         </div>
@@ -349,7 +351,7 @@
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Select No. ? </small>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input name="select_no_for_choice" id="select_no_for_choice" type="checkbox" class="js-switch" unchecked />
                                         </div>
                                     </div>
@@ -357,7 +359,7 @@
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Document Given to Agent</small>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input name="document_given_to_agent_for_choice_no"  type="hidden" class="js-switch" value="0" />
                                             <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" class="js-switch" value="1" />
                                         </div>
@@ -380,7 +382,7 @@
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">No. Given to Customer ? </small>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input name="no_given_to_customor"  type="hidden" class="js-switch" value="0"  />
                                             <input name="no_given_to_customor" id="no_given_to_customor" type="checkbox" class="js-switch" value="1" unchecked />
                                         </div>
@@ -389,21 +391,21 @@
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Call Agent RC Card Dispatched or Not ? </small>
                                         </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input name="call_agent"  type="hidden" class="js-switch"  value="0" />
                                             <input name="call_agent" id="call_agent" type="checkbox" class="js-switch" unchecked value="1" />
                                         </div>
                                     </div>
                                     <div class="form-group photo_agent_upload">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Reason</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                            <input type="file" id="rc_file" name="files" class="form-control"/>
                                            <input type="hidden" id="file_name"  name="file_name" class="form-control"/>
                                         </div>
                                     </div>
                                     <div class="form-group call_agent_reason">
-                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Reason</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
                                             <textarea class="form-control" name="rc_reason" rows="2" placeholder="RC Not Received"></textarea>
                                         </div>
                                     </div>
@@ -433,9 +435,149 @@
 
                                     <input type="hidden" name="state" id="state" value="5"/>
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                    
+                                      <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control" id="inputSuccess3_edit" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s');  ?>" readonly="">   
+                                            <!--date('d-m-Y h:i A',strtotime($custdata['delivery_date']));-->
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Branch <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <select class="form-control edit" name="branch" id="branch_edit">
+                                                <option  value="indore">Ford Indore</option>
+                                                <option  value="sagar">Ford Sagar</option>
+                                                <option  value="khargone">Ford Khargone</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Customer Full Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control edit" id="inputSuccess3_edit" name="customer_name" value="" placeholder="Full Name" type="text">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span></div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Vehicle Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <select class="form-control edit" name="vehicle_name" id="vehicle_name_edit">
+
+                                                <option   value="Ford EcoSport">Ford EcoSport</option>
+                                                <option    value="Ford Figo">Ford Figo</option>
+                                                <option    value="Ford Aspire">Ford Aspire</option>
+                                                <option    value="Ford Mustang">Ford Mustang</option>
+                                                <option   value="Ford Fiesta">Ford Fiesta</option>
+                                                <option   value="Ford Classic">Ford Classic</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Engine Vin Number <span class="required">*</span></label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control edit" id="inputSuccess7_edit" name="customer_chesisno" placeholder="Chasis Number" value="" type="text">
+                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">    
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Mobile Number</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control edit" id="inputSuccess5_edit" name="customer_mobno" placeholder="Mobile" type="text" value="">
+                                            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Phone Number</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control edit" id="inputSuccess6_edit" name="customer_phone" placeholder="Phone" type="text" value="">
+                                            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>  </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12 edit">Follow Up</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <textarea name="followup" id="followup_edit" class="form-control edit" placeholder="Comment Here"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Sales Consultant</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control has-feedback-right edit" name="consultant_name" id="consultant_name_edit" placeholder="Consultant name" value="" type="text">
+                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Email</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <input class="form-control has-feedback-right edit" name="customer_email" id="inputSuccess4_edit" placeholder="Email" type="text" value="">
+                                            <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Balance Amount</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control edit remaining_amt" name="remaining_amt" id="remaining_amt_edit">
+                                                <option  value="0">No</option>
+                                                <option  value="1">Yes</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                            <input placeholder="Amount" type="text" class="form-control edit amount" name='amount' id="amount_edit" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Finance</label>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <select class="form-control edit finance" name="finance" id="finance_edit">
+                                                <option  value="0">No</option>
+                                                <option  value="1">Yes</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+
+                                            <input placeholder="Bank Name" type="text" class="form-control edit bank_name" name='bank_name' id="bank_name_edit" value=""/>
+                                        </div>
+                                    </div>   
 
 
+
+
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Insurance</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+
+                                            <select class="form-control edit" name="insurance" id="insurance_edit">
+                                                <option  value="vapl">VAPL</option>
+                                                <option  value="self">Self</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Vehicle Registration</label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+
+                                            <select class="form-control edit" name="vehicle_reg" id="vehicle_reg_edit">
+                                                <option  value="normal">Normal</option>
+                                                <option  value="c/o">C/O</option>
+                                                <option  value="tr">TR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-xs-12 col-sm-6">
+                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Customer Address <span class="required">*</span></label>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                            <textarea id="customer_address_edit" class="form-control edit" rows="3" name="customer_address" placeholder="Address"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step" data-state="5">Previous</button></li>
@@ -513,6 +655,15 @@
 
             }
         });
+        $('body').on('change', '#remaining_amt_edit', function () {
+            var amount = $(this).val();
+            if (amount == 0) {
+                $("#amount_edit").hide();
+            } else {
+                $("#amount_edit").show();
+
+            }
+        });
         //cheque no 
         $("#cheque_no").hide();
         $("body").on('click', '#optionsRadios1', function () {
@@ -532,6 +683,15 @@
                 $("#bank_name").hide();
             } else {
                 $("#bank_name").show();
+
+            }
+        });
+        $('body').on('change', '#finance_edit', function () {
+            var finance = $(this).val();
+            if (finance == 0) {
+                $("#bank_name_edit").hide();
+            } else {
+                $("#bank_name_edit").show();
 
             }
         });
@@ -563,6 +723,8 @@
 //                    $active.next().removeClass('disabled');
 //                    nextTab($active);
                     alert('Customer Completed all the stages');
+                     var base_url = $('#base_url').val();
+                     location.href= base_url+"customer/search";
                 }
 
             }
@@ -648,7 +810,7 @@
             }
 
 
-
+          
 
 
 
@@ -803,6 +965,7 @@
             }
         });
         //next button event
+        var base_url = $('#base_url').val();
        $("#rc_file").AjaxFileUpload({
                                 action: base_url+"customer/upload",
 				onComplete: function(filename, response) {
@@ -875,17 +1038,20 @@
             }
         });
         $("body").on('change', '#documents_status', function () {
-            if ($(this).val() == 1) {
+            if ($(this).val() == '1') {
+                 
                 $(".document_type").show();
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
                 $("#passport").prop('checked', 'checked');
-            } else if ($(this).val() == 0) {
+            } else if ($(this).val() == '0') {
+                
                 $("#pencard").removeAttr('checked');
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
                 $("#bankdoletter").removeAttr('checked');
             } else {
+               
                 $(".document_type").hide();
             }
         });
@@ -965,18 +1131,30 @@
 
 
         });
+        $('.savenexit').click(function(){
+             var base_url = $("#base_url").val();
+            if ($("#customer_registration").valid()) {
+                
+                    isStepValid = true
+                    var formData = $("#customer_registration").serialize();
+                    
+                    var formId = $("#customer_registration");
+                    submitForm(formId, formData);
+                   location.href = base_url+'/customer/search';
+                } 
+         });  
     });
     function submitForm(formid, formdata) {
         var base_url = $('body').find('#base_url').val();
         var obj = formid;
-        alert(formdata);
+        
         $.ajax({
             url: base_url + 'customerController/saveData',
             type: 'POST',
             data: formdata,
             success: function (data) {
                 var data = $.parseJSON(data);
-                console.log(data);
+               
                 if (data.flag) {
                    
                     $('body').find('.customer_id').val(data.custíd);
@@ -995,10 +1173,12 @@
                                $("#amount_edit").hide();
                            }
                            if(finance==0){
-                               $("#finance_edit").hide();
+                               $("#bank_name_edit").hide();
                            }
+                           $("#amount_edit").val(data.custdata["amount"]);
+                           $("#bank_name_edit").val(data.custdata["bank_name"]);
                            $("#branch_edit option[value="+branch+"]").prop('selected','selected');
-                           $("inputSuccess3_edit").val(data.custdata["customer_name"]);
+                           $("#inputSuccess3_edit").val(data.custdata["customer_name"]);
                            $("#vehicle_name_edit option[value='"+vehicle_name+"']").prop('selected','selected');
                            $("#inputSuccess7_edit").val(data.custdata["engine_chesis_no"]);
                            $("#inputSuccess5_edit").val(data.custdata["mobile_no"]);
@@ -1009,7 +1189,7 @@
                            $("#remaining_amt_edit option[value="+remaining_amt+"]").prop('selected','selected');
                            $("#finance_edit option[value="+finance+"]").prop('selected','selected');
                            $("#vehicle_reg_edit option[value='"+vehicle_reg+"']").prop('selected','selected');
-                           $("#customer_address").text(data.custdata["address"]);
+                           $("#customer_address_edit").text(data.custdata["address"]);
                            
                         }
                     }

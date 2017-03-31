@@ -71,9 +71,7 @@ class CustomerController extends CI_Controller {
                     
                 }
                 $redirect = FALSE;
-                if($data['documents_status']!=1 || $data['exit']==1){
-                $redirect = TRUE;
-                }
+              
                 
 //               echo json_encode($insertArr);die;
                 if ($data['customer_id'] == "") {
@@ -133,11 +131,12 @@ class CustomerController extends CI_Controller {
                 $insertArr = array(
                     'registration_no_type' => $data['registration_no_type'],
                     'document_given_customer' => $data['document_given_to_agent_for_regular_no'],
-                    'no_for_choice' => $data['select_no_for_choice'],
                     'document_for_no_choice' => $data['document_given_to_agent_for_choice_no'],
                     'customer_state' => $data['state']
                 );
-
+                if(isset($data['select_no_for_choice'])){
+                    $insertArr['no_for_choice'] = $data['select_no_for_choice'];
+                }
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
                     getProspect($insert_id);
@@ -368,8 +367,14 @@ class CustomerController extends CI_Controller {
 //        echo $this->db->last_query();
         foreach ($all_users as $key => $value) {
             $value['branch'] = ucfirst($value['branch']);
-           
-            $value['delivery_date'] = "<a href='" . base_url('customer/edit') . '/' . $value['id'] . "' title='Edit Customer'>" . date('d-M-Y', strtotime($value['delivery_date'])) . "</a>";
+            if($value['customer_state']==4){
+            $url = base_url('customer/finishstep').'/'.$value['id'];
+                
+            }else{
+            $url = base_url('customer/edit') . '/' . $value['id'];
+                
+            }
+            $value['delivery_date'] = "<a href='" . $url . "' title='Edit Customer'>" . date('d-M-Y', strtotime($value['delivery_date'])) . "</a>";
             $temp = $value;
             $data[] = ($temp);
         }
@@ -548,5 +553,27 @@ echo json_encode(array(
 	'name'  => $name,
 	'error' => $error,
 ));
+    }
+    
+    function finishstep($id=-1){
+        
+        if($id!=-1 && $id>0){
+            
+        $state =     $this->ford->getData('customers','*',array('id'=>$id));
+           if(!empty($state)){
+               if($state[0]['customer_state']==4 || $state[0]['customer_state']>=4){
+                   $custdata['custdata'] = $state[0];
+                   $this->load->template('customer/final_page',$custdata);
+               }else{
+                    redirect('customer/search');
+               }
+           }else{
+                 redirect('customer/search');
+           } 
+            
+        }else{
+            redirect('customer/search');
+        }
+        
     }
 }

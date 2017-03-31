@@ -66,6 +66,7 @@ $route['customer/payment'] = 'CustomerController/payment_pending';
 $route['customer/pending'] = 'CustomerController/pending_case';
 $route['customer/searchData'] = 'CustomerController/searchData';
 $route['customer/upload'] = 'CustomerController/upload';
+$route['customer/finishstep/(:num)'] = 'CustomerController/finishstep/$1';
 
 /*******************Prospect Route***************************/
 /*******************Report Route***************************/

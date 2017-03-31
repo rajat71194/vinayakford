@@ -5447,3 +5447,7 @@ ul.notifications {
 .top_nav .nav_menu .nav.toggle .HeadRight img {
     /*width: 50px;*/
 }
+
+.main_container .left_col.scroll-view {
+    width: 100%;
+}
