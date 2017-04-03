@@ -191,13 +191,18 @@
                     branch_edit: "required",
                 customer_name: "required",
                 vehicle_name_edit: "required",
-                inputSuccess7_edit:{
-                    required:true,
-                    minlength:7,
-                    maxlength:7
-                },
-                customer_name: "required",
-                customer_name: "required"
+                customer_chesisno: "required",
+                customer_mobno: "required",
+                customer_phone: "required",
+                followup: "required",
+                consultant_name: "required",
+                customer_email: "required",
+                remaining_amt: "required",
+                amount: "required",
+                finance: "required",
+                bank_name: "required",
+                vehicle_reg: "required",
+                customer_address: "required",
                 }, messages: {
                     call_agent: "Call Agent RC Card Dispatched is required",
                     rc_reason: "Call Agent RC Card Dispatched reason is required"
@@ -206,6 +211,7 @@
             
             $(".finish").click(function(){
                 if($("#final_page").valid()){
+//                    alert('fdfd');
                   var final_page =   $("#final_page").serialize();
                   $.ajax({
             url: base_url + 'customerController/saveData',
@@ -225,6 +231,43 @@
                   
                 }
             });
-            
+            $('body').on('change', '#remaining_amt_edit', function () {
+            var amount = $(this).val();
+            if (amount == 0) {
+                $("#amount_edit").hide();
+            } else {
+                $("#amount_edit").show();
+
+            }
+        });
+        var amount = $('#remaining_amt_edit').val();
+        if (amount == 0) {
+            $("#amount_edit").hide();
+            $("#amount_edit").val('');
+        } else {
+            $("#amount_edit").show();
+
+        }
+        
+        
+        $('body').on('change', '#finance_edit', function () {
+            var finance = $(this).val();
+            if (finance == 0) {
+                $("#bank_name_edit").hide();
+                $("#bank_name_edit").val('');
+            } else {
+                $("#bank_name_edit").show();
+
+            }
+        });
+        
+         var finance = $('#finance_edit').val();
+        if (finance == 0) {
+            $("#bank_name_edit").hide();
+            $("#bank_name_edit").val('');
+        } else {
+            $("#bank_name_edit").show();
+
+        }
         });
     </script>

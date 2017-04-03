@@ -64,13 +64,15 @@ class CustomerController extends CI_Controller {
                     'active' => 1
                 );
                 
+                $redirect = FALSE;
                 if( isset($data['document'])&&$data['document']!=""){
                     $insertArr['document_ids'] = implode(',', $data['document']);
+                    $redirect = FALSE;
                 }else{
                     $insertArr['document_ids'] = "";
+                    $redirect = TRUE;
                     
                 }
-                $redirect = FALSE;
               
                 
 //               echo json_encode($insertArr);die;
@@ -149,8 +151,13 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $redirect = FALSE;
-                if($data['document_given_to_agent_for_regular_no']==0){
+                if($data['registration_no_type']!=0){
+                if($data['document_given_to_agent_for_regular_no']==0 ){
                  $redirect = TRUE;   
+                }
+                }else if($data['select_no_for_choice']==0 || $data['document_given_to_agent_for_choice_no']==0){
+                 $redirect = TRUE;   
+                    
                 }
                $amt =  $this->ford->getData('customers',array('remaining_amt','amount'),array('id'=>$id));   
                if(!empty($amt)){
@@ -367,7 +374,7 @@ class CustomerController extends CI_Controller {
 //        echo $this->db->last_query();
         foreach ($all_users as $key => $value) {
             $value['branch'] = ucfirst($value['branch']);
-            if($value['customer_state']==4){
+            if($value['customer_state']==4 || $value['customer_state']==5){
             $url = base_url('customer/finishstep').'/'.$value['id'];
                 
             }else{

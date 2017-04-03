@@ -206,7 +206,7 @@
                                             <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"></textarea>
                                         </div>
                                     </div>
-                                   
+                                    <div class="clearfix"></div>
                                     <div class="form-group col-xs-12 col-sm-6">
                                         <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Documents Complete ? <span class="required">*</span></label>
                                         <div class="col-md-8 col-sm-8 col-xs-12">
@@ -219,8 +219,9 @@
                                             </select>
                                         </div>
                                     </div>
+                                     <div class="clearfix"></div>
                                     <div class="form-group document_type">
-                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Documents Type ? </label>
+                                        <label for="middle-name" class="control-label col-md-2 col-sm-4 col-xs-12">Documents Type ? </label>
                                         <div class="col-md-8 col-sm-8 col-xs-12">
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="pencard" value="1" name="document[]">Pan Card
@@ -255,19 +256,21 @@
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
                                      
 
-                                    <div class="form-group col-xs-12 col-sm-6">
-                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Payment Complete ?</label>
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <div class="form-group ">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input  name="payment_status"  type="hidden" value="0" />
                                             <input id="payment_status" name="payment_status"  type="checkbox" class="js-switch" value="1"/>
                                         </div>
                                     </div>
+                                      <div class="clearfix"></div>
                                     <div class="form-group payment_reason">
-                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Reason</label>
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
                                             <textarea class="form-control" rows="2" id="customer_payment_reason" name="customer_payment_reason" placeholder="Reason For Payment Not Received"></textarea>
                                         </div>
                                     </div>
+                                        <div class="clearfix"></div>
                                     <div class="form-group payment_type">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Payment Type</small>
@@ -288,17 +291,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group col-xs-12 col-sm-6">
-                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Tax Payment Complete ?</label>
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                         
+                                    <div class="form-group ">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
+                                        <div class="col-md-6 col-sm-8 col-xs-12">
                                             
                                             <input name="tax_payment_status" type="hidden"   value="0" />
                                             <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
                                         </div>
                                     </div>
                                     <div class="form-group tax_payment_reason">
-                                        <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Reason</label>
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Reason</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
                                             <textarea class="form-control" name="tax_payment_reason" rows="2" placeholder="Reason For Tax Payment Not Received"></textarea>
                                         </div>
                                     </div>
@@ -744,7 +748,7 @@
                 } else {
                     isStepValid = true
                     var formData = $("#customer_registration").serialize();
-                    alert(formData);
+//                    alert(formData);
                     var formId = $("#customer_registration");
                     submitForm(formId, formData);
                     var $active = $('.wizard .nav-tabs li.active');
