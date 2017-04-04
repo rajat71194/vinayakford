@@ -15,11 +15,11 @@ $(document).ready(function () {
     var from_date = "";
     var to_date = "";
     var base_url = $("#base_url").val();
-    var otable1; 
+    var otable1;
     otable1 = $('#datatable-responsive').dataTable({
-         language: {
-    processing: "<img src='img/loading.gif'> Loading...",
-  },
+        language: {
+            processing: "<img src='img/loading.gif'> Loading...",
+        },
         "aoColumns": [
             {
                 "sClass": "prospect_id",
@@ -45,7 +45,7 @@ $(document).ready(function () {
                 "bSortable": false,
                 //"sWidth":'15%'
             },
-             {
+            {
                 "sClass": "mobile_no",
                 "mDataProp": "mobile_no",
                 "bSortable": false,
@@ -63,12 +63,11 @@ $(document).ready(function () {
                 "bSortable": false,
                 //"sWidth":'15%'
             },
-
             {
                 "sClass": "followup",
                 "mDataProp": "followup",
                 "bSortable": false
-,                //"sWidth":'15%'
+                , //"sWidth":'15%'
             },
             {
                 "sClass": "consultant_name",
@@ -76,28 +75,20 @@ $(document).ready(function () {
                 "bSortable": false,
                 //"sWidth":'15%'
             }
-           
+
 
         ],
         dom: "Blfrtip",
-            buttons: [
-//                {
-//                    extend: "copy",
-//                    className: "btn-sm"
-//                }, {
-//                    extend: "csv",
-//                    className: "btn-sm"
-//                }, 
-                {
-                    extend: "excel",
-                    className: "btn-sm"
-                }, {
-                    extend: "pdf",
-                    className: "btn-sm"
-                },
-            ],
+        buttons: [
+            {
+                extend: "excel",
+                className: "btn-sm"
+            }, {
+                extend: "pdf",
+                className: "btn-sm"
+            },
+        ],
         columnDefs: [{
-
             }],
         aaSorting: [[1, 'desc']],
         "bProcessing": true,
@@ -116,7 +107,6 @@ $(document).ready(function () {
             "sInfoFiltered": "",
             "sProcessing": ""
         },
-     
         "fnServerParams": function (aoData) {
             aoData.push({"name": "sales_consultant", "value": sales_consultant});
             aoData.push({"name": "customer_name", "value": customer_name});
@@ -140,8 +130,8 @@ $(document).ready(function () {
         mobile_no = $('#mobile_no').val();
         from_date = $('#from_date').val();
         to_date = $('#to_date').val();
-         otable1.fnDraw();
-         
+        otable1.fnDraw();
+
     });
 
 

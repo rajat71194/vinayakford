@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Ford | Vinayk Ford</title>
+        <title>Ford | Vinayak Ford</title>
         <link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/js/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -51,12 +51,12 @@
         -->    <script src="<?php echo base_url(); ?>assets/js/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/datepicker/js/bootstrap-datepicker.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/switchery/dist/switchery.min.js"></script>
-       
-      
-           <script src="<?php echo base_url(); ?>assets/js/nprogress/nprogress.js"></script>
 
 
-          <script src="<?php echo base_url(); ?>assets/js/moment/min/moment.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/nprogress/nprogress.js"></script>
+
+
+        <script src="<?php echo base_url(); ?>assets/js/moment/min/moment.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/bootstrap-daterangepicker/daterangepicker.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/nicescroll/jquery.nicescroll.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
@@ -76,10 +76,10 @@
         <script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.fixedHeader.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.keyTable.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.scroller.min.js"></script>
-         <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery-ui.css">
-  <script src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
-   <script src="<?php echo base_url(); ?>assets/js/jquery.ajaxfileupload.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/jquery.ajaxfileupload.js"></script>
     </head>
 
     <body class="nav-md">
