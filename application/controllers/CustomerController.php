@@ -161,7 +161,7 @@ class CustomerController extends CI_Controller {
                 }
                $amt =  $this->ford->getData('customers',array('remaining_amt','amount'),array('id'=>$id));   
                if(!empty($amt)){
-                   if($amt[0]['remaining_amt']==0 && $amt[0]['amount']<0){
+                   if($amt[0]['remaining_amt']==1 && $amt[0]['amount']>0){
                      $redirect = TRUE;   
                    }
                } 
@@ -518,7 +518,14 @@ class CustomerController extends CI_Controller {
             $now = time(); // or your date as well
             $your_date = strtotime($value['delivery_date']);
             $datediff = $now - $your_date;
-             $value['ageing'] =(int) floor($datediff / (60 * 60 * 24)).' Days';
+            
+            $datetime1 = new DateTime($value['delivery_date']);
+            $datetime2 = new DateTime(date('Y-m-d'));
+            $interval = $datetime1->diff($datetime2);
+
+
+
+            $value['ageing'] =$interval->format('%a').' Days';
             $value['delivery_date'] = "<a href='" . base_url('customer/edit') . '/' . $value['id'] . "' title='Edit Customer'>" . date('d-M-Y', strtotime($value['delivery_date'])) . "</a>";
             $temp = $value;
             $data[] = ($temp);

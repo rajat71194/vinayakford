@@ -243,7 +243,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="btn btn-primary savenexit"   name="exit">Save and Exit</button></li>
+                                        <li><button type="button" class="btn btn-primary savenexit" data-state="1"   name="exit">Save and Exit</button></li>
                                         <li><button type="button" class="btn btn-primary next-step" data-state="1">Save and continue</button></li>
                                     </ul>
                                 </div>
@@ -320,6 +320,7 @@
                                 </div>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step" data-state="2">Previous</button></li>
+                                     <li><button type="button" class="btn btn-primary savenexit"  data-state="2" name="exit">Save and Exit</button></li>
                                     <li><button type="button" class="btn btn-primary next-step" data-state="2">Save and continue</button></li>
                                 </ul>
                             </form>
@@ -373,6 +374,7 @@
                                 </div>
                                 <ul class="list-inline pull-right">
                                     <li><button type="button" class="btn btn-default prev-step" data-state="3">Previous</button></li>
+                                     <li><button type="button" class="btn btn-primary savenexit" data-state="3"  name="exit">Save and Exit</button></li>
                                     <li><button type="button" class="btn btn-primary btn-info-full next-step" data-state="3">Save and continue</button></li>
                                 </ul>
                             </form>
@@ -1137,15 +1139,90 @@
         });
         $('.savenexit').click(function(){
              var base_url = $("#base_url").val();
-            if ($("#customer_registration").valid()) {
-                
+               var stepnumber = $(this).attr('data-state');
+            var isStepValid = true;
+           
+            if (stepnumber == 1) {
+                // Your step validation logic
+                // set isStepValid = false if has errors
+
+                if (!$("#customer_registration").valid()) {
+                    isStepValid = false;
+                } else {
                     isStepValid = true
                     var formData = $("#customer_registration").serialize();
-                    
+//                    alert(formData);
                     var formId = $("#customer_registration");
                     submitForm(formId, formData);
-                   location.href = base_url+'/customer/search';
-                } 
+                    location.href= base_url+"customer/search";
+                    var $active = $('.wizard .nav-tabs li.active');
+                    $active.next().removeClass('disabled');
+                    nextTab($active);
+                }
+
+            } else if (stepnumber == 2) {
+                if (!$("#customer_tax").valid()) {
+                    isStepValid = false
+
+                } else {
+                    isStepValid = true
+                    var formData = $("#customer_tax").serialize();
+                    var formId = $("#customer_tax");
+                    submitForm(formId, formData);
+                      location.href= base_url+"customer/search";
+                    var $active = $('.wizard .nav-tabs li.active');
+                    $active.next().removeClass('disabled');
+                    nextTab($active);
+                }
+            } else if (stepnumber == 3) {
+                if (!$("#customer_registrationdetail").valid()) {
+                    isStepValid = false
+
+                } else {
+                    isStepValid = true
+                    var formData = $("#customer_registrationdetail").serialize();
+                    var formId = $("#customer_registrationdetail");
+                    submitForm(formId, formData);
+                      location.href= base_url+"customer/search";
+                    var $active = $('.wizard .nav-tabs li.active');
+                    $active.next().removeClass('disabled');
+                    nextTab($active);
+                }
+            } else if (stepnumber == 4) {
+                if (!$("#customer_number").valid()) {
+                    isStepValid = false
+
+                } else {
+                    isStepValid = true
+                    var formData = $("#customer_number").serialize();
+                    var formId = $("#customer_number");
+                    submitForm(formId, formData);
+                      location.href= base_url+"customer/search";
+                    var $active = $('.wizard .nav-tabs li.active');
+                    $active.next().removeClass('disabled');
+                    nextTab($active);
+                }
+            } else if (stepnumber == 5) {
+                if (!$("#customer_rc").valid()) {
+                    isStepValid = false
+
+                } else {
+                    isStepValid = true
+                    var formData = $("#customer_rc").serialize();
+                    var formId = $("#customer_rc");
+                    submitForm(formId, formData);
+                      location.href= base_url+"customer/search";
+                    var $active = $('.wizard .nav-tabs li.active');
+                    $active.next().removeClass('disabled');
+                    nextTab($active);
+                }
+            } else {
+                isStepValid = true
+
+            }
+
+
+          
          });  
     });
     function submitForm(formid, formdata) {
@@ -1156,6 +1233,7 @@
             url: base_url + 'customerController/saveData',
             type: 'POST',
             data: formdata,
+            async: false,
             success: function (data) {
                 var data = $.parseJSON(data);
                

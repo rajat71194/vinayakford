@@ -22,7 +22,7 @@ function excelGenerate($cell_name="A1:I1",$users = array(),$name="csvGenerate.xl
      
 
     //load our new PHPExcel library
-        $CI->load->library('excel');
+        $CI->load->library('EXcel');
         //activate worksheet number 1
         $CI->excel->setActiveSheetIndex(0);
         //name the worksheet

@@ -140,16 +140,16 @@
 //        $('#datatable-responsive').DataTable();
         $.fn.datepicker.noConflict;
         $('#from_date').datepicker({
-            "format": 'dd-mm-yyyy',
-            minDate: 0,
+            dateFormat: 'dd-mm-yy',
+            
             todayHighlight: 'TRUE',
             autoclose: true
         });
 
         $('#to_date').datepicker(
                 {
-                    "format": 'dd-mm-yyyy',
-                    "minDate": '04-03-2017',
+                    dateFormat: 'dd-mm-yy',
+                   
                     todayHighlight: 'TRUE',
                     autoclose: true
                 }
