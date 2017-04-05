@@ -520,7 +520,7 @@ class CustomerController extends CI_Controller {
             $your_date = strtotime($value['delivery_date']);
             $datediff = $now - $your_date;
             
-            $datetime1 = new DateTime($value['delivery_date']);
+            $datetime1 = new DateTime(date('Y-m-d' , strtotime($value['delivery_date'])));
             $datetime2 = new DateTime(date('Y-m-d'));
             $interval = $datetime1->diff($datetime2);
 
