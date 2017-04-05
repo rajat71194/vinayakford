@@ -358,8 +358,8 @@ class CustomerController extends CI_Controller {
         if ($from_date != "" && $to_date!="") {
 
               
-             $search_data['where']['delivery_date >='] = date('Y-m-d H:i:s', strtotime($from_date));
-                $search_data['where']['delivery_date <='] = date('Y-m-d', strtotime($to_date));
+             $search_data['where']['DATE(delivery_date) >='] = date('Y-m-d', strtotime($from_date));
+             $search_data['where']['DATE(delivery_date) <='] = date('Y-m-d', strtotime($to_date));
                 
         }
 
@@ -370,6 +370,7 @@ class CustomerController extends CI_Controller {
             $all_users = $this->ford->get_all_common_list(FALSE, $search_data, $length, $start, $order, $order_by, $is_refrence = false, $or_where = "OR");
         }
 
+        
         $data = array();
 //        echo $this->db->last_query();
         foreach ($all_users as $key => $value) {
