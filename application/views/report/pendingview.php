@@ -21,7 +21,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Open Pending Status</h2>
+                        <h2>Total Pending Data</h2>
                         <a href="<?php echo base_url('report')?>" class="btn btn-info btn-sm pull-right">Back</a>
                         <div class="clearfix"></div>
                     </div>

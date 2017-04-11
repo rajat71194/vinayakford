@@ -117,6 +117,9 @@ class CustomerController extends CI_Controller {
                 if($data['payment_status']!=1){
                  $redirect = TRUE;   
                 }
+                if($data['tax_payment_status']!=1){
+                 $redirect = TRUE;   
+                }
                 $result['custíd'] = $id;
                 $result['aaa'] = $data['payment_status'];
                 $result['flag'] = TRUE;
@@ -171,9 +174,15 @@ class CustomerController extends CI_Controller {
                     if ($data['select_no_for_choice'] == 0) {
                         $redirect = TRUE;
                     }
+                    if ($data['document_given_to_agent_for_choice_no'] == 0) {
+                        $redirect = TRUE;
+                    }
                 }else if($data['registration_no_type']=="vip_no"){
                     
                     if ($data['select_no_for_choice'] == 0) {
+                        $redirect = TRUE;
+                    }
+                    if ($data['document_given_to_agent_for_choice_no'] == 0) {
                         $redirect = TRUE;
                     }
                 }
@@ -398,7 +407,7 @@ class CustomerController extends CI_Controller {
 //        echo $this->db->last_query();
         foreach ($all_users as $key => $value) {
             $value['branch'] = ucfirst($value['branch']);
-            if($value['customer_state']==4 || $value['customer_state']==5){
+            if($value['customer_state']==5){
             $url = base_url('customer/finishstep').'/'.$value['id'];
                 
             }else{

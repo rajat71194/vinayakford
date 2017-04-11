@@ -27,7 +27,7 @@
                     </div>
                     <?php }?>
                     <div class="x_title">
-                        <h2>Prospect Data List</h2>
+                        <h2>Delivery Report</h2>
                         <a href="<?php echo base_url('report')?>" class="btn btn-info btn-sm pull-right">Back</a>
                         <div class="clearfix"></div>
                     </div>
