@@ -356,8 +356,17 @@
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Select No. ? </small>
                                         </label>
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
                                             <input name="select_no_for_choice" id="select_no_for_choice" type="checkbox" class="js-switch" unchecked />
+                                        </div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12 choice_no_field">
+                                            <label class="col-sm-5 col-xs-12 control-label">
+                                                <small class="text-navy">Choice No</small>
+                                            </label>
+                                            <div class="col-sm-7 col-xs-12">
+                                                <input name="choice_no_type" value="" class="form-control" id="choice_no_type"  type="text"  />
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group document_given_to_agent_for_choice_no">
@@ -1106,17 +1115,18 @@
             if ($(this).val() == 'regular_no') {
                 $(".document_given_to_agent_for_regular_no").show();
                 $(".select_no_for_choice").hide();
-                 $(".choice_no_field").hide();
-                  $(".select_no_for_choice").hide();
+                $(".choice_no_field").hide();
                 $(".document_given_to_agent_for_choice_no").hide();
             } else if ($(this).val() == 'choice_no') {
                 $(".document_given_to_agent_for_regular_no").hide();
                 $(".select_no_for_choice").show();
-                 $(".select_no_for_choice").show();
+                $(".choice_no_field").show();
                 if ($("#select_no_for_choice").is(":checked")) {
                     $(".document_given_to_agent_for_choice_no").show();
-                     $(".choice_no_field").show();
-                }else if($(this).val() == 'vip_no'){
+                } else {
+                    $(".document_given_to_agent_for_choice_no").hide();
+                }
+            }else if($(this).val() == 'vip_no'){
                  $(".choice_no_field").show();
                  $(".document_given_to_agent_for_regular_no").hide();
                   $(".select_no_for_choice").show();
@@ -1125,7 +1135,6 @@
                 } else {
                     $(".document_given_to_agent_for_choice_no").hide();
                 }
-            }
             }
 
         });

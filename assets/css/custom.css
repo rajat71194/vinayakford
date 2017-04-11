@@ -85,6 +85,17 @@ body.nav-sm .profile {
   margin-top: 0;
   text-shadow: 1px 1px #000;
 }
+.paddingTop8 {
+    padding-top: 8px;
+}
+.paddingTop10 {
+    padding-top: 10px;
+}
+.paddingTop20 {
+    padding-top: 20px;
+}
+
+
 .menu_section >ul {
   margin-top: 10px;
 }
