@@ -39,13 +39,24 @@
                                         </select>
                                     </div>
                                 </div>
-                                
                                 <div class="col-md-12 form-group">
-                                    <div class="col-md-2"></div>
-                                    <div class="col-md-4 ">
-                                        <button class="btn btn-sm btn-primary pull-right">Open</button>
+                                    <div class="col-md-2 col-sm-3 col-xs-12"><label for="name">From Date</label></div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                        <input type="text" name="from_date" id="from_date_report" class="form-control" placeholder="From Date"/>
                                     </div>
                                 </div>
+
+                                <div class="col-md-12 form-group">
+                                    <div class="col-md-2 col-sm-3 col-xs-12"><label for="name">To Date</label></div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+
+                                        <input type="text" name="to_date" id="to_date_report" class="form-control" placeholder="To Date"/>
+
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-xs-12"><input type="submit" class="btn btn-small btn-primary filter_search" value="Open"/></div>
+                                </div>
+                                
                             </form>
                         </div>
 
@@ -58,6 +69,7 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-
+          $( "#from_date_report" ).datepicker({ dateFormat: 'dd-mm-yy' });
+         $( "#to_date_report" ).datepicker({ dateFormat: 'dd-mm-yy' });
     });
 </script>

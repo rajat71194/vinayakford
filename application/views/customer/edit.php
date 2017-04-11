@@ -259,13 +259,13 @@
                                                 <input type="checkbox" id="pencard" value="1" <?php echo (in_array(1, $ids)) ? " checked " : " "; ?> name="document[]">Pan Card
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="drivinglic" value="2" <?php echo (in_array(2, $ids)) ? " checked " : " "; ?> name="document[]">Driving License
+                                                <input type="checkbox" id="drivinglic" value="2" <?php echo (in_array(2, $ids)) ? " checked " : " "; ?> name="document[]">Aadhar Card
                                             </label>
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="passport" value="3" <?php echo (in_array(3, $ids)) ? " checked " : " "; ?> name="document[]">Passport
                                             </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox" id="bankdoletter" value="3" <?php echo (in_array(4, $ids)) ? " checked " : " "; ?> name="document[]">Bank Do Letter
+                                                <input type="checkbox" id="bankdoletter" value="4" <?php echo (in_array(4, $ids)) ? " checked " : " "; ?> name="document[]">Bank Do Letter
                                             </label>
                                         </div>
                                     </div>
@@ -379,7 +379,7 @@
                                             <small class="text-navy">Document Given to Agent </small>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
+                                            <input name="document_given_to_agent_for_regular_no"  type="hidden"   value="0" />
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" <?= ( $custdata['document_given_customer'] == "1") ? '   checked ' : ''; ?>   class="js-switch"   value="1"/>
                                         </div>
                                     </div>
@@ -399,6 +399,15 @@
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input name="document_given_to_agent_for_choice_no"  type="hidden"   value="0" />
                                             <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" <?= ( $custdata['document_for_no_choice'] == "1") ? '   checked ' : ''; ?>  value="1" class="js-switch"  />
+                                        </div>
+                                    </div>
+                                    <div class="form-group choice_no_field">
+                                        <label class="col-md-3 col-sm-3 col-xs-12 control-label">
+                                            <small class="text-navy">Choice No</small>
+                                        </label>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <input name="choice_no_type" value="<?php echo $custdata['choice_no_type']; ?>" class="form-control" id="choice_no_type"  type="text"  />
+                                          
                                         </div>
                                     </div>
 
@@ -1152,7 +1161,6 @@
                 payment_status: {required: "Payment Status is required"},
                 amount: {required: "Amount is required"},
                 bank_name: {required: "Bank name is required"},
-                documents_status: {required: "Document Status is required"},
                consultant_name: {required: "Consultant name is required"},
                 documents_status: {required: "Document Status is required"},
                 cheque_no: {required: "Document Status is required"},
@@ -1187,10 +1195,15 @@
         $("#customer_registrationdetail").validate({
             rules: {
                 registration_no_type: "required",
+                choice_no_type: {
+                    required:true,
+                 
+                }
 //                document_given_to_agent_for_regular_no: "required",
             }, messages: {
                 registration_no_type: "registration no is Required",
                 document_given_to_agent_for_regular_no: "Docuemnt check is  required",
+                 choice_no_type: {reuired:"No is Requied"}
             }
         });
         $("#customer_number").validate({
@@ -1235,16 +1248,21 @@
         }
 
         $("body").on('change', '#documents_status', function () {
-            if ($(this).val() == 1) {
+            if ($(this).val() == '1') {
                 $(".document_type").show();
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
                 $("#passport").prop('checked', 'checked');
-            } else if ($(this).val() == 0) {
+                if($("#finance").val()=='1'){
+                    
+                $("#bankdoletter").prop('checked', 'checked');
+                }
+            } else if ($(this).val() == '0') {
                 $("#pencard").removeAttr('checked');
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
                 $("#bankdoletter").removeAttr('checked');
+                $(".document_type").show();
             } else {
                 $(".document_type").hide();
             }
@@ -1258,13 +1276,17 @@
         if ($("#registration_no_type").val() == 'regular_no') {
             $(".document_given_to_agent_for_regular_no").show();
             $(".select_no_for_choice").hide();
+             $(".choice_no_field").hide();
             $(".document_given_to_agent_for_choice_no").hide();
         } else if ($("#registration_no_type").val() == 'choice_no') {
             $(".document_given_to_agent_for_regular_no").hide();
             $(".select_no_for_choice").show();
+                $(".choice_no_field").show();
+                
             if ($("#select_no_for_choice").is(":checked")) {
                 $(".document_given_to_agent_for_choice_no").show();
             } else {
+               
                 $(".document_given_to_agent_for_choice_no").hide();
             }
         }
@@ -1334,11 +1356,22 @@
             if ($(this).val() == 'regular_no') {
                 $(".document_given_to_agent_for_regular_no").show();
                 $(".select_no_for_choice").hide();
+                $(".choice_no_field").hide();
                 $(".document_given_to_agent_for_choice_no").hide();
             } else if ($(this).val() == 'choice_no') {
                 $(".document_given_to_agent_for_regular_no").hide();
                 $(".select_no_for_choice").show();
+                $(".choice_no_field").show();
                 if ($("#select_no_for_choice").is(":checked")) {
+                    $(".document_given_to_agent_for_choice_no").show();
+                } else {
+                    $(".document_given_to_agent_for_choice_no").hide();
+                }
+            }else if($(this).val() == 'vip_no'){
+                 $(".choice_no_field").show();
+                 $(".document_given_to_agent_for_regular_no").hide();
+                  $(".select_no_for_choice").show();
+                  if ($("#select_no_for_choice").is(":checked")) {
                     $(".document_given_to_agent_for_choice_no").show();
                 } else {
                     $(".document_given_to_agent_for_choice_no").hide();
@@ -1465,7 +1498,44 @@
 
           
          });  
+         $('body').on('click','#select_no_for_choice',function(){
+            var customer_id =  $(".customer_id").val();
+            if ($(this).is(":checked")) {
+                 $.ajax({
+            url: base_url + 'customerController/CheckAmount/'+customer_id,
+            async: false,
+            success: function (data) {
+            var data = $.parseJSON(data);
+                if(data.flag==true){
+                    alert('Please Complete the Payment First');
+                $('#select_no_for_choice').attr('checked', false); 
+                }}
+                 });
+                
 
+            }else{
+                
+            }
+         });
+         $('body').on('click','#document_given_to_agent_for_regular_no',function(){
+            var customer_id =  $(".customer_id").val();
+            if ($(this).is(":checked")) {
+                 $.ajax({
+            url: base_url + 'customerController/CheckAmount/'+customer_id,
+            async: false,
+            success: function (data) {
+            var data = $.parseJSON(data);
+                if(data.flag==true){
+                    alert('Please Complete the Payment First');
+                $('#document_given_to_agent_for_regular_no').attr('checked', false); 
+                }}
+                 });
+                
+
+            }else{
+                
+            }
+         });
     });
 
     function submitForm(formid, formdata) {
@@ -1483,9 +1553,7 @@
                 if (data.flag) {
                    
                     $('body').find('.customer_id').val(data.custíd);
-                    if (data.redirect) {
-                        location.href = base_url + "customer/search";
-                    }
+                    
                     if(data.state==4){
 //                       alert(data.custdata["vehicle_name"]);
                         if(data.custdata!=""){
@@ -1516,8 +1584,11 @@
                            
                         }
                     }
-                    
                      flag = data.flag;
+                    if (data.redirect) {
+                        flag=false;
+                        location.href = base_url + "customer/search";
+                    }
                 }
             }
         });

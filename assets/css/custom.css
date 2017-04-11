@@ -5451,3 +5451,12 @@ ul.notifications {
 .main_container .left_col.scroll-view {
     width: 100%;
 }
+
+.ReportList p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.ReportList p a:hover {
+    text-decoration: underline;
+}

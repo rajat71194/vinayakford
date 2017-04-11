@@ -22,7 +22,15 @@ class ReportController extends CI_Controller {
     
     public function pendingDataReport() {
         $branch = $this->input->post('branch');
+         $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
+        $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
+        if($this->input->post('from_date')!="" && $this->input->post('to_date')!=""){
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'customer_state <' => 5,'branch'=>$branch));
+           
+        }else{
         $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('customer_state <' => 5,'branch'=>$branch));
+          
+        }
         $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','Payment Complete','Amount');
         $dateshow = date('d-m-Y H:i:s');
         $heading = array(
@@ -73,7 +81,13 @@ class ReportController extends CI_Controller {
         $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
         $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
         if ($customer_state != "") {
+             if($this->input->post('from_date')!="" && $this->input->post('to_date')!=""){
+                 
             $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,customer_state,,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'customer_state' => $customer_state,'branch'=>$branch));
+             }else{
+            $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,customer_state,,remaining_amt,amount', array('customer_state' => $customer_state,'branch'=>$branch));
+                 
+             }
             $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','State','Payment Complete','Amount');
              if(!empty($customer)){
             foreach ($customer as $key => $value) {

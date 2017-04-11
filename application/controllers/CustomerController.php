@@ -65,13 +65,8 @@ class CustomerController extends CI_Controller {
                 );
                 
                 $redirect = FALSE;
-                if( isset($data['document'])&&$data['document']!=""){
-                    $insertArr['document_ids'] = implode(',', $data['document']);
-                    $redirect = FALSE;
-                }else{
-                    $insertArr['document_ids'] = "";
+                if( $data['documents_status']=="" || $data['documents_status']=="0" ){   
                     $redirect = TRUE;
-                    
                 }
               
                 
@@ -136,6 +131,22 @@ class CustomerController extends CI_Controller {
                     'document_for_no_choice' => $data['document_given_to_agent_for_choice_no'],
                     'customer_state' => $data['state']
                 );
+                
+                  if($data['registration_no_type']=="regular_no"){
+                    $insertArr['choice_no_type'] = "";
+                    
+                }else if($data['registration_no_type']=="choice_no"){
+                    
+                    $insertArr['choice_no_type'] = $data['choice_no_type'];
+                }else if($data['registration_no_type']=="vip_no"){
+                    $insertArr['choice_no_type'] = $data['choice_no_type'];
+                    
+                   
+                }
+                
+                
+                
+                
                 if(isset($data['select_no_for_choice'])){
                     $insertArr['no_for_choice'] = $data['select_no_for_choice'];
                 }
@@ -151,14 +162,23 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $redirect = FALSE;
-                if($data['registration_no_type']!=0){
-                if($data['document_given_to_agent_for_regular_no']==0 ){
-                 $redirect = TRUE;   
-                }
-                }else if($data['select_no_for_choice']==0 || $data['document_given_to_agent_for_choice_no']==0){
-                 $redirect = TRUE;   
+                
+                if($data['registration_no_type']=="regular_no"){
+                    if ($data['document_given_to_agent_for_regular_no'] == 0) {
+                        $redirect = TRUE;
+                    }
+                }else if($data['registration_no_type']=="choice_no"){
+                    if ($data['select_no_for_choice'] == 0) {
+                        $redirect = TRUE;
+                    }
+                }else if($data['registration_no_type']=="vip_no"){
                     
+                    if ($data['select_no_for_choice'] == 0) {
+                        $redirect = TRUE;
+                    }
                 }
+                
+                
                $amt =  $this->ford->getData('customers',array('remaining_amt','amount'),array('id'=>$id));   
                if(!empty($amt)){
                    if($amt[0]['remaining_amt']==1 && $amt[0]['amount']>0){
@@ -190,7 +210,7 @@ class CustomerController extends CI_Controller {
                 $config['allowed_types']        = 'gif|jpg|png|pdf';
 //                $config['max_size']             = 100;
 //                $config['max_width']            = 1024;
-//                $config['max_height']           = 768;
+//                $config['max_heightcall_agent']           = 768;
 
               
                 if ($data['customer_id'] == "") {
@@ -209,11 +229,14 @@ class CustomerController extends CI_Controller {
                 if($data['no_given_to_customor']==0){
                  $redirect = TRUE;   
                 }
+                if($data['call_agent']==0){
+                 $redirect = TRUE;   
+                }
                 $customer = $this->ford->getData('customers', '*',array('id' => $data['customer_id']));
                 $result['custdata'] = $customer[0];
                 $result['custíd'] = $id;
                 $result['flag'] = TRUE;
-                $result['redirect'] = FALSE;
+                $result['redirect'] = $redirect;
                 $result['state'] = 4;
                 echo json_encode($result);
                 break;
@@ -589,6 +612,30 @@ echo json_encode(array(
         }else{
             redirect('customer/search');
         }
+        
+    }
+    
+    function CheckAmount($customer_id=0){
+        $result = array();
+       if($customer_id>0){
+           
+        $amount =     $this->ford->getData('customers','remaining_amt',array('id'=>$customer_id));    
+        if(!empty($amount) ){
+            if($amount[0]['remaining_amt']!=0){
+                
+               $result['flag'] = TRUE;
+            }else{
+                 $result['flag'] = FALSE;
+            }
+        }
+      
+       }else{
+           
+       $result['flag'] = FALSE;
+           
+           
+       }
+        echo json_encode($result);die;
         
     }
 }

@@ -26,11 +26,11 @@
                     </div>
                     <div class="x_content">
 
-                        <div class="col-md-12">
-                            <h2><a href="<?php echo base_url('report/pendingdataview');?>">Total Pending Data</a></h2>
-                            <h2><a href="<?php echo base_url('report/statuswise');?>">Open Prospect Status</a></h2>
-                            <h2><a href="<?php echo base_url('report/datewisedata');?>">Prospect Data List</a></h2>
-                            <h2><a href="<?php echo base_url('report/paymentwisedata');?>">Payment Data List</a></h2>
+                        <div class="col-md-12 ReportList">
+                            <p><a href="<?php echo base_url('report/pendingdataview');?>">Report 1 - Total Pending Data</a></p>
+                            <p><a href="<?php echo base_url('report/statuswise');?>">Report 2 - Stepwise Cases</a></p>
+                            <p><a href="<?php echo base_url('report/datewisedata');?>">Report 3 - Delivery Report</a></p>
+                            <p><a href="<?php echo base_url('report/paymentwisedata');?>">Report 4 - Payment Pending Cases</a></p>
                         </div>
 
                     </div>

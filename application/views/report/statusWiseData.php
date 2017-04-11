@@ -42,11 +42,11 @@
                                 <div class="col-md-12 form-group">
                                     <div class="col-md-2"><label>Select State</label></div>
                                     <div class="col-md-4"><select id="customer_state" name="customer_state" class="form-control">
-                                            <option value="1">State-1</option>    
-                                            <option value="2">State-2</option>    
-                                            <option value="3">State-3</option>    
-                                            <option value="4">State-4</option>    
-                                            <option value="5">State-5</option>    
+                                            <option value="1">Document</option>    
+                                            <option value="2">Tax Payment</option>    
+                                            <option value="3">Registration No</option>    
+                                            <option value="4">RC Details</option>    
+                                             
                                         </select>
                                     </div>
                                 </div>

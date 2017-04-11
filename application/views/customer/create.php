@@ -348,7 +348,7 @@
                                             <small class="text-navy">Document Given to Agent</small>
                                         </label>
                                         <div class="col-md-8 col-sm-8 col-xs-12">
-                                            <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="hidden"   value="0" />
+                                            <input name="document_given_to_agent_for_regular_no"  type="hidden"   value="0" />
                                             <input name="document_given_to_agent_for_regular_no" id="document_given_to_agent_for_regular_no" type="checkbox" class="js-switch" unchecked  value="1"/>
                                         </div>
                                     </div>
@@ -942,10 +942,15 @@
         $("#customer_registrationdetail").validate({
             rules: {
                 registration_no_type: "required",
+                choice_no_type: {
+                    required:true,
+                    number:true
+                },
 //                document_given_to_agent_for_regular_no: "required",
             }, messages: {
                 registration_no_type: "registration no is Required",
                 document_given_to_agent_for_regular_no: "Docuemnt check is  required",
+                choice_no_type: "No is Requied",
             }
         });
         $("#customer_number").validate({
@@ -1009,10 +1014,12 @@
         if ($("#registration_no_type").val() == 'regular_no') {
             $(".document_given_to_agent_for_regular_no").show();
             $(".select_no_for_choice").hide();
+            $(".choice_no_field").hide();
             $(".document_given_to_agent_for_choice_no").hide();
         } else if ($("#registration_no_type").val() == 'choice_no') {
             $(".document_given_to_agent_for_regular_no").hide();
             $(".select_no_for_choice").show();
+            $(".choice_no_field").show();
             if ($("#select_no_for_choice").is(":checked")) {
                 $(".document_given_to_agent_for_choice_no").show();
             } else {
@@ -1050,12 +1057,18 @@
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
                 $("#passport").prop('checked', 'checked');
+                $("#bankdoletter").removeAttr('checked');
+                if($("#finance").val()=='1'){
+                    
+                $("#bankdoletter").prop('checked', 'checked');
+                }
             } else if ($(this).val() == '0') {
                 
                 $("#pencard").removeAttr('checked');
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
                 $("#bankdoletter").removeAttr('checked');
+                $(".document_type").show();
             } else {
                
                 $(".document_type").hide();
@@ -1093,15 +1106,26 @@
             if ($(this).val() == 'regular_no') {
                 $(".document_given_to_agent_for_regular_no").show();
                 $(".select_no_for_choice").hide();
+                 $(".choice_no_field").hide();
+                  $(".select_no_for_choice").hide();
                 $(".document_given_to_agent_for_choice_no").hide();
             } else if ($(this).val() == 'choice_no') {
                 $(".document_given_to_agent_for_regular_no").hide();
                 $(".select_no_for_choice").show();
+                 $(".select_no_for_choice").show();
                 if ($("#select_no_for_choice").is(":checked")) {
+                    $(".document_given_to_agent_for_choice_no").show();
+                     $(".choice_no_field").show();
+                }else if($(this).val() == 'vip_no'){
+                 $(".choice_no_field").show();
+                 $(".document_given_to_agent_for_regular_no").hide();
+                  $(".select_no_for_choice").show();
+                  if ($("#select_no_for_choice").is(":checked")) {
                     $(".document_given_to_agent_for_choice_no").show();
                 } else {
                     $(".document_given_to_agent_for_choice_no").hide();
                 }
+            }
             }
 
         });
