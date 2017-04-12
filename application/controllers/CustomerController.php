@@ -68,7 +68,12 @@ class CustomerController extends CI_Controller {
                 if( $data['documents_status']=="" || $data['documents_status']=="0" ){   
                     $redirect = TRUE;
                 }
-              
+                if(isset($data['document'])){
+                    $insertArr['document_ids'] = implode(',', $data['document']);
+                }else{
+                    $insertArr['document_ids'] = '';
+                    
+                }
                 
 //               echo json_encode($insertArr);die;
                 if ($data['customer_id'] == "") {

@@ -191,7 +191,14 @@ class ReportController extends CI_Controller {
         $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
         $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
          $branch = $this->input->post('branch');
+       if($this->input->post('from_date')!="" && $this->input->post('to_date')!=""){
+             
         $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'branch'=>$branch,'remaining_amt'=>1,'amount >'=>0));
+         }else{
+//        var_dump($customer);die;
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('branch'=>$branch,'remaining_amt'=>1,'amount >'=>0));
+             
+         }
          $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','Payment Complete','Amount');
          if(!empty($customer)){
             foreach ($customer as $key => $value) {
@@ -225,7 +232,7 @@ class ReportController extends CI_Controller {
             'Payment Wise Data', "$from_date - $to_date", "", '', "$dateshow"
         );
         $date = strtotime(date('Y-m-d H:i:s'));
-        $name = "Date_Wise_data_$date.xls";
+        $name = "Payment_Wise_data_$date.xls";
         $cell_no = "A2:S2";
         array_unshift($customer, $header);
 
@@ -234,7 +241,7 @@ class ReportController extends CI_Controller {
     }else{
         
         $this->session->set_flashdata('msg','No Result Found');
-        redirect('report/datewisedata','refresh');
+        redirect('report/paymentwisedata','refresh');
     }
     }
 }
