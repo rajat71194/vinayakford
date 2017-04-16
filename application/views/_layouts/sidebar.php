@@ -21,22 +21,23 @@
             <li><a><i class="fa fa-users"></i>Setup <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="<?php echo base_url('welcome/user'); ?>">User</a></li>
-
+                    <li><a href="<?php echo base_url(); ?>employees">Employees List</a></li>
 
                 </ul>
             </li>
-<!--                  <li><a><i class="fa fa-eye"></i>Employees <span class="fa fa-chevron-down"></span></a>
+            <!-- <li><a href="<?php echo base_url(); ?>employees"><i class="fa fa-eye"></i>Employees List</a></li> -->
+          <!--       <li><a><i class="fa fa-eye"></i>Employees <span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="<?php echo base_url(); ?>employees">Employees List</a></li>
                 <li><a href="<?php echo base_url(); ?>employees/edit">Create Employee</a></li>
-                
+
               </ul>
             </li>
             <li><a><i class="fa fa-phone"></i>Enquiry<span class="fa fa-chevron-down"></span></a>
               <ul class="nav child_menu">
                 <li><a href="<?php echo base_url(); ?>enquiry/followup">FollowUp</a></li>
                 <li><a href="<?php echo base_url(); ?>enquiry/edit">Add Enquiry</a></li>
-                
+
               </ul>
             </li>
             <li><a><i class="fa fa-edit"></i> Customer <span class="fa fa-chevron-down"></span></a>

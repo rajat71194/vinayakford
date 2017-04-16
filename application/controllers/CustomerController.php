@@ -31,7 +31,7 @@ class CustomerController extends CI_Controller {
         $data = $this->input->post();
         $state = $data['state'];
         $result['data'] = $data;
-        
+
         switch ($state) {
             case 1:
 
@@ -59,22 +59,22 @@ class CustomerController extends CI_Controller {
 //                    'payment_type' => $data['customer_payment'],
 //                    'cheque_no' => $data['cheque_no'],
                     'document_complete' => $data['documents_status'],
-                   
+
                     'customer_state' => $data['state'],
                     'active' => 1
                 );
-                
+
                 $redirect = FALSE;
-                if( $data['documents_status']=="" || $data['documents_status']=="0" ){   
+                if( $data['documents_status']=="" || $data['documents_status']=="0" ){
                     $redirect = TRUE;
                 }
                 if(isset($data['document'])){
                     $insertArr['document_ids'] = implode(',', $data['document']);
                 }else{
                     $insertArr['document_ids'] = '';
-                    
+
                 }
-                
+
 //               echo json_encode($insertArr);die;
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
@@ -120,10 +120,10 @@ class CustomerController extends CI_Controller {
                 }
                 $redirect = FALSE;
                 if($data['payment_status']!=1){
-                 $redirect = TRUE;   
+                 $redirect = TRUE;
                 }
                 if($data['tax_payment_status']!=1){
-                 $redirect = TRUE;   
+                 $redirect = TRUE;
                 }
                 $result['custíd'] = $id;
                 $result['aaa'] = $data['payment_status'];
@@ -139,22 +139,22 @@ class CustomerController extends CI_Controller {
                     'document_for_no_choice' => $data['document_given_to_agent_for_choice_no'],
                     'customer_state' => $data['state']
                 );
-                
+
                   if($data['registration_no_type']=="regular_no"){
                     $insertArr['choice_no_type'] = "";
-                    
+
                 }else if($data['registration_no_type']=="choice_no"){
-                    
+
                     $insertArr['choice_no_type'] = $data['choice_no_type'];
                 }else if($data['registration_no_type']=="vip_no"){
                     $insertArr['choice_no_type'] = $data['choice_no_type'];
-                    
-                   
+
+
                 }
-                
-                
-                
-                
+
+
+
+
                 if(isset($data['select_no_for_choice'])){
                     $insertArr['no_for_choice'] = $data['select_no_for_choice'];
                 }
@@ -170,7 +170,7 @@ class CustomerController extends CI_Controller {
                     $id = $data['customer_id'];
                 }
                 $redirect = FALSE;
-                
+
                 if($data['registration_no_type']=="regular_no"){
                     if ($data['document_given_to_agent_for_regular_no'] == 0) {
                         $redirect = TRUE;
@@ -183,7 +183,7 @@ class CustomerController extends CI_Controller {
                         $redirect = TRUE;
                     }
                 }else if($data['registration_no_type']=="vip_no"){
-                    
+
                     if ($data['select_no_for_choice'] == 0) {
                         $redirect = TRUE;
                     }
@@ -191,15 +191,15 @@ class CustomerController extends CI_Controller {
                         $redirect = TRUE;
                     }
                 }
-                
-                
-               $amt =  $this->ford->getData('customers',array('remaining_amt','amount'),array('id'=>$id));   
+
+
+               $amt =  $this->ford->getData('customers',array('remaining_amt','amount'),array('id'=>$id));
                if(!empty($amt)){
                    if($amt[0]['remaining_amt']==1 && $amt[0]['amount']>0){
-                     $redirect = TRUE;   
+                     $redirect = TRUE;
                    }
-               } 
-               
+               }
+
                $result['custíd'] = $id;
                 $result['flag'] = TRUE;
                 $result['redirect'] = $redirect;
@@ -219,14 +219,14 @@ class CustomerController extends CI_Controller {
                  if ($data['call_agent'] == 0) {
                     $insertArr['rc_dispached_not_reason'] = $data['rc_reason'];
                 }
-                
+
                   $config['upload_path']          = './rc_document/';
                 $config['allowed_types']        = 'gif|jpg|png|pdf';
 //                $config['max_size']             = 100;
 //                $config['max_width']            = 1024;
 //                $config['max_heightcall_agent']           = 768;
 
-              
+
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
                     getProspect($insert_id);
@@ -238,13 +238,13 @@ class CustomerController extends CI_Controller {
                     $this->ford->rowUpdate('customers', $insertArr, array('id' => $data['customer_id']));
                     $id = $data['customer_id'];
                 }
-               
+
                 $redirect = FALSE;
                 if($data['no_given_to_customor']==0){
-                 $redirect = TRUE;   
+                 $redirect = TRUE;
                 }
                 if($data['call_agent']==0){
-                 $redirect = TRUE;   
+                 $redirect = TRUE;
                 }
                 $customer = $this->ford->getData('customers', '*',array('id' => $data['customer_id']));
                 $result['custdata'] = $customer[0];
@@ -255,7 +255,7 @@ class CustomerController extends CI_Controller {
                 echo json_encode($result);
                 break;
             case 5:
-               
+
                 $insertArr = array(
                     'delivery_date' => date('Y-m-d H:i:s', strtotime($data['delivery_date'])),
                     'consultant_name' => $data['consultant_name'],
@@ -278,8 +278,8 @@ class CustomerController extends CI_Controller {
                     'engine_chesis_no' => $data['customer_chesisno'],
                     'active' => 1
                 );
-           
-              
+
+
                 if ($data['customer_id'] == "") {
                     $insert_id = $this->ford->rowInsert('customers', $insertArr);
                     getProspect($insert_id);
@@ -368,9 +368,13 @@ class CustomerController extends CI_Controller {
         $search_data['keyword'] = $search;
 
         $search_data['join'] = array(
+          array('join_type'=>'left',
+                'join_table'=>'employees',
+                'on_condition'=>'employees.id=customers.consultant_name'
+        )
         );
         $search_data['column'] = array(
-            'customers.*'
+            'customers.*','employees.name as empname'
         );
         $this->ford->set_table('customers');
 
@@ -378,7 +382,7 @@ class CustomerController extends CI_Controller {
 
 
         if ($sales_consultant != "") {
-            $search_data['where']['consultant_name'] = $sales_consultant;
+            $search_data['where']['employees.id'] = $sales_consultant;
         }
         if ($mobile_no != "") {
             $search_data['where']['mobile_no'] = $mobile_no;
@@ -394,30 +398,30 @@ class CustomerController extends CI_Controller {
         }
         if ($from_date != "" && $to_date!="") {
 
-              
+
              $search_data['where']['DATE(delivery_date) >='] = date('Y-m-d', strtotime($from_date));
              $search_data['where']['DATE(delivery_date) <='] = date('Y-m-d', strtotime($to_date));
-                
+
         }
 
-        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'mobile_no');
+        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'employees.id');
         $total = $this->ford->get_all_common_list(TRUE, $search_data, $length, $start, $order, $order_by, $is_refrence = false, $or_where = "OR");
         $all_users = array();
         if ($total > 0) {
             $all_users = $this->ford->get_all_common_list(FALSE, $search_data, $length, $start, $order, $order_by, $is_refrence = false, $or_where = "OR");
         }
 
-        
+
         $data = array();
-//        echo $this->db->last_query();
+      //  echo $this->db->last_query();
         foreach ($all_users as $key => $value) {
             $value['branch'] = ucfirst($value['branch']);
             if($value['customer_state']==5){
             $url = base_url('customer/finishstep').'/'.$value['id'];
-                
+
             }else{
             $url = base_url('customer/edit') . '/' . $value['id'];
-                
+
             }
             $value['delivery_date'] = "<a href='" . $url . "' title='Edit Customer'>" . date('d-M-Y', strtotime($value['delivery_date'])) . "</a>";
             $temp = $value;
@@ -433,7 +437,7 @@ class CustomerController extends CI_Controller {
     }
 
     function payment_pending() {
-       
+
         $this->load->template('/customer/paymentcase');
     }
     function pending_customer() {
@@ -556,7 +560,7 @@ class CustomerController extends CI_Controller {
             $now = time(); // or your date as well
             $your_date = strtotime($value['delivery_date']);
             $datediff = $now - $your_date;
-            
+
             $datetime1 = new DateTime(date('Y-m-d' , strtotime($value['delivery_date'])));
             $datetime2 = new DateTime(date('Y-m-d'));
             $interval = $datetime1->diff($datetime2);
@@ -588,7 +592,7 @@ if (isset($_FILES)) {
                 $target_dir = "rc_document/";
                 $target_file = $target_dir . basename(basename($_FILES['files']['name']));
 		$error    = $_FILES['files']['error'];
-		
+
 		if ($error === UPLOAD_ERR_OK) {
 			$extension = pathinfo($name, PATHINFO_EXTENSION);
 
@@ -606,11 +610,11 @@ echo json_encode(array(
 	'error' => $error,
 ));
     }
-    
+
     function finishstep($id=-1){
-        
+
         if($id!=-1 && $id>0){
-            
+
         $state =     $this->ford->getData('customers','*',array('id'=>$id));
            if(!empty($state)){
                if($state[0]['customer_state']==4 || $state[0]['customer_state']>=4){
@@ -621,35 +625,35 @@ echo json_encode(array(
                }
            }else{
                  redirect('customer/search');
-           } 
-            
+           }
+
         }else{
             redirect('customer/search');
         }
-        
+
     }
-    
+
     function CheckAmount($customer_id=0){
         $result = array();
        if($customer_id>0){
-           
-        $amount =     $this->ford->getData('customers','remaining_amt',array('id'=>$customer_id));    
+
+        $amount =     $this->ford->getData('customers','remaining_amt',array('id'=>$customer_id));
         if(!empty($amount) ){
             if($amount[0]['remaining_amt']!=0){
-                
+
                $result['flag'] = TRUE;
             }else{
                  $result['flag'] = FALSE;
             }
         }
-      
+
        }else{
-           
+
        $result['flag'] = FALSE;
-           
-           
+
+
        }
         echo json_encode($result);die;
-        
+
     }
 }

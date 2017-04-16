@@ -6,7 +6,7 @@
   <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/animate/animate.min.css" rel="stylesheet">
 
-  
+
   <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/css/iCheck/flat/green.css" rel="stylesheet">
 
@@ -23,11 +23,11 @@
             <div class="title_left">
               <h3>
                     Employees List
-                    
+
                 </h3>
             </div>
 
-           
+
           </div>
           <div class="clearfix"></div>
 
@@ -36,12 +36,12 @@
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                       <div class="x_title">
-                        <h2>Responsive example <small>Users</small></h2>
-                        
+                        <h2> <small>Users</small></h2><a href="<?php echo base_url('employees/edit');?>" class="btn-sm btn-primary pull-right">Add Employee</a>
+
                         <div class="clearfix"></div>
                       </div>
                       <div class="x_content">
-                        
+
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap datatable-buttons responsive-utilities jambo_table bulk_action" cellspacing="0" width="100%">
                           <thead>
                             <tr class="headings">
@@ -68,12 +68,12 @@
                               <td><?php echo $employeesvalue->designation; ?></td>
                               <td><?php echo $employeesvalue->email; ?></td>
                               <td><?php echo $employeesvalue->phone; ?></td>
-                  
+
                                <td class=" last"><a href="./edit/<?php echo $employeesvalue->id; ?>" class="btn btn-success btn-xs">Edit</a> <a href="./delete/<?php echo $employeesvalue->id; ?>" class="btn btn-danger btn-xs">delete</a></td>
                             </tr>
                               <?php } ?>
-                           
-               
+
+
                           </tbody>
                         </table>
 
@@ -83,18 +83,18 @@
                 </div>
               </div>
               <!-- footer content -->
-              
+
               <!-- /footer content -->
 
             </div>
             <!-- /page content -->
-         
 
-        
 
-       
 
-        
+
+
+
+
       <script src="<?php echo base_url();?>assets/js/bootstrap/js/bootstrap.min.js"></script>
 
         <!-- bootstrap progress js -->
@@ -103,7 +103,7 @@
         <!-- icheck -->
         <script src="<?php echo base_url();?>assets/js/iCheck/icheck.min.js"></script>
 
-        
+
 
 
         <!-- Datatables -->
@@ -165,10 +165,10 @@
         <script type="text/javascript">
           $(document).ready(function() {
             $('#datatable').dataTable();
-            
+
             $('#datatable-responsive').DataTable();
-            
-          
+
+
           });
           TableManageButtons.init();
         </script>
@@ -178,11 +178,11 @@
                   if(this.checked){
                     $(".checkSingle").each(function(){
                       this.checked=true;
-                    })              
+                    })
                   }else{
                     $(".checkSingle").each(function(){
                       this.checked=false;
-                    })              
+                    })
                   }
                 });
 
@@ -192,8 +192,8 @@
                     $(".checkSingle").each(function(){
                       if(!this.checked)
                          isAllChecked = 1;
-                    })              
-                    if(isAllChecked == 0){ $("#checkedAll").prop("checked", true); }     
+                    })
+                    if(isAllChecked == 0){ $("#checkedAll").prop("checked", true); }
                   }
                   else {
                     $("#checkedAll").prop("checked", false);

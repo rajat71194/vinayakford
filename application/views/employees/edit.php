@@ -1,27 +1,4 @@
-  <link href="<?php echo base_url();?>assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <link href="<?php echo base_url();?>assets/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/css/animate/animate.min.css" rel="stylesheet">
-
-  <!-- Custom styling plus plugins -->
-  <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet">
-  <link href="<?php echo base_url();?>assets/css/iCheck/flat/green.css" rel="stylesheet">
-
-
-  <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
-
-<script src="<?php echo base_url();?>assets/js/bootstrap/js/bootstrap.min.js"></script>
-
-  <!-- bootstrap progress js -->
-  <script src="<?php echo base_url();?>assets/js/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-  <script src="<?php echo base_url();?>assets/js/nicescroll/jquery.nicescroll.min.js"></script>
-  <!-- icheck -->
-  <script src="<?php echo base_url();?>assets/js/iCheck/icheck.min.js"></script>
-  <!-- pace -->
-  <script src="<?php echo base_url();?>assets/js/pace/pace.min.js"></script>
-  <!-- form validation -->
-  <!--<script src="<?php echo base_url();?>assets/js/validator/validator.js"></script>-->
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+  
   <script>
     // initialize the validator function
     validator.message['date'] = 'not a real date';
@@ -74,10 +51,10 @@
                  <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                
-        
+
+
                 <form class="form-horizontal form-label-left" id="employee_form" action="<?php echo base_url();?>employees/saveEmployee" method="post" novalidate>
-     
+
                    <input class="form-control has-feedback-right" id="employee_email" name="employee_id" placeholder="Id" type="hidden" value="<?php if(!empty($this->employees->id)){echo $this->employees->id; } ?>">
 
                           <div class="form-group">
@@ -101,7 +78,7 @@
                               <input class="form-control has-feedback-right" id="employee_email" name="employee_email" placeholder="Email" type="text" value="<?php if(!empty($this->employees->email)){echo $this->employees->email;} ?>">
                              <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>  </div>
                           </div>
-       
+
                           <div class="form-group">
                             <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Phone</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -113,7 +90,7 @@
                                    <div class="col-md-6 col-sm-6 col-xs-12">
                                        <button type="submit" class="btn btn-success">Submit</button>
                                    </div>
-                            
+
                             </div>
 </form>
                   </div>
@@ -121,11 +98,11 @@
         </div>
     </div>
 
-       </div>                   
-                       
+       </div>
+
   <script type="text/javascript">
   $(document).ready(function(){
-      
+
       $("#employee_form").validate({
 			rules: {
 				employee_name: "required",
@@ -140,9 +117,4 @@
                             }
                         });
   })
-  </script>         
-                        
-                      
-                       
-                         
-
+  </script>

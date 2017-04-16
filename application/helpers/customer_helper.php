@@ -16,10 +16,15 @@ function getProspect($id = 0) {
     }
     return $data;
 }
-
+function getEmployee(){
+$CI = & get_instance();
+  $CI->load->model('ford_model');
+$employees =  $CI->ford_model->getData('employees',"*");
+return $employees;
+}
 function excelGenerate($cell_name="A1:I1",$users = array(),$name="csvGenerate.xls"){
          $CI = & get_instance();
-     
+
 
     //load our new PHPExcel library
         $CI->load->library('EXcel');
@@ -29,22 +34,22 @@ function excelGenerate($cell_name="A1:I1",$users = array(),$name="csvGenerate.xl
         $CI->excel->getActiveSheet()->setTitle('Users list');
         // read data to active sheet
         $CI->excel->getActiveSheet()->fromArray($users);
-        
+
         $CI->excel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
         $CI->excel->getActiveSheet()->getStyle($cell_name)->getFont()->setBold(true);
         $filename=$name; //save our workbook as this file name
- 
+
         header('Content-Type: application/vnd.ms-excel'); //mime type
- 
+
         header('Content-Disposition: attachment;filename="'.$filename.'"'); //tell browser what's the file name
- 
+
         header('Cache-Control: max-age=0'); //no cache
-                              
+
 
         $objWriter = PHPExcel_IOFactory::createWriter($CI->excel, 'Excel5');
 
         //force user to download the Excel file without writing it to server's HD
         $objWriter->save('php://output');
-    
-    
+
+
 }

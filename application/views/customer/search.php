@@ -23,7 +23,22 @@
                     <div class="x_title">
                         <div class="col-md-12 form-group">
                             <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">Sales Consultant</label></div>
-                            <div class="col-md-4 col-sm-4 col-xs-12"><input type="text" name="sales_consultant" id="sales_consultant" class="form-control" placeholder="Sales Consultant"/></div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                              <select class="col-md-4 col-sm-4 col-xs-12 form-control has-feedback-right" name="consultant_name" id="sales_consultant">
+                                <option value="">Select Consultant</option>
+                                <?php
+                                $emplist = getEmployee();
+                                 if(!empty($emplist)){
+                                   foreach ($emplist as $key => $value) {
+                                     ?>
+                                     <option value="<?php echo $value['id'];?>"><?php echo  $value['name'];?></option>
+                                     <?php
+                                   }
+                                 }
+                                 ?>
+                              </select>
+
+                            </div>
                         </div>
                         <div class="col-md-12 form-group">
                             <div class="col-md-3 col-sm-3 col-xs-12"><label for="name">Client Given Name</label></div>
@@ -141,7 +156,7 @@
         $.fn.datepicker.noConflict;
         $('#from_date').datepicker({
             dateFormat: 'dd-mm-yy',
-            
+
             todayHighlight: 'TRUE',
             autoclose: true
         });
@@ -149,7 +164,7 @@
         $('#to_date').datepicker(
                 {
                     dateFormat: 'dd-mm-yy',
-                   
+
                     todayHighlight: 'TRUE',
                     autoclose: true
                 }

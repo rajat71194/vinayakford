@@ -135,8 +135,22 @@
                                     <div class="form-group col-xs-12 col-sm-6">
                                         <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Sales Consultant</label>
                                         <div class="col-md-8 col-sm-8 col-xs-12">
-                                            <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" type="text">
-                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>  </div>
+                                            <!-- <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" type="text"> -->
+                                            <select class="form-control has-feedback-right" name="consultant_name" id="consultant_name">
+                                              <option value="">Select Consultant</option>
+                                              <?php
+                                              $emplist = getEmployee();
+                                               if(!empty($emplist)){
+                                                 foreach ($emplist as $key => $value) {
+                                                   ?>
+                                                   <option value="<?php echo $value['id'];?>"><?php echo  $value['name'];?></option>
+                                                   <?php
+                                                 }
+                                               }
+                                               ?>
+                                            </select>
+                                            <!-- <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>   -->
+                                          </div>
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-6">
                                         <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Email </label>
@@ -171,9 +185,9 @@
 
                                             <input placeholder="Bank Name" type="text" class="form-control" name='bank_name' id="bank_name"/>
                                         </div>
-                                    </div>   
+                                    </div>
 
-                                    
+
 
 
                                     <div class="form-group col-xs-12 col-sm-6">
@@ -181,7 +195,7 @@
                                         <div class="col-md-8 col-sm-8 col-xs-12">
 
                                             <select class="form-control" name="insurance" id="insurance">
-                                                
+
                                                 <option value="">Select Insurance</option>
                                                 <option value="vapl">VAPL</option>
                                                 <option value="self">Self</option>
@@ -229,7 +243,7 @@
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="drivinglic" value="2" name="document[]">Aadhar Card
                                             </label>
-                                            
+
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" id="passport" value="3" name="document[]">Passport
                                             </label>
@@ -254,7 +268,7 @@
                                 <div class="step2">
                                     <input type="hidden" name="state" id="state" value="2"/>
                                     <input type="hidden" name="customer_id" class="customer_id" value=""/>
-                                     
+
 
                                     <div class="form-group ">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Payment Complete ?</label>
@@ -286,16 +300,16 @@
                                                     <input type="radio" value="cheque" id="optionsRadios2" name="customer_payment"> Via Cheque
                                                 </label>
                                                 <label>
-                                                    <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no"> 
+                                                    <input type="text" placeholder="Cheque no" value="" id="cheque_no" name="cheque_no">
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
-                                         
+
                                     <div class="form-group ">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Tax Payment Complete ?</label>
                                         <div class="col-md-6 col-sm-8 col-xs-12">
-                                            
+
                                             <input name="tax_payment_status" type="hidden"   value="0" />
                                             <input id="tax_payment_status" name="tax_payment_status"  type="checkbox" class="js-switch" unchecked value="1" />
                                         </div>
@@ -342,7 +356,7 @@
 
                                             </select>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div class="form-group document_given_to_agent_for_regular_no">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Document Given to Agent</small>
@@ -454,7 +468,7 @@
                                         <label class="control-label col-md-4 col-sm-4 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
                                         </label>
                                         <div class="col-md-8 col-sm-8 col-xs-12">
-                                            <input class="form-control" id="inputSuccess3_edit" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s');  ?>" readonly="">   
+                                            <input class="form-control" id="inputSuccess3_edit" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s');  ?>" readonly="">
                                             <!--date('d-m-Y h:i A',strtotime($custdata['delivery_date']));-->
                                         </div>
                                     </div>
@@ -495,7 +509,7 @@
                                         <label for="middle-name" class="control-label col-md-4 col-sm-4 col-xs-12">Engine Vin Number <span class="required">*</span></label>
                                         <div class="col-md-8 col-sm-8 col-xs-12">
                                             <input class="form-control edit" id="inputSuccess7_edit" name="customer_chesisno" placeholder="Chasis Number" value="" type="text">
-                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">    
+                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">
                                             </span>
                                         </div>
                                     </div>
@@ -560,7 +574,7 @@
 
                                             <input placeholder="Bank Name" type="text" class="form-control edit bank_name" name='bank_name' id="bank_name_edit" value=""/>
                                         </div>
-                                    </div>   
+                                    </div>
 
 
 
@@ -679,7 +693,7 @@
 
             }
         });
-        //cheque no 
+        //cheque no
         $("#cheque_no").hide();
         $("body").on('click', '#optionsRadios1', function () {
 
@@ -825,7 +839,7 @@
             }
 
 
-          
+
 
 
 
@@ -993,8 +1007,8 @@
                                         $(".image_show").empty();
                                         var name = base_url+"/rc_document/"+filename;
                                         $(".image_show").html("<img height='100' class='thumbnail' width='150' src='"+name+"'>");
-                                        
-                                        
+
+
 				}
 			});
         $('body').on('click', '.buttonNext', function () {
@@ -1061,25 +1075,25 @@
         });
         $("body").on('change', '#documents_status', function () {
             if ($(this).val() == '1') {
-                 
+
                 $(".document_type").show();
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
                 $("#passport").prop('checked', 'checked');
                 $("#bankdoletter").removeAttr('checked');
                 if($("#finance").val()=='1'){
-                    
+
                 $("#bankdoletter").prop('checked', 'checked');
                 }
             } else if ($(this).val() == '0') {
-                
+
                 $("#pencard").removeAttr('checked');
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
                 $("#bankdoletter").removeAttr('checked');
                 $(".document_type").show();
             } else {
-               
+
                 $(".document_type").hide();
             }
         });
@@ -1174,7 +1188,7 @@
              var base_url = $("#base_url").val();
                var stepnumber = $(this).attr('data-state');
             var isStepValid = true;
-           
+
             if (stepnumber == 1) {
                 // Your step validation logic
                 // set isStepValid = false if has errors
@@ -1255,13 +1269,13 @@
             }
 
 
-          
-         });  
+
+         });
     });
     function submitForm(formid, formdata) {
         var base_url = $('body').find('#base_url').val();
         var obj = formid;
-        
+
         $.ajax({
             url: base_url + 'customerController/saveData',
             type: 'POST',
@@ -1269,9 +1283,9 @@
             async: false,
             success: function (data) {
                 var data = $.parseJSON(data);
-               
+
                 if (data.flag) {
-                   
+
                     $('body').find('.customer_id').val(data.custíd);
                     if (data.redirect) {
                         location.href = base_url + "customer/search";
@@ -1305,10 +1319,10 @@
                            $("#finance_edit option[value="+finance+"]").prop('selected','selected');
                            $("#vehicle_reg_edit option[value='"+vehicle_reg+"']").prop('selected','selected');
                            $("#customer_address_edit").text(data.custdata["address"]);
-                           
+
                         }
                     }
-                    
+
                      flag = data.flag;
                 }
             }
@@ -1503,10 +1517,10 @@
     }
     .unselect_img{
         width:18px;
-        -webkit-user-select: none;  
-        -moz-user-select: none;     
-        -ms-user-select: none;      
-        user-select: none; 
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     .active-header {
         -moz-border-radius:5px 5px 0 0;
@@ -1578,4 +1592,3 @@
         }
     }
 </style>
-

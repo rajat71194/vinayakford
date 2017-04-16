@@ -90,7 +90,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess3" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s',  strtotime($custdata['delivery_date']));  ?>" readonly="">   
+                                            <input class="form-control" id="inputSuccess3" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s',  strtotime($custdata['delivery_date']));  ?>" readonly="">
                                             <!--date('d-m-Y h:i A',strtotime($custdata['delivery_date']));-->
                                         </div>
                                     </div>
@@ -124,7 +124,7 @@
                                                 <option  <?php echo ($custdata['vehicle_name'] == "Aspire") ? " selected " : " " ?>  value="Aspire">Aspire</option>
                                                 <option  <?php echo ($custdata['vehicle_name'] == "Mustang") ? " selected " : " " ?>  value="Mustang">Mustang</option>
                                                 <option  <?php echo ($custdata['vehicle_name'] == "Endovour") ? " selected " : " " ?>  value="Fiesta">Ford Fiesta</option>
-                                             
+
                                             </select>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Vin Number <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input class="form-control" id="inputSuccess7" name="customer_chesisno" placeholder="Chasis Number" value="<?php echo $custdata['engine_chesis_no']; ?>" type="text">
-                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">    
+                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">
                                             </span>
                                         </div>
                                     </div>
@@ -158,10 +158,24 @@
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sales Consultant</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" value="<?php echo $custdata['consultant_name']; ?>" type="text">
+                                            <!-- <input class="form-control has-feedback-right" name="consultant_name" id="consultant_name" placeholder="Consultant name" value="<?php echo $custdata['consultant_name']; ?>" type="text">
                                             <span class="fa fa-user form-control-feedback right" aria-hidden="true">
 
-                                            </span>
+                                            </span> -->
+
+                                            <select class="form-control has-feedback-right" name="consultant_name" id="consultant_name">
+                                              <option value="">Select Consultant</option>
+                                              <?php
+                                              $emplist = getEmployee();
+                                               if(!empty($emplist)){
+                                                 foreach ($emplist as $key => $value) {
+                                                   ?>
+                                                   <option <?= ($custdata['consultant_name']==$value['id'])?'selected':'';?> value="<?php echo $value['id'];?>"><?php echo  $value['name'];?></option>
+                                                   <?php
+                                                 }
+                                               }
+                                               ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -197,7 +211,7 @@
 
                                             <input placeholder="Bank Name" type="text" class="form-control" name='bank_name' id="bank_name" value="<?php echo $custdata['bank_name'] ?>"/>
                                         </div>
-                                    </div>   
+                                    </div>
 
 
 
@@ -232,14 +246,14 @@
                                             <textarea class="form-control" rows="3" name="customer_address" placeholder="Address"><?php echo $custdata['address'] ?></textarea>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Documents Complete ? <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
 <!--                                            <input name="documents_status"  type="hidden" class="js-switch" value="0" />
                                             <input name="documents_status" id="documents_status" type="checkbox" class="js-switch" unchecked value="1"  <?= ( $custdata['document_complete'] == "1") ? '   checked ' : ''; ?> />-->
                                             <select name="documents_status" id="documents_status" class="form-control">
-                                                
+
                                                 <option <?= ( $custdata['document_complete'] == "") ? '   selected ' : ''; ?> value="">Choose</option>
                                                 <option <?= ( $custdata['document_complete'] == 1) ? '   selected ' : ''; ?> value="1">Yes</option>
                                                 <option <?= ( $custdata['document_complete'] == 0) ? '   selected ' : ''; ?> value="0">No</option>
@@ -306,7 +320,7 @@
                                         <div class="col-md-9 col-sm-9 col-xs-12">
                                             <div class="radio-inline paddingTop8">
                                                 <label>
-                                                   
+
                                                     <input type="radio" <?= ( $custdata['payment_type'] == "cash") ? '   checked ' : ''; ?> value="cash" value="cash" name="customer_payment" id="optionsRadios1" > Via Cash
                                                 </label>
                                             </div>
@@ -315,8 +329,8 @@
                                                     <input type="radio" value="cheque" <?= ( $custdata['payment_type'] == "cheque") ? '   checked ' : ''; ?> id="optionsRadios2" name="customer_payment"> Via Cheque
                                                 </label>
                                                 <label>
-                                                    <input type="hidden" placeholder="Cheque no"  name="cheque_no" value="0"> 
-                                                    <input type="text" placeholder="Cheque no"  id="cheque_no" name="cheque_no" value="<?php echo $custdata['cheque_no']; ?>"> 
+                                                    <input type="hidden" placeholder="Cheque no"  name="cheque_no" value="0">
+                                                    <input type="text" placeholder="Cheque no"  id="cheque_no" name="cheque_no" value="<?php echo $custdata['cheque_no']; ?>">
                                                 </label>
                                             </div>
                                         </div>
@@ -373,7 +387,7 @@
 
                                             </select>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div class="form-group document_given_to_agent_for_regular_no">
                                         <label class="col-md-3 col-sm-3 col-xs-12 control-label">
                                             <small class="text-navy">Document Given to Agent </small>
@@ -410,7 +424,7 @@
                                             <input name="document_given_to_agent_for_choice_no" id="document_given_to_agent_for_choice_no" type="checkbox" <?= ( $custdata['document_for_no_choice'] == "1") ? '   checked ' : ''; ?>  value="1" class="js-switch"  />
                                         </div>
                                     </div>
-                                    
+
 
 
 
@@ -491,7 +505,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Delivery Date <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control" id="inputSuccess3_edit" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s',  strtotime($custdata['delivery_date']));  ?>" readonly="">   
+                                            <input class="form-control" id="inputSuccess3_edit" name="delivery_date" placeholder="Delivery Date" type="text" value="<?php echo date('d-m-Y h:i:s',  strtotime($custdata['delivery_date']));  ?>" readonly="">
                                             <!--date('d-m-Y h:i A',strtotime($custdata['delivery_date']));-->
                                         </div>
                                     </div>
@@ -532,7 +546,7 @@
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Engine Vin Number <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input class="form-control edit" id="inputSuccess7_edit" name="customer_chesisno" placeholder="Chasis Number" value="<?php echo $custdata['engine_chesis_no']; ?>" type="text">
-                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">    
+                                            <span class="fa fa-automobile form-control-feedback right" aria-hidden="true">
                                             </span>
                                         </div>
                                     </div>
@@ -597,7 +611,7 @@
 
                                             <input placeholder="Bank Name" type="text" class="form-control edit bank_name" name='bank_name' id="bank_name_edit" value="<?php echo $custdata['bank_name'] ?>"/>
                                         </div>
-                                    </div>   
+                                    </div>
 
 
 
@@ -630,9 +644,9 @@
                                             <textarea id="customer_address_edit" class="form-control edit" rows="3" name="customer_address" placeholder="Address"><?php echo $custdata['address'] ?></textarea>
                                         </div>
                                     </div>
-                                    
-                                
-                                    
+
+
+
 
 
                             </div>
@@ -655,15 +669,15 @@
     $(document).ready(function () {
         $("body").find('.edit').attr('disabled',true);
         $('body').on('click','.edit_field',function(){
-           $(this).text('Save'); 
-           $(this).removeClass('edit_field'); 
-           $(this).addClass('save_field'); 
+           $(this).text('Save');
+           $(this).removeClass('edit_field');
+           $(this).addClass('save_field');
         $("body").find('.edit').attr('disabled',false);
         });
         $('body').on('click','.save_field',function(){
-           $(this).text('Edit'); 
-           $(this).removeClass('save_field'); 
-           $(this).addClass('edit_field'); 
+           $(this).text('Edit');
+           $(this).removeClass('save_field');
+           $(this).addClass('edit_field');
         $("body").find('.edit').attr('disabled',true);
         });
     });
@@ -763,11 +777,11 @@
 
             }
         });
-        //cheque no 
-         //cheque no 
+        //cheque no
+         //cheque no
          if($('#optionsRadios1').is(':checked')){
             $("#cheque_no").hide();
-             
+
          }
         $("body").on('click', '#optionsRadios1', function () {
 
@@ -812,7 +826,7 @@
                 return false;
             }
         });
-        
+
         $(".finish-step").click(function (e) {
             var stepnumber = $(this).attr('data-state');
 
@@ -831,10 +845,10 @@
                     var formId = $("#customer_rc");
 //                    alert(formData);
                    var flag =  submitForm(formId, formData);
-                   
+
                     $(".edit").attr('disabled',true);
                     if(flag){
-                        
+
                      location.href = base_url + "customer/search";
                     }
                 }
@@ -861,9 +875,9 @@
                     var formId = $("#customer_registration");
                    var flag =  submitForm(formId, formData);
 
-                  
+
                     if(flag){
-                        
+
                     var $active = $('.wizard .nav-tabs li.active');
                     $active.next().removeClass('disabled');
                     nextTab($active);
@@ -880,7 +894,7 @@
                     var formId = $("#customer_tax");
                     var flag = submitForm(formId, formData);
                     if(flag){
-                        
+
                     var $active = $('.wizard .nav-tabs li.active');
                     $active.next().removeClass('disabled');
                     nextTab($active);
@@ -896,7 +910,7 @@
                     var formId = $("#customer_registrationdetail");
                    var flag = submitForm(formId, formData);
                     if(flag){
-                        
+
                     var $active = $('.wizard .nav-tabs li.active');
                     $active.next().removeClass('disabled');
                     nextTab($active);
@@ -912,12 +926,12 @@
                     var formId = $("#customer_number");
                     var flag = submitForm(formId, formData);
                     if(flag){
-                       
+
                     var $active = $('.wizard .nav-tabs li.active');
                     $active.next().removeClass('disabled');
                     nextTab($active);
                     }
-                    
+
                 }
             } else if (stepnumber == 5) {
                 if (!$("#customer_rc").valid()) {
@@ -929,7 +943,7 @@
                     var formId = $("#customer_rc");
                     flag = submitForm(formId, formData);
                     if(flag){
-                        
+
                     var $active = $('.wizard .nav-tabs li.active');
                     $active.next().removeClass('disabled');
                     nextTab($active);
@@ -948,8 +962,8 @@
 
         });
          var base_url = $('body').find('#base_url').val();
-              var options = { 
-       
+              var options = {
+
         success:function(data){
             var data = $.parseJSON(data);
 
@@ -960,13 +974,13 @@
                     }
 
                 }
-        } 
-        // post-submit callback 
- 
-     
-    };     
-//            ajax file uplaod 
-            
+        }
+        // post-submit callback
+
+
+    };
+//            ajax file uplaod
+
             $("#rc_file").AjaxFileUpload({
                                 action: base_url+"customer/upload",
 				onComplete: function(filename, response) {
@@ -974,14 +988,14 @@
                                         $(".image_show").empty();
                                         var name = base_url+"/rc_document/"+filename;
                                         $(".image_show").html("<img height='100' class='thumbnail' width='150' src='"+name+"'>");
-                                        
-                                        
+
+
 				}
 			});
-            
-            
-            
-//         $('#customer_registration').ajaxForm({ 
+
+
+
+//         $('#customer_registration').ajaxForm({
 //       beforeSubmit: function(data){ return $("#customer_registration").valid()},
 //        success:function(data){
 //            var data = $.parseJSON(data);
@@ -993,12 +1007,12 @@
 //                    }
 //
 //                }
-//        } 
-//        // post-submit callback 
-// 
-//     
-//    }); 
-//        $('#customer_tax').ajaxForm({ 
+//        }
+//        // post-submit callback
+//
+//
+//    });
+//        $('#customer_tax').ajaxForm({
 //       beforeSubmit: function(data){ return $("#customer_tax").valid() },
 //        success:function(data){
 //            var data = $.parseJSON(data);
@@ -1010,12 +1024,12 @@
 //                    }
 //
 //                }
-//        } 
-//        // post-submit callback 
-// 
-//     
-//    }); 
-//        $('#customer_registrationdetail').ajaxForm({ 
+//        }
+//        // post-submit callback
+//
+//
+//    });
+//        $('#customer_registrationdetail').ajaxForm({
 //       beforeSubmit:function(data){  $("#customer_registrationdetail").valid()},
 //        success:function(data){
 //            var data = $.parseJSON(data);
@@ -1027,12 +1041,12 @@
 //                    }
 //
 //                }
-//        } 
-//        // post-submit callback 
-// 
-//     
-//    }); 
-//        $('#customer_number').ajaxForm({ 
+//        }
+//        // post-submit callback
+//
+//
+//    });
+//        $('#customer_number').ajaxForm({
 //       beforeSubmit: function(data){ return $("#customer_number").valid()},
 //        success:function(data){
 //            var data = $.parseJSON(data);
@@ -1044,12 +1058,12 @@
 //                    }
 //
 //                }
-//        } 
-//        // post-submit callback 
-// 
-//     
-//    }); 
-//        $('#customer_rc').ajaxForm({ 
+//        }
+//        // post-submit callback
+//
+//
+//    });
+//        $('#customer_rc').ajaxForm({
 //       beforeSubmit: function(data){  return $("#customer_rc").valid() },
 //        success:function(data){
 //            var data = $.parseJSON(data);
@@ -1061,12 +1075,12 @@
 //                    }
 //
 //                }
-//        } 
-//        // post-submit callback 
-// 
-//     
-//    });    
-            
+//        }
+//        // post-submit callback
+//
+//
+//    });
+
         $(".prev-step").click(function (e) {
 
             var $active = $('.wizard .nav-tabs li.active');
@@ -1084,7 +1098,7 @@
 
 
 
-        
+
         $("#customer_registration").validate({
             rules: {
                 customer_name: {
@@ -1151,7 +1165,7 @@
                 branch: "required",
                 insurance: "required",
                 vehicle_reg: "required",
-                
+
             }, messages: {
                 customer_name: {required: "Customer Name is Required"},
                 customer_email: {required: "Customer Email is required"},
@@ -1184,12 +1198,12 @@
                         return $('#optionsRadios2').is(':checked')
                     }
                 }
-               
+
             }, messages: {
                 tax_payment_status: "Tax Payment is Required",
                 tax_payment_reason: "Reason is required",
                  customer_payment_reason: {required: "Payment Reason is required"},
-                
+
                   cheque_no: {required: "Cheque no is required"},
             }
         });
@@ -1198,7 +1212,7 @@
                 registration_no_type: "required",
                 choice_no_type: {
                     required:true,
-                 
+
                 }
 //                document_given_to_agent_for_regular_no: "required",
             }, messages: {
@@ -1255,7 +1269,7 @@
                 $("#drivinglic").prop('checked', 'checked');
                 $("#passport").prop('checked', 'checked');
                 if($("#finance").val()=='1'){
-                    
+
                 $("#bankdoletter").prop('checked', 'checked');
                 }
             } else if ($(this).val() == '0') {
@@ -1283,11 +1297,11 @@
             $(".document_given_to_agent_for_regular_no").hide();
             $(".select_no_for_choice").show();
                 $(".choice_no_field").show();
-                
+
             if ($("#select_no_for_choice").is(":checked")) {
                 $(".document_given_to_agent_for_choice_no").show();
             } else {
-               
+
                 $(".document_given_to_agent_for_choice_no").hide();
             }
         }
@@ -1416,7 +1430,7 @@
              var base_url = $("#base_url").val();
                var stepnumber = $(this).attr('data-state');
             var isStepValid = true;
-           
+
             if (stepnumber == 1) {
                 // Your step validation logic
                 // set isStepValid = false if has errors
@@ -1497,8 +1511,8 @@
             }
 
 
-          
-         });  
+
+         });
          $('body').on('click','#select_no_for_choice',function(){
             var customer_id =  $(".customer_id").val();
             if ($(this).is(":checked")) {
@@ -1509,13 +1523,13 @@
             var data = $.parseJSON(data);
                 if(data.flag==true){
                     alert('Please Complete the Payment First');
-                $('#select_no_for_choice').attr('checked', false); 
+                $('#select_no_for_choice').attr('checked', false);
                 }}
                  });
-                
+
 
             }else{
-                
+
             }
          });
          $('body').on('click','#document_given_to_agent_for_regular_no',function(){
@@ -1528,13 +1542,13 @@
             var data = $.parseJSON(data);
                 if(data.flag==true){
                     alert('Please Complete the Payment First');
-                $('#document_given_to_agent_for_regular_no').attr('checked', false); 
+                $('#document_given_to_agent_for_regular_no').attr('checked', false);
                 }}
                  });
-                
+
 
             }else{
-                
+
             }
          });
     });
@@ -1552,9 +1566,9 @@
                 var data = $.parseJSON(data);
 
                 if (data.flag) {
-                   
+
                     $('body').find('.customer_id').val(data.custíd);
-                    
+
                     if(data.state==4){
 //                       alert(data.custdata["vehicle_name"]);
                         if(data.custdata!=""){
@@ -1582,7 +1596,7 @@
                            $("#finance_edit option[value="+finance+"]").prop('selected','selected');
                            $("#vehicle_reg_edit option[value='"+vehicle_reg+"']").prop('selected','selected');
                            $("#customer_address").text(data.custdata["address"]);
-                           
+
                         }
                     }
                      flag = data.flag;
@@ -1784,10 +1798,10 @@
     }
     .unselect_img{
         width:18px;
-        -webkit-user-select: none;  
-        -moz-user-select: none;     
-        -ms-user-select: none;      
-        user-select: none; 
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     .active-header {
         -moz-border-radius:5px 5px 0 0;
@@ -1859,4 +1873,3 @@
         }
     }
 </style>
-

@@ -22,6 +22,10 @@ class Employees extends CI_Controller {
             parent::__Construct ();
            $db = $this->load->database();
              $this->load->model('EmployeeDetail'); // load model
+						 $this->load->model('ford_model', 'ford');
+						 if (!$this->session->userdata('admin_id')) {
+								 redirect('welcome/login', 'refresh');
+						 }
           }
 	  function  index(){
 	       $this->employeeList();
@@ -31,33 +35,33 @@ class Employees extends CI_Controller {
                 $this->load->template('/employees/list', $this->employeeslist);
 	}
          public function edit()
-                 
+
 	{    $id = $this->uri->segment(3);
              if($id) {
                   $this->employees = $this->EmployeeDetail->getEmployee($id);
                   $this->load->template('/employees/edit', $this->employees);
              }else {
-               $this->load->template('/employees/edit');  
+               $this->load->template('/employees/edit');
              }
 	}
         public function saveEmployee(){
             $this->employeeData=$this->input->post();
-            
+
             if(empty($this->employeeData['employee_id'])){
                 $this->EmployeeDetail->saveEmployee($this->employeeData);
             }else {
                  $this->EmployeeDetail->updateEmployee($this->employeeData);
             }
-           
+
         }
          public function delete()
-                 
+
 	{    $id = $this->uri->segment(3);
              if(!empty($id)) {
                   $this->employees = $this->EmployeeDetail->deleteEmployee($id);
-                
+
              }else {
-                $this->load->template('/employees/list', $this->employeeslist); 
+                $this->load->template('/employees/list', $this->employeeslist);
              }
 	}
 }
