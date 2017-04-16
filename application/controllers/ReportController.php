@@ -24,11 +24,17 @@ class ReportController extends CI_Controller {
         $branch = $this->input->post('branch');
          $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
         $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
+        $join = array(
+            array(
+                'table'=>'employees',
+                'on'=>'employees.id=customers.consultant_name'
+            )
+        );
         if($this->input->post('from_date')!="" && $this->input->post('to_date')!=""){
-        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'customer_state <' => 5,'branch'=>$branch));
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,employees.name as empname,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'customer_state <' => 5,'branch'=>$branch),$join);
            
         }else{
-        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('customer_state <' => 5,'branch'=>$branch));
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,employees.name as empname,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('customer_state <' => 5,'branch'=>$branch),$join);
           
         }
         $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','Payment Complete','Amount');
@@ -80,12 +86,18 @@ class ReportController extends CI_Controller {
         $branch = $this->input->post('branch');
         $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
         $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
+        $join = array(
+            array(
+                'table'=>'employees',
+                'on'=>'employees.id=customers.consultant_name'
+            )
+        );
         if ($customer_state != "") {
              if($this->input->post('from_date')!="" && $this->input->post('to_date')!=""){
                  
-            $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,customer_state,,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'customer_state' => $customer_state,'branch'=>$branch));
+            $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,employees.name as empname,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,customer_state,,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'customer_state' => $customer_state,'branch'=>$branch),$join);
              }else{
-            $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,customer_state,,remaining_amt,amount', array('customer_state' => $customer_state,'branch'=>$branch));
+            $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,employees.name as empname,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,customer_state,,remaining_amt,amount', array('customer_state' => $customer_state,'branch'=>$branch),$join);
                  
              }
             $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','State','Payment Complete','Amount');
@@ -137,7 +149,13 @@ class ReportController extends CI_Controller {
         $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
         $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
          $branch = $this->input->post('branch');
-        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >=' => $from_date,'DATE(delivery_date) <='=>$to_date,'branch'=>$branch));
+         $join = array(
+            array(
+                'table'=>'employees',
+                'on'=>'employees.id=customers.consultant_name'
+            )
+        );
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,employees.name as empname,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >=' => $from_date,'DATE(delivery_date) <='=>$to_date,'branch'=>$branch),$join);
          $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','Payment Complete','Amount');
          if(!empty($customer)){
             foreach ($customer as $key => $value) {
@@ -191,12 +209,18 @@ class ReportController extends CI_Controller {
         $from_date = date('Y-m-d',strtotime($this->input->post('from_date')));
         $to_date = date('Y-m-d',strtotime($this->input->post('to_date')));
          $branch = $this->input->post('branch');
+         $join = array(
+            array(
+                'table'=>'employees',
+                'on'=>'employees.id=customers.consultant_name'
+            )
+        );
        if($this->input->post('from_date')!="" && $this->input->post('to_date')!=""){
              
-        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'branch'=>$branch,'remaining_amt'=>1,'amount >'=>0));
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,employees.name as empname,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('DATE(delivery_date) >' => $from_date,'DATE(delivery_date) <='=>$to_date,'branch'=>$branch,'remaining_amt'=>1,'amount >'=>0),$join);
          }else{
 //        var_dump($customer);die;
-        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('branch'=>$branch,'remaining_amt'=>1,'amount >'=>0));
+        $customer = $this->ford->getData('customers', 'delivery_date,branch,customer_name,vehicle_name,engine_chesis_no,mobile_no,phone_no,followup,consultant_name,customers.email,finance,bank_name,insurance,vehicle_reg,address,document_complete,remaining_amt,amount', array('branch'=>$branch,'remaining_amt'=>1,'amount >'=>0),$join);
              
          }
          $header = array('Delivery Date', 'Branch', 'Customer Name', 'Vehicle Name', 'VIN No', 'Mobile No', 'Phone No', 'Followup','Cunsultant Name','Email','Finance','Bank Name','Insurance','Vehicle Registration','Address','Document Complete','Payment Complete','Amount');

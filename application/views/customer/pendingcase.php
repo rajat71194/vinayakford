@@ -110,8 +110,8 @@
                     //"sWidth":'15%'
                 },
                 {
-                    "sClass": "consultant_name",
-                    "mDataProp": "consultant_name",
+                    "sClass": "empname",
+                    "mDataProp": "empname",
                     "bSortable": false,
                     //"sWidth":'15%'
                 },

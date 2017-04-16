@@ -13,7 +13,7 @@
 
 
         </div>
-  
+
         <div class="clearfix"></div>
 
         <div class="row">
@@ -21,7 +21,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        
+
 
                         <div class="clearfix"></div>
                     </div>
@@ -57,7 +57,7 @@
     <!-- footer content -->
 
     <!-- /footer content -->
-    
+
 </div>
 <!-- /page content -->
 
@@ -124,8 +124,8 @@
                 //"sWidth":'15%'
             },
             {
-                "sClass": "consultant_name",
-                "mDataProp": "consultant_name",
+                "sClass": "empname",
+                "mDataProp": "empname",
                 "bSortable": false,
                 //"sWidth":'15%'
             }
@@ -139,7 +139,7 @@
 //                }, {
 //                    extend: "csv",
 //                    className: "btn-sm"
-//                }, 
+//                },
                 {
                     extend: "excel",
                     className: "btn-sm"
@@ -182,15 +182,15 @@
             "sInfoFiltered": "",
             "sProcessing": ""
         },
-     
+
         "fnServerParams": function (aoData) {
 //            aoData.push({"name": "crop_id", "value": $('select[id="crop_id"]').val()});
-          
+
         },
         "fnFooterCallback": function (row, data, start, end, display) {
 
         },
-    });  
+    });
     });
 //    TableManageButtons.init();
 </script>

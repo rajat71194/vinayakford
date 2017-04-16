@@ -404,7 +404,7 @@ class CustomerController extends CI_Controller {
 
         }
 
-        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'employees.id');
+        $search_data['columns'] = array('prospect_id', 'customers.id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'employees.id');
         $total = $this->ford->get_all_common_list(TRUE, $search_data, $length, $start, $order, $order_by, $is_refrence = false, $or_where = "OR");
         $all_users = array();
         if ($total > 0) {
@@ -469,9 +469,13 @@ class CustomerController extends CI_Controller {
         $search_data['keyword'] = $search;
 
         $search_data['join'] = array(
+          array('join_type'=>'left',
+                'join_table'=>'employees',
+                'on_condition'=>'employees.id=customers.consultant_name'
+        )
         );
         $search_data['column'] = array(
-            'customers.*'
+            'customers.*','employees.name as empname'
         );
         $this->ford->set_table('customers');
 
@@ -480,7 +484,7 @@ class CustomerController extends CI_Controller {
             'amount >'=>0
         );
 
-        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'mobile_no');
+        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'empname');
         $total = $this->ford->get_all_common_list(TRUE, $search_data, $length, $start, $order, $order_by, $is_refrence = false, $or_where = "OR");
         $all_users = array();
         if ($total > 0) {
@@ -536,9 +540,13 @@ class CustomerController extends CI_Controller {
         $search_data['keyword'] = $search;
 
         $search_data['join'] = array(
+          array('join_type'=>'left',
+                'join_table'=>'employees',
+                'on_condition'=>'employees.id=customers.consultant_name'
+        )
         );
         $search_data['column'] = array(
-            'customers.*'
+            'customers.*','employees.name as empname'
         );
         $this->ford->set_table('customers');
 
@@ -546,7 +554,7 @@ class CustomerController extends CI_Controller {
             'customer_state <'=>5
         );
 
-        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'mobile_no');
+        $search_data['columns'] = array('prospect_id', 'id', 'customer_name', 'engine_chesis_no', 'branch', 'amount', 'vehicle_name', 'followup', 'empname');
         $total = $this->ford->get_all_common_list(TRUE, $search_data, $length, $start, $order, $order_by, $is_refrence = false, $or_where = "OR");
         $all_users = array();
         if ($total > 0) {

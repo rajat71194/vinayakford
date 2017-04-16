@@ -572,10 +572,21 @@
                                     <div class="form-group">
                                         <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Sales Consultant</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control has-feedback-right edit" name="consultant_name" id="consultant_name_edit" placeholder="Consultant name" value="<?php echo $custdata['consultant_name']; ?>" type="text">
-                                            <span class="fa fa-user form-control-feedback right" aria-hidden="true">
-
-                                            </span>
+                                          
+                                            
+                                             <select class="form-control has-feedback-right" name="consultant_name" id="consultant_name_edit">
+                                              <option value="">Select Consultant</option>
+                                              <?php
+                                              $emplist = getEmployee();
+                                               if(!empty($emplist)){
+                                                 foreach ($emplist as $key => $value) {
+                                                   ?>
+                                                   <option <?= ($custdata['consultant_name']==$value['id'])?'selected':'';?> value="<?php echo $value['id'];?>"><?php echo  $value['name'];?></option>
+                                                   <?php
+                                                 }
+                                               }
+                                               ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -1268,6 +1279,7 @@
                 $("#pencard").prop('checked', 'checked');
                 $("#drivinglic").prop('checked', 'checked');
                 $("#passport").prop('checked', 'checked');
+                 $("#bankdoletter").prop('checked', 'checked');
                 if($("#finance").val()=='1'){
 
                 $("#bankdoletter").prop('checked', 'checked');
@@ -1277,6 +1289,7 @@
                 $("#drivinglic").removeAttr('checked');
                 $("#passport").removeAttr('checked');
                 $("#bankdoletter").removeAttr('checked');
+                
                 $(".document_type").show();
             } else {
                 $(".document_type").hide();
@@ -1590,7 +1603,10 @@
                            $("#inputSuccess5_edit").val(data.custdata["mobile_no"]);
                            $("#inputSuccess6_edit").val(data.custdata["phone_no"]);
                            $("#followup_edit").text(data.custdata["followup"]);
-                           $("#consultant_name_edit").val(data.custdata["consultant_name"]);
+//                           $("#consultant_name_edit").val(data.custdata["consultant_name"]);
+                           var cosult = data.custdata["consultant_name"];
+                           $('#consultant_name_edit option[value='+cosult+']').attr('selected','selected');
+                           
                            $("#inputSuccess4_edit").val(data.custdata["email"]);
                            $("#remaining_amt_edit option[value="+remaining_amt+"]").prop('selected','selected');
                            $("#finance_edit option[value="+finance+"]").prop('selected','selected');
